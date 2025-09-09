@@ -1,0 +1,734 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+<!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Prometheus入门 | Xiaotan's Blog</title><meta name="author" content="Xiaotan"><meta name="copyright" content="Xiaotan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Prometheus + Grafana 监控系统实战教学 这是一个完整的Prometheus和Grafana监控系统教学项目，通过实际的Flask应用演示如何搭建企业级监控平台。您将学习指标收集、可视化面板创建以及完整的可观测性技术栈。  📋 目录  项目概述 系统要求 快速开始 监控特性 系统架构 实战练习  练习1：四大黄金信号监控与PromQL查询 练习2：Grafana仪表板创建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Prometheus入门">
+<meta property="og:url" content="https://www.433200.xyz/f54067b.html">
+<meta property="og:site_name" content="Xiaotan&#39;s Blog">
+<meta property="og:description" content="Prometheus + Grafana 监控系统实战教学 这是一个完整的Prometheus和Grafana监控系统教学项目，通过实际的Flask应用演示如何搭建企业级监控平台。您将学习指标收集、可视化面板创建以及完整的可观测性技术栈。  📋 目录  项目概述 系统要求 快速开始 监控特性 系统架构 实战练习  练习1：四大黄金信号监控与PromQL查询 练习2：Grafana仪表板创建">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.433200.xyz/attach/1.png">
+<meta property="article:published_time" content="2025-07-27T07:03:41.000Z">
+<meta property="article:modified_time" content="2025-09-09T04:19:51.519Z">
+<meta property="article:author" content="Xiaotan">
+<meta property="article:tag" content="#Devops">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.433200.xyz/attach/1.png"><link rel="shortcut icon" href="/attach/2.png"><link rel="canonical" href="https://www.433200.xyz/f54067b.html"><link rel="preconnect" href="//cdnjs.cloudflare.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdnjs.cloudflare.com/ajax/libs/egjs-infinitegrid/4.11.1/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Prometheus入门',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-09-09 12:19:51'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link href="https://cdn.staticfile.net/lxgw-wenkai-webfont/1.7.0/style.min.css" rel="stylesheet"><!-- hexo injector head_end start --><link rel="stylesheet" href="/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.staticfile.net/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="/css/progress_bar.css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/attach/1.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">64</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/webs/"><i class="fa-fw fab fa-webflow"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Xiaotan's Blog"><span class="site-name">Xiaotan's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/webs/"><i class="fa-fw fab fa-webflow"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Prometheus入门</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-07-27T07:03:41.000Z" title="发表于 2025-07-27 15:03:41">2025-07-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-09T04:19:51.519Z" title="更新于 2025-09-09 12:19:51">2025-09-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span id="" data-flag-title="Prometheus入门"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/f54067b.html#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="prometheus-grafana-监控系统实战教学"><a class="markdownIt-Anchor" href="#prometheus-grafana-监控系统实战教学"></a> Prometheus + Grafana 监控系统实战教学</h1>
+<p>这是一个完整的Prometheus和Grafana监控系统教学项目，通过实际的Flask应用演示如何搭建企业级监控平台。您将学习指标收集、可视化面板创建以及完整的可观测性技术栈。</p>
+<h2 id="目录"><a class="markdownIt-Anchor" href="#目录"></a> 📋 目录</h2>
+<ul>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E6%A6%82%E8%BF%B0">项目概述</a></li>
+<li><a href="#%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82">系统要求</a></li>
+<li><a href="#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B">快速开始</a></li>
+<li><a href="#%E7%9B%91%E6%8E%A7%E7%89%B9%E6%80%A7">监控特性</a></li>
+<li><a href="#%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84">系统架构</a></li>
+<li><a href="#%E5%AE%9E%E6%88%98%E7%BB%83%E4%B9%A0">实战练习</a>
+<ul>
+<li><a href="#%E7%BB%83%E4%B9%A01%E5%9B%9B%E5%A4%A7%E9%BB%84%E9%87%91%E4%BF%A1%E5%8F%B7%E7%9B%91%E6%8E%A7%E4%B8%8Epromql%E6%9F%A5%E8%AF%A2">练习1：四大黄金信号监控与PromQL查询</a></li>
+<li><a href="#%E7%BB%83%E4%B9%A02grafana%E4%BB%AA%E8%A1%A8%E6%9D%BF%E5%88%9B%E5%BB%BA">练习2：Grafana仪表板创建</a></li>
+</ul>
+</li>
+<li><a href="#%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4">故障排除</a></li>
+<li><a href="#%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87">学习目标</a></li>
+</ul>
+<h2 id="项目概述"><a class="markdownIt-Anchor" href="#项目概述"></a> 🎯 项目概述</h2>
+<p>本教学项目提供了Prometheus和Grafana监控的实际体验，包含：</p>
+<ul>
+<li><strong>Flask应用程序</strong>：集成Prometheus指标的Python Web应用</li>
+<li><strong>Prometheus</strong>：时间序列数据库，用于指标收集</li>
+<li><strong>Grafana</strong>：可视化和仪表板平台</li>
+<li><strong>容器监控</strong>：cAdvisor用于Docker容器指标</li>
+<li><strong>系统监控</strong>：Node exporter用于系统指标</li>
+<li><strong>StatsD集成</strong>：通过StatsD exporter自定义指标</li>
+</ul>
+<h2 id="系统要求"><a class="markdownIt-Anchor" href="#系统要求"></a> 💻 系统要求</h2>
+<h3 id="软件需求"><a class="markdownIt-Anchor" href="#软件需求"></a> 软件需求</h3>
+<ul>
+<li>Docker 和 Docker Compose</li>
+<li>curl（用于流量生成）</li>
+<li>bc（基础计算器，用于shell脚本）</li>
+</ul>
+<h3 id="硬件需求"><a class="markdownIt-Anchor" href="#硬件需求"></a> 硬件需求</h3>
+<ul>
+<li>最少6GB内存（组件比其他模块多）</li>
+<li>15GB可用磁盘空间</li>
+<li>可用端口：3000（Grafana）、3001（应用）、8080（cAdvisor）、9090（Prometheus）</li>
+</ul>
+<h2 id="快速开始"><a class="markdownIt-Anchor" href="#快速开始"></a> 🚀 快速开始</h2>
+<ol>
+<li>
+<p><strong>启动所有服务：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> prometheus/</span><br><span class="line">docker-compose up -d</span><br><span class="line"><span class="comment"># 所有服务按正确顺序启动，包含健康检查（需要2-3分钟）</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>生成测试流量：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./generate_traffic.sh quick</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>访问监控界面：</strong></p>
+<ul>
+<li><strong>Prometheus</strong>：<a target="_blank" rel="noopener" href="http://localhost:9090">http://localhost:9090</a></li>
+<li><strong>Grafana</strong>：<a target="_blank" rel="noopener" href="http://localhost:3000">http://localhost:3000</a>（用户名：admin，密码：foobar）</li>
+<li><strong>应用指标</strong>：<a target="_blank" rel="noopener" href="http://localhost:3001/metrics">http://localhost:3001/metrics</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="监控特性"><a class="markdownIt-Anchor" href="#监控特性"></a> 📊 监控特性</h2>
+<h3 id="四大黄金信号监控"><a class="markdownIt-Anchor" href="#四大黄金信号监控"></a> 四大黄金信号监控</h3>
+<p>本Flask应用演示了<strong>四大黄金信号</strong>的监控：</p>
+<ol>
+<li><strong>延迟（Latency）</strong>：<code>/delay?seconds=X</code> - 测试响应时间监控</li>
+<li><strong>流量（Traffic）</strong>：通过prometheus-flask-exporter自动HTTP请求计数</li>
+<li><strong>错误（Errors）</strong>：<code>/error?rate=X</code> - 生成400/404/500错误用于错误率监控</li>
+<li><strong>饱和度（Saturation）</strong>：<code>/cpu-intensive</code>和<code>/memory-usage</code> - 测试资源监控</li>
+</ol>
+<h3 id="自定义业务指标"><a class="markdownIt-Anchor" href="#自定义业务指标"></a> 自定义业务指标</h3>
+<p>应用包含自定义业务指标，演示如何跟踪业务特定事件：</p>
+<ul>
+<li><strong><code>webapp_custom_requests_total</code></strong>：按端点统计请求数</li>
+<li><strong><code>webapp_business_operations_total</code></strong>：按类型统计业务操作（用户登录、支付等）</li>
+</ul>
+<h3 id="python装饰器如何工作"><a class="markdownIt-Anchor" href="#python装饰器如何工作"></a> Python装饰器如何工作</h3>
+<p>理解自定义指标的工作原理对实现您自己的业务指标至关重要。以下是Python装饰器如何实现自动指标收集：</p>
+<h4 id="装饰器基础"><a class="markdownIt-Anchor" href="#装饰器基础"></a> 装饰器基础</h4>
+<p>当您看到这样的代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/business-metrics&quot;</span></span>)</span></span><br><span class="line"><span class="meta">@request_counter</span></span><br><span class="line"><span class="meta">@business_operations</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">business_metrics</span>():</span><br><span class="line">    request.operation_type = <span class="string">&quot;payment&quot;</span>  <span class="comment"># 设置标签值</span></span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;status&quot;</span>: <span class="string">&quot;success&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>Python从下到上处理装饰器，包装您的函数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 等同于：</span></span><br><span class="line">business_metrics = app.route(<span class="string">&quot;/business-metrics&quot;</span>)(business_metrics)</span><br><span class="line">business_metrics = request_counter(business_metrics)</span><br><span class="line">business_metrics = business_operations(business_operations)</span><br></pre></td></tr></table></figure>
+<h4 id="执行流程"><a class="markdownIt-Anchor" href="#执行流程"></a> 执行流程</h4>
+<p>当请求到达时，发生以下过程：</p>
+<ol>
+<li><strong>请求到达</strong>：<code>GET /business-metrics?operation=payment</code></li>
+<li><strong>Flask路由到函数</strong></li>
+<li><strong>装饰器包装器开始执行</strong>（以相反顺序）</li>
+<li><strong>您的函数运行</strong>：<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">operation = request.args.get(<span class="string">&quot;operation&quot;</span>, <span class="string">&quot;payment&quot;</span>)</span><br><span class="line">request.operation_type = operation  <span class="comment"># ← 关键：设置标签值</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><strong>装饰器包装器完成</strong>（prometheus-flask-exporter魔法）：<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># business_operations装饰器读取标签：</span></span><br><span class="line">operation_type = <span class="built_in">getattr</span>(request, <span class="string">&#x27;operation_type&#x27;</span>, <span class="string">&#x27;unknown&#x27;</span>)</span><br><span class="line"><span class="comment"># 增加：webapp_business_operations_total&#123;operation_type=&quot;payment&quot;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># request_counter装饰器读取端点：</span></span><br><span class="line">endpoint = request.endpoint  <span class="comment"># &quot;business_metrics&quot;</span></span><br><span class="line"><span class="comment"># 增加：webapp_custom_requests_total&#123;endpoint=&quot;business_metrics&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="可用端点"><a class="markdownIt-Anchor" href="#可用端点"></a> 可用端点</h3>
+<table>
+<thead>
+<tr>
+<th>端点</th>
+<th>用途</th>
+<th>参数</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>基础hello world</td>
+<td>无</td>
+<td><code>curl http://localhost:3001/</code></td>
+</tr>
+<tr>
+<td><code>/health</code></td>
+<td>健康检查</td>
+<td>无</td>
+<td><code>curl http://localhost:3001/health</code></td>
+</tr>
+<tr>
+<td><code>/business-metrics</code></td>
+<td><strong>自定义指标演示</strong></td>
+<td><code>operation</code></td>
+<td><code>curl &quot;http://localhost:3001/business-metrics?operation=payment&quot;</code></td>
+</tr>
+<tr>
+<td><code>/delay</code></td>
+<td>延迟测试</td>
+<td><code>seconds</code></td>
+<td><code>curl &quot;http://localhost:3001/delay?seconds=2&quot;</code></td>
+</tr>
+<tr>
+<td><code>/error</code></td>
+<td>错误率测试</td>
+<td><code>rate</code>（%）</td>
+<td><code>curl &quot;http://localhost:3001/error?rate=80&quot;</code></td>
+</tr>
+<tr>
+<td><code>/cpu-intensive</code></td>
+<td>CPU饱和度测试</td>
+<td><code>iterations</code></td>
+<td><code>curl &quot;http://localhost:3001/cpu-intensive?iterations=50000&quot;</code></td>
+</tr>
+<tr>
+<td><code>/memory-usage</code></td>
+<td>内存饱和度测试</td>
+<td><code>size</code>（MB）</td>
+<td><code>curl &quot;http://localhost:3001/memory-usage?size=10&quot;</code></td>
+</tr>
+<tr>
+<td><code>/metrics</code></td>
+<td><strong>Prometheus指标</strong></td>
+<td>无</td>
+<td><code>curl http://localhost:3001/metrics</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="️-系统架构"><a class="markdownIt-Anchor" href="#️-系统架构"></a> 🏗️ 系统架构</h2>
+<p>本项目采用微服务架构，包含以下组件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐</span><br><span class="line">│    Grafana      │    │   Prometheus    │    │   Flask App     │</span><br><span class="line">│   :3000         │◄───│     :9090       │◄───│     :3001       │</span><br><span class="line">│  (可视化)        │    │  (指标收集)      │    │   (业务应用)     │</span><br><span class="line">└─────────────────┘    └─────────────────┘    └─────────────────┘</span><br><span class="line">                                ▲                       ▲</span><br><span class="line">                                │                       │</span><br><span class="line">                       ┌─────────────────┐    ┌─────────────────┐</span><br><span class="line">                       │   cAdvisor      │    │ Node Exporter   │</span><br><span class="line">                       │    :8080        │    │     :9100       │</span><br><span class="line">                       │  (容器监控)      │    │   (系统监控)     │</span><br><span class="line">                       └─────────────────┘    └─────────────────┘</span><br><span class="line">                                ▲</span><br><span class="line">                       ┌─────────────────┐</span><br><span class="line">                       │StatsD Exporter  │</span><br><span class="line">                       │:9102/9125       │</span><br><span class="line">                       │  (自定义指标)    │</span><br><span class="line">                       └─────────────────┘</span><br></pre></td></tr></table></figure>
+<h2 id="实战练习"><a class="markdownIt-Anchor" href="#实战练习"></a> 🔬 实战练习</h2>
+<h3 id="练习1四大黄金信号监控与promql查询"><a class="markdownIt-Anchor" href="#练习1四大黄金信号监控与promql查询"></a> 练习1：四大黄金信号监控与PromQL查询</h3>
+<p>本练习教您如何使用<strong>PromQL</strong>（Prometheus查询语言）监控四大黄金信号。您将学习编写查询、理解指标和分析应用性能。</p>
+<h4 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h4>
+<ol>
+<li>确保所有服务正在运行：<code>docker-compose up -d</code></li>
+<li>生成一些流量：<code>./generate_traffic.sh quick</code></li>
+<li>打开Prometheus：<a target="_blank" rel="noopener" href="http://localhost:9090">http://localhost:9090</a></li>
+</ol>
+<h4 id="a部分流量请求率"><a class="markdownIt-Anchor" href="#a部分流量请求率"></a> A部分：流量（请求率）</h4>
+<p><strong>目标</strong>：监控应用每秒处理多少请求。</p>
+<ol>
+<li>
+<p><strong>打开Prometheus控制台</strong> <a target="_blank" rel="noopener" href="http://localhost:9090">http://localhost:9090</a></p>
+</li>
+<li>
+<p><strong>点击页面顶部的&quot;Graph&quot;标签</strong></p>
+</li>
+<li>
+<p><strong>基础请求计数查询</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flask_http_request_duration_seconds_count</span><br></pre></td></tr></table></figure>
+<ul>
+<li>点击<strong>Execute</strong>按钮</li>
+<li>切换到<strong>Table</strong>视图查看所有指标</li>
+<li><strong>看到的内容</strong>：自启动以来的总请求数，按端点、方法和状态码分解</li>
+</ul>
+</li>
+<li>
+<p><strong>请求率查询</strong>（每秒请求数）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rate(flask_http_request_duration_seconds_count[5m])</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>解释</strong>：<code>rate()</code>计算5分钟窗口内的每秒速率</li>
+<li>切换到<strong>Graph</strong>视图查看随时间变化的速率</li>
+</ul>
+</li>
+<li>
+<p><strong>总应用请求率</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sum(rate(flask_http_request_duration_seconds_count[5m]))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>解释</strong>：<code>sum()</code>将所有端点相加得到总应用流量</li>
+</ul>
+</li>
+</ol>
+<h4 id="b部分延迟响应时间"><a class="markdownIt-Anchor" href="#b部分延迟响应时间"></a> B部分：延迟（响应时间）</h4>
+<p><strong>目标</strong>：监控请求完成需要多长时间（p95、p99百分位数）。</p>
+<ol>
+<li>
+<p><strong>95百分位延迟</strong>（95%的请求比这个时间快）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">histogram_quantile(0.95, rate(flask_http_request_duration_seconds_bucket[5m]))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>解释</strong>：计算95百分位数响应时间</li>
+<li><strong>关键洞察</strong>：如果显示2秒，95%的请求在2秒内完成</li>
+</ul>
+</li>
+<li>
+<p><strong>99百分位延迟</strong>（最慢的1%请求）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">histogram_quantile(0.99, rate(flask_http_request_duration_seconds_bucket[5m]))</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="c部分错误错误率"><a class="markdownIt-Anchor" href="#c部分错误错误率"></a> C部分：错误（错误率）</h4>
+<p><strong>目标</strong>：监控有多少百分比的请求失败。</p>
+<ol>
+<li><strong>错误率百分比</strong>：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(</span><br><span class="line">  sum(rate(flask_http_request_duration_seconds_count&#123;status=~&quot;4..|5..&quot;&#125;[5m])) </span><br><span class="line">  / </span><br><span class="line">  sum(rate(flask_http_request_duration_seconds_count[5m]))</span><br><span class="line">) * 100</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>解释</strong>：错误率除以总请求率的百分比</li>
+</ul>
+</li>
+</ol>
+<h4 id="d部分饱和度资源使用"><a class="markdownIt-Anchor" href="#d部分饱和度资源使用"></a> D部分：饱和度（资源使用）</h4>
+<p><strong>目标</strong>：监控CPU和内存使用情况以检测资源瓶颈。</p>
+<ol>
+<li>
+<p><strong>容器CPU使用率</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rate(container_cpu_usage_seconds_total&#123;id=~&quot;/docker/.*&quot;&#125;[5m]) * 100</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>容器内存使用量</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">container_memory_usage_bytes&#123;id=~&quot;/docker/.*&quot;&#125; / 1024 / 1024</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="练习2grafana仪表板创建"><a class="markdownIt-Anchor" href="#练习2grafana仪表板创建"></a> 练习2：Grafana仪表板创建</h3>
+<p>本练习教您为相同的黄金信号创建Grafana仪表板，包含可视化图表和告警。</p>
+<h4 id="准备工作-2"><a class="markdownIt-Anchor" href="#准备工作-2"></a> 准备工作</h4>
+<ol>
+<li>打开Grafana：<a target="_blank" rel="noopener" href="http://localhost:3000">http://localhost:3000</a></li>
+<li>登录：<code>admin</code> / <code>foobar</code></li>
+<li>生成流量：<code>./generate_traffic.sh demo</code></li>
+</ol>
+<h4 id="a部分配置prometheus数据源"><a class="markdownIt-Anchor" href="#a部分配置prometheus数据源"></a> A部分：配置Prometheus数据源</h4>
+<p><strong>重要</strong>：创建仪表板前，必须将Grafana连接到Prometheus。</p>
+<ol>
+<li>
+<p><strong>添加数据源</strong>：</p>
+<ul>
+<li>在Grafana中，点击左侧边栏的**“Connections”**</li>
+<li>点击**“Data sources”**</li>
+<li>点击**“Add data source”**</li>
+<li>选择**“Prometheus”**</li>
+</ul>
+</li>
+<li>
+<p><strong>配置Prometheus连接</strong>：</p>
+<ul>
+<li><strong>名称</strong>：<code>Prometheus</code></li>
+<li><strong>URL</strong>：<code>http://prometheus:9090</code>（Docker内部网络）</li>
+<li><strong>访问</strong>：Server（默认）</li>
+<li>其他设置保持默认</li>
+</ul>
+</li>
+<li>
+<p><strong>测试连接</strong>：</p>
+<ul>
+<li>滚动到底部点击**“Save &amp; test”**</li>
+<li>应显示：<strong>“Data source is working”</strong> ✅</li>
+</ul>
+</li>
+</ol>
+<h4 id="b部分创建您的第一个仪表板"><a class="markdownIt-Anchor" href="#b部分创建您的第一个仪表板"></a> B部分：创建您的第一个仪表板</h4>
+<ol>
+<li>
+<p><strong>创建新仪表板</strong>：</p>
+<ul>
+<li>点击左侧边栏的**“+”** → <strong>“Dashboard”</strong></li>
+<li>点击**“+ Create dashboard”**</li>
+<li>点击**“+ Add visualization”**</li>
+</ul>
+</li>
+<li>
+<p><strong>流量面板 - 请求率</strong>：</p>
+<ul>
+<li><strong>面板标题</strong>：更改为&quot;请求率 (req/s)&quot;</li>
+<li><strong>查询</strong>：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sum(rate(flask_http_request_duration_seconds_count[5m])) by (path)</span><br></pre></td></tr></table></figure>
+</li>
+<li><strong>单位</strong>：设置为&quot;requests/sec&quot;</li>
+</ul>
+</li>
+<li>
+<p><strong>延迟监控面板</strong>：</p>
+<ul>
+<li><strong>面板标题</strong>：“响应时间百分位数”</li>
+<li><strong>查询A</strong>：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">histogram_quantile(0.95, rate(flask_http_request_duration_seconds_bucket[5m]))</span><br></pre></td></tr></table></figure>
+</li>
+<li><strong>图例A</strong>：“p95”</li>
+</ul>
+</li>
+<li>
+<p><strong>错误率面板</strong>：</p>
+<ul>
+<li><strong>面板标题</strong>：“错误率 %”</li>
+<li><strong>查询</strong>：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(sum(rate(flask_http_request_duration_seconds_count&#123;status=~&quot;4..|5..&quot;&#125;[5m])) / sum(rate(flask_http_request_duration_seconds_count[5m]))) * 100</span><br></pre></td></tr></table></figure>
+</li>
+<li><strong>可视化</strong>：Stat（单一数字）</li>
+<li><strong>阈值</strong>：黄色：1，红色：5</li>
+</ul>
+</li>
+<li>
+<p><strong>保存仪表板</strong>：</p>
+<ul>
+<li>点击顶部的**“Save”**（磁盘图标）</li>
+<li><strong>名称</strong>：“四大黄金信号工作坊”</li>
+<li>点击<strong>Save</strong></li>
+</ul>
+</li>
+</ol>
+<h2 id="故障排除"><a class="markdownIt-Anchor" href="#故障排除"></a> 🔧 故障排除</h2>
+<h3 id="常见问题"><a class="markdownIt-Anchor" href="#常见问题"></a> 常见问题</h3>
+<h4 id="服务无法启动"><a class="markdownIt-Anchor" href="#服务无法启动"></a> 服务无法启动</h4>
+<p>如果服务启动失败或有依赖错误：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查特定服务的日志</span></span><br><span class="line">docker-compose logs &lt;service_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启所有服务</span></span><br><span class="line">docker-compose down</span><br><span class="line">docker-compose up -d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查状态（所有应显示&quot;Up&quot;）</span></span><br><span class="line">docker-compose ps</span><br></pre></td></tr></table></figure>
+<h4 id="prometheus无法抓取目标"><a class="markdownIt-Anchor" href="#prometheus无法抓取目标"></a> Prometheus无法抓取目标</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查Prometheus目标</span></span><br><span class="line">curl http://localhost:9090/api/v1/targets</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查应用指标端点是否可访问</span></span><br><span class="line">curl http://localhost:3001/metrics</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证网络连接</span></span><br><span class="line">docker network inspect prometheus_default</span><br></pre></td></tr></table></figure>
+<h4 id="应用健康检查"><a class="markdownIt-Anchor" href="#应用健康检查"></a> 应用健康检查</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查应用日志</span></span><br><span class="line">docker-compose logs webapp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证所有服务正在运行</span></span><br><span class="line">docker-compose ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试应用端点</span></span><br><span class="line">curl http://localhost:3001/health</span><br><span class="line">curl http://localhost:3001/metrics</span><br></pre></td></tr></table></figure>
+<h4 id="完全重置"><a class="markdownIt-Anchor" href="#完全重置"></a> 完全重置</h4>
+<p>完全重置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker-compose down -v</span><br><span class="line"><span class="comment"># 等待片刻，然后重启：</span></span><br><span class="line">docker-compose up -d</span><br><span class="line"><span class="comment"># 等待2-3分钟让所有服务变健康</span></span><br></pre></td></tr></table></figure>
+<h2 id="学习目标"><a class="markdownIt-Anchor" href="#学习目标"></a> 🎓 学习目标</h2>
+<p>完成这些练习后，您将掌握：</p>
+<p>✅ <strong>PromQL基础</strong>：</p>
+<ul>
+<li><code>rate()</code>计算每秒速率</li>
+<li><code>sum()</code>聚合指标</li>
+<li><code>histogram_quantile()</code>计算百分位数</li>
+<li>标签过滤<code>&#123;status=~&quot;4..|5..&quot;&#125;</code></li>
+<li>分组<code>by (label)</code></li>
+</ul>
+<p>✅ <strong>四大黄金信号监控</strong>：</p>
+<ul>
+<li>流量：请求率和流量</li>
+<li>延迟：响应时间百分位数（p95、p99）</li>
+<li>错误：错误率和错误类型</li>
+<li>饱和度：资源使用和容量</li>
+</ul>
+<p>✅ <strong>Grafana技能</strong>：</p>
+<ul>
+<li>创建仪表板和面板</li>
+<li>使用不同的可视化类型</li>
+<li>设置告警和阈值</li>
+<li>配置图例和单位</li>
+</ul>
+<p>✅ <strong>实用监控</strong>：</p>
+<ul>
+<li>哪些指标对应用健康重要</li>
+<li>如何检测性能问题</li>
+<li>设置有意义的告警阈值</li>
+<li>解释监控数据</li>
+</ul>
+<h2 id="扩展学习"><a class="markdownIt-Anchor" href="#扩展学习"></a> 📚 扩展学习</h2>
+<p>完成本教学后，建议继续学习：</p>
+<ol>
+<li><strong>告警规则配置</strong>：学习Alertmanager配置</li>
+<li><strong>高级PromQL</strong>：复杂查询和函数</li>
+<li><strong>监控最佳实践</strong>：SLI/SLO设计</li>
+<li><strong>性能优化</strong>：监控系统本身的优化</li>
+<li><strong>生产部署</strong>：高可用Prometheus集群</li>
+</ol>
+<hr />
+<p><strong>项目作者</strong>：监控系统教学团队<br />
+<strong>最后更新</strong>：2025年7月27日<br />
+<strong>版本</strong>：v1.0</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.433200.xyz">Xiaotan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.433200.xyz/f54067b.html">https://www.433200.xyz/f54067b.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.433200.xyz" target="_blank">Xiaotan's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Devops/">#Devops</a></div><div class="post_share"><div class="social-share" data-image="/attach/1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/attach/2wx.png" target="_blank"><img class="post-qr-code-img" src="/attach/2wx.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/attach/2zfb.png" target="_blank"><img class="post-qr-code-img" src="/attach/2zfb.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/cd6555aa.html" title="Ansible入门"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-24</div><div class="title">Ansible入门</div></div></a></div><div><a href="/1fd44324.html" title="Devops①"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-14</div><div class="title">Devops①</div></div></a></div><div><a href="/68d373b2.html" title="Devops②"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-14</div><div class="title">Devops②</div></div></a></div><div><a href="/f1da2208.html" title="Devops③"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-14</div><div class="title">Devops③</div></div></a></div><div><a href="/86dd129e.html" title="Devops④"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-14</div><div class="title">Devops④</div></div></a></div><div><a href="/18b9873d.html" title="Devops⑤"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-14</div><div class="title">Devops⑤</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#prometheus-grafana-%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F%E5%AE%9E%E6%88%98%E6%95%99%E5%AD%A6"><span class="toc-text"> Prometheus + Grafana 监控系统实战教学</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text"> 📋 目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%A6%82%E8%BF%B0"><span class="toc-text"> 🎯 项目概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82"><span class="toc-text"> 💻 系统要求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82"><span class="toc-text"> 软件需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E9%9C%80%E6%B1%82"><span class="toc-text"> 硬件需求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"><span class="toc-text"> 🚀 快速开始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7%E7%89%B9%E6%80%A7"><span class="toc-text"> 📊 监控特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E5%A4%A7%E9%BB%84%E9%87%91%E4%BF%A1%E5%8F%B7%E7%9B%91%E6%8E%A7"><span class="toc-text"> 四大黄金信号监控</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%9A%E5%8A%A1%E6%8C%87%E6%A0%87"><span class="toc-text"> 自定义业务指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python%E8%A3%85%E9%A5%B0%E5%99%A8%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C"><span class="toc-text"> Python装饰器如何工作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A3%85%E9%A5%B0%E5%99%A8%E5%9F%BA%E7%A1%80"><span class="toc-text"> 装饰器基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-text"> 执行流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E7%94%A8%E7%AB%AF%E7%82%B9"><span class="toc-text"> 可用端点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%B8%8F-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84"><span class="toc-text"> 🏗️ 系统架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%E7%BB%83%E4%B9%A0"><span class="toc-text"> 🔬 实战练习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%83%E4%B9%A01%E5%9B%9B%E5%A4%A7%E9%BB%84%E9%87%91%E4%BF%A1%E5%8F%B7%E7%9B%91%E6%8E%A7%E4%B8%8Epromql%E6%9F%A5%E8%AF%A2"><span class="toc-text"> 练习1：四大黄金信号监控与PromQL查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text"> 准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#a%E9%83%A8%E5%88%86%E6%B5%81%E9%87%8F%E8%AF%B7%E6%B1%82%E7%8E%87"><span class="toc-text"> A部分：流量（请求率）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b%E9%83%A8%E5%88%86%E5%BB%B6%E8%BF%9F%E5%93%8D%E5%BA%94%E6%97%B6%E9%97%B4"><span class="toc-text"> B部分：延迟（响应时间）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c%E9%83%A8%E5%88%86%E9%94%99%E8%AF%AF%E9%94%99%E8%AF%AF%E7%8E%87"><span class="toc-text"> C部分：错误（错误率）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#d%E9%83%A8%E5%88%86%E9%A5%B1%E5%92%8C%E5%BA%A6%E8%B5%84%E6%BA%90%E4%BD%BF%E7%94%A8"><span class="toc-text"> D部分：饱和度（资源使用）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%83%E4%B9%A02grafana%E4%BB%AA%E8%A1%A8%E6%9D%BF%E5%88%9B%E5%BB%BA"><span class="toc-text"> 练习2：Grafana仪表板创建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C-2"><span class="toc-text"> 准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#a%E9%83%A8%E5%88%86%E9%85%8D%E7%BD%AEprometheus%E6%95%B0%E6%8D%AE%E6%BA%90"><span class="toc-text"> A部分：配置Prometheus数据源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b%E9%83%A8%E5%88%86%E5%88%9B%E5%BB%BA%E6%82%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%AA%E8%A1%A8%E6%9D%BF"><span class="toc-text"> B部分：创建您的第一个仪表板</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4"><span class="toc-text"> 🔧 故障排除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-text"> 常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8"><span class="toc-text"> 服务无法启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#prometheus%E6%97%A0%E6%B3%95%E6%8A%93%E5%8F%96%E7%9B%AE%E6%A0%87"><span class="toc-text"> Prometheus无法抓取目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5"><span class="toc-text"> 应用健康检查</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8C%E5%85%A8%E9%87%8D%E7%BD%AE"><span class="toc-text"> 完全重置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87"><span class="toc-text"> 🎓 学习目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E5%AD%A6%E4%B9%A0"><span class="toc-text"> 📚 扩展学习</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2002 - 2025 By Xiaotan</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.staticfile.net/instant.page/5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://xtbolg.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://xtbolg.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(init,0)
+    else getScript('https://cdn.staticfile.net/twikoo/1.6.30/twikoo.all.min.js').then(init)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script defer src="/js/universe.js"></script><canvas id="universe"></canvas><script async src="/js/title.js"></script><div class="aplayer no-destroy" data-id="13582149382" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-order="random" data-pjax> </div><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.staticfile.net/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.staticfile.net/aplayer/1.10.1/APlayer.min.js"></script><script src="/js/meting.min.js"></script><script src="https://cdn.staticfile.net/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="https://cn.vercount.one/js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/学习/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 学习笔记 (36)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/折腾/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🔧 折腾记录 (12)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/心理/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👓 心理/MBTI (6)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/菜谱/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🍜 好吃的 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://www.433200.xyz/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #FFC0CB}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v6.2.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.3.1" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用多线部署，主线路托管于Vercel" title=""><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://dashboard.4everland.org/" style="margin-inline:5px" data-title="本站采用多线部署，备用线路托管于4EVERLAND" title=""><img src="https://img.shields.io/badge/Hosted-4EVERLAND-22DDDD?style=flat&amp;logo=IPFS" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-info');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-tags');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-webinfo');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.staticfile.net/wow/1.1.2/wow.min.js"></script><script defer src="/js/wow_init.js"></script><!-- hexo injector body_end end --></body></html>
