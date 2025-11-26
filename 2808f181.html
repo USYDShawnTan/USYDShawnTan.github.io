@@ -1,0 +1,1762 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+<!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>5618 | Xiaotan's Blog</title><meta name="author" content="Xiaotan"><meta name="copyright" content="Xiaotan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="PCMM    Level 名称 关键词 核心机制     1 Initial 无流程，混乱 No process, chaos 靠个人，无法复制 individual &amp; cannot be replicated   2 Managed 基础人事流程稳定 The basic personnel process is stable 招聘&#x2F;绩效&#x2F;激励机制初具雏形 The recruitme">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5618">
+<meta property="og:url" content="https://www.433200.xyz/2808f181.html">
+<meta property="og:site_name" content="Xiaotan&#39;s Blog">
+<meta property="og:description" content="PCMM    Level 名称 关键词 核心机制     1 Initial 无流程，混乱 No process, chaos 靠个人，无法复制 individual &amp; cannot be replicated   2 Managed 基础人事流程稳定 The basic personnel process is stable 招聘&#x2F;绩效&#x2F;激励机制初具雏形 The recruitme">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.433200.xyz/attach/1.png">
+<meta property="article:published_time" content="2025-06-14T12:47:42.000Z">
+<meta property="article:modified_time" content="2025-11-26T05:19:10.595Z">
+<meta property="article:author" content="Xiaotan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.433200.xyz/attach/1.png"><link rel="shortcut icon" href="/attach/2.png"><link rel="canonical" href="https://www.433200.xyz/2808f181.html"><link rel="preconnect" href="//cdnjs.cloudflare.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdnjs.cloudflare.com/ajax/libs/egjs-infinitegrid/4.11.1/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '5618',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-26 13:19:10'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link href="https://cdn.staticfile.net/lxgw-wenkai-webfont/1.7.0/style.min.css" rel="stylesheet"><!-- hexo injector head_end start --><link rel="stylesheet" href="/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.staticfile.net/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="/css/progress_bar.css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/attach/1.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/webs/"><i class="fa-fw fab fa-webflow"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Xiaotan's Blog"><span class="site-name">Xiaotan's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/webs/"><i class="fa-fw fab fa-webflow"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">5618</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-06-14T12:47:42.000Z" title="发表于 2025-06-14 20:47:42">2025-06-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-26T05:19:10.595Z" title="更新于 2025-11-26 13:19:10">2025-11-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span id="" data-flag-title="5618"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2808f181.html#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="pcmm"><a class="markdownIt-Anchor" href="#pcmm"></a> PCMM</h2>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>名称</th>
+<th>关键词</th>
+<th>核心机制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Initial</td>
+<td>无流程，混乱 No process, chaos</td>
+<td>靠个人，无法复制 individual &amp; cannot be replicated</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Managed</td>
+<td>基础人事流程稳定 The basic personnel process is stable</td>
+<td>招聘/绩效/激励机制初具雏形 The recruitment/performance/incentive mechanism has taken initial shape</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Defined</td>
+<td>全组织标准化 Standardization of the entire organization</td>
+<td>能力模型、职业发展、知识库 Competency Model, Career Development, Knowledge Base</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Predictable</td>
+<td>数据驱动、可预测 Data-driven and predictable</td>
+<td>度量模型、绩效预测 Measurement model, performance prediction</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Optimizing</td>
+<td>持续改进、快速学习 Continuous improvement and rapid learning</td>
+<td>创新能力提升、组织学习文化 Innovation capacity enhancement, organizational learning culture</td>
+</tr>
+</tbody>
+</table>
+<p>“Chaos → Control → Consistency → Calculation → Continuous Improvement”</p>
+<p>🧠 类比法：把 P-CMM 想成「一家公司如何管理员工成长的五个阶段」</p>
+<h3 id="整体目标"><a class="markdownIt-Anchor" href="#整体目标"></a> 🎯 整体目标：</h3>
+<p>P-CMM 就像企业的人才成长“地图”。它帮助公司一步步从「人治混乱」进化到「高效、有文化、有学习能力」的团队组织。</p>
+<hr />
+<h3 id="level-1-initial-初始级"><a class="markdownIt-Anchor" href="#level-1-initial-初始级"></a> 🟩 <strong>Level 1: Initial 初始级</strong></h3>
+<p><strong>🔧 关键词：混乱、靠人撑</strong></p>
+<blockquote>
+<p>想象你刚进一家公司：<br />
+没有明确的岗位职责、没人帮你规划发展、干得好坏也没人评价，项目做得全靠“老王经验”，今天靠他，明天靠她。</p>
+</blockquote>
+<ul>
+<li><strong>没有标准流程</strong></li>
+<li><strong>人员成长靠天分或运气</strong></li>
+<li>公司甚至不知道哪些人厉害，也不知道怎么留住人</li>
+</ul>
+<p>📌 <strong>类比</strong>：野路子创业公司，靠几个天才工程师硬撑。</p>
+<hr />
+<h3 id="level-2-managed-受控级"><a class="markdownIt-Anchor" href="#level-2-managed-受控级"></a> 🟨 <strong>Level 2: Managed 受控级</strong></h3>
+<p><strong>🧱 关键词：建立基本流程</strong></p>
+<blockquote>
+<p>公司意识到“不能只靠人顶”，开始制定一些基础规范：</p>
+</blockquote>
+<ul>
+<li>招聘流程统一起来了</li>
+<li>每个人有<strong>岗位职责描述</strong></li>
+<li>有了<strong>绩效考核</strong>、<strong>入职培训</strong></li>
+</ul>
+<p>📌 <strong>类比</strong>：公司开始像样了，人力资源部上岗，入职会给你讲规章制度。</p>
+<hr />
+<h3 id="level-3-defined-已定义级"><a class="markdownIt-Anchor" href="#level-3-defined-已定义级"></a> 🟧 <strong>Level 3: Defined 已定义级</strong></h3>
+<p><strong>📘 关键词：组织标准化，能力模型</strong></p>
+<blockquote>
+<p>公司不满足于有流程，还想确保「每个岗位的人都符合要求」，于是：</p>
+</blockquote>
+<ul>
+<li>建立了<strong>能力模型</strong>：比如“高级前端工程师”需要哪些技术？</li>
+<li>所有人才发展路径开始<strong>组织统一管理</strong></li>
+<li>有了<strong>晋升路径图</strong>，有明确的职业发展通道</li>
+<li>团队内部也开始有“知识分享”文化</li>
+</ul>
+<p>📌 <strong>类比</strong>：你在大公司看到“技术等级标准表”、“培训课程地图”、技术导师制度。</p>
+<hr />
+<h3 id="level-4-predictable-可预测级"><a class="markdownIt-Anchor" href="#level-4-predictable-可预测级"></a> 🟦 <strong>Level 4: Predictable 可预测级</strong></h3>
+<p><strong>📊 关键词：数据说话，绩效可量化</strong></p>
+<blockquote>
+<p>现在公司说：不能只靠制度，我们要看“效果”！于是：</p>
+</blockquote>
+<ul>
+<li>收集每个人的绩效数据、离职率、培训结果等</li>
+<li>可以“预测”：如果我们给某团队提升技能，他们未来能承担更大项目</li>
+<li>绩效考核不再靠感觉，而是有<strong>量化指标</strong></li>
+</ul>
+<p>📌 <strong>类比</strong>：你公司 HR 发了一份“部门技能图谱”，说“前端组整体 CSS 能力平均 3.7 分”。</p>
+<hr />
+<h3 id="level-5-optimizing-优化级"><a class="markdownIt-Anchor" href="#level-5-optimizing-优化级"></a> 🟪 <strong>Level 5: Optimizing 优化级</strong></h3>
+<p><strong>🔁 关键词：持续改进，自驱成长</strong></p>
+<blockquote>
+<p>这时的公司已经非常成熟，它关注的是：</p>
+</blockquote>
+<ul>
+<li><strong>持续优化员工能力</strong>：比如推动“轮岗”、“跨团队学习”</li>
+<li>鼓励员工自主学习、提出改进意见</li>
+<li>整个公司变成了“学习型组织”</li>
+</ul>
+<p>📌 <strong>类比</strong>：你在团队开分享会、公司每年搞“学习黑客松”，员工主动参与改进流程。</p>
+<table>
+<thead>
+<tr>
+<th>级别</th>
+<th>名称</th>
+<th>关键词</th>
+<th>类比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Initial</td>
+<td>混乱，靠人撑</td>
+<td>野路子创业团队</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Managed</td>
+<td>有基本流程</td>
+<td>有 HR 的公司</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Defined</td>
+<td>标准化 + 能力模型</td>
+<td>成熟大厂</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Predictable</td>
+<td>数据驱动</td>
+<td>数据化绩效管理</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Optimizing</td>
+<td>自驱+持续优化</td>
+<td>学习型组织</td>
+</tr>
+</tbody>
+</table>
+<p>it helps an organization evolve from relying on heroic individuals to building a systematic, measurable, and continuously improving approach to workforce development.</p>
+<h2 id="agile敏捷开发复习全攻略"><a class="markdownIt-Anchor" href="#agile敏捷开发复习全攻略"></a> ✅ <strong>Agile（敏捷开发）复习全攻略</strong></h2>
+<hr />
+<h3 id="一-agile-定义中英对照"><a class="markdownIt-Anchor" href="#一-agile-定义中英对照"></a> 📘 一、Agile 定义（中英对照）</h3>
+<ul>
+<li><strong>英文</strong>：Agile is an iterative and incremental approach to software development that emphasizes flexibility, collaboration, and customer feedback.</li>
+<li><strong>中文</strong>：敏捷是一种<strong>迭代式、增量式</strong>的软件开发方法，强调<strong>灵活应变、团队协作与客户反馈</strong>。</li>
+</ul>
+<hr />
+<h3 id="二-agile-manifesto敏捷宣言-4-对价值观"><a class="markdownIt-Anchor" href="#二-agile-manifesto敏捷宣言-4-对价值观"></a> 🧠 二、Agile Manifesto（敏捷宣言 4 对价值观）</h3>
+<table>
+<thead>
+<tr>
+<th>原则英文（考试必记）</th>
+<th>中文解释（助理解）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Individuals and interactions over processes and tools</td>
+<td>重人不重工具</td>
+</tr>
+<tr>
+<td>Working software over comprehensive documentation</td>
+<td>可用软件胜过长篇文档</td>
+</tr>
+<tr>
+<td>Customer collaboration over contract negotiation</td>
+<td>客户合作重于合同</td>
+</tr>
+<tr>
+<td>Responding to change over following a plan</td>
+<td>快速应变胜过死守计划</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="三-agile-与-waterfall-对比考试常考"><a class="markdownIt-Anchor" href="#三-agile-与-waterfall-对比考试常考"></a> 🧩 三、Agile 与 Waterfall 对比（考试常考）</h3>
+<table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>Agile 敏捷开发</th>
+<th>Waterfall 瀑布式开发</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>流程结构</td>
+<td>迭代循环</td>
+<td>串行阶段</td>
+</tr>
+<tr>
+<td>客户参与</td>
+<td>高度参与</td>
+<td>开发前签合同后很少沟通</td>
+</tr>
+<tr>
+<td>计划变更</td>
+<td>接受变更</td>
+<td>抵抗变更</td>
+</tr>
+<tr>
+<td>文档依赖</td>
+<td>少文档，重沟通</td>
+<td>文档齐全</td>
+</tr>
+<tr>
+<td>交付方式</td>
+<td>小步快跑，频繁交付</td>
+<td>一次性交付</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="四-agile-常见术语必须认识"><a class="markdownIt-Anchor" href="#四-agile-常见术语必须认识"></a> 🔁 四、Agile 常见术语（必须认识）</h3>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sprint</strong></td>
+<td>一次迭代开发周期（通常 1~4 周）</td>
+</tr>
+<tr>
+<td><strong>Scrum</strong></td>
+<td>一种流行的 Agile 框架</td>
+</tr>
+<tr>
+<td><strong>Product Backlog</strong></td>
+<td>所有功能的待办列表</td>
+</tr>
+<tr>
+<td><strong>User Story</strong></td>
+<td>以用户角度写的需求描述（如：“作为一个用户，我希望…”）</td>
+</tr>
+<tr>
+<td><strong>Sprint Review</strong></td>
+<td>迭代结束后的评审会议</td>
+</tr>
+<tr>
+<td><strong>Burndown Chart</strong></td>
+<td>展示工作量减少趋势的图</td>
+</tr>
+<tr>
+<td><strong>Daily Scrum</strong></td>
+<td>每日站会，3 问：昨天做了啥？今天做啥？遇到啥问题？</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="五-考试常见题型例子"><a class="markdownIt-Anchor" href="#五-考试常见题型例子"></a> ✅ 五、考试常见题型例子</h3>
+<blockquote>
+<p><strong>Q1: Which of the following is NOT part of Agile methodology?</strong><br />
+A. Continuous integration<br />
+B. Simple design<br />
+❌ C. Rigorous documentation<br />
+❌ D. Following a rigid plan<br />
+✅ → C 和 D 是 <strong>Waterfall</strong> 的特征！</p>
+</blockquote>
+<blockquote>
+<p><strong>Q2: What is a user story in Agile?</strong><br />
+→ A short, informal description of a feature told from the user’s perspective.</p>
+</blockquote>
+<hr />
+<h3 id="小口诀背诵总结"><a class="markdownIt-Anchor" href="#小口诀背诵总结"></a> 🎯 小口诀（背诵总结）</h3>
+<blockquote>
+<p>“人优于工具、产品优于文档、客户胜合同、响应强计划”<br />
+<strong>Agile 四原则口诀助记</strong></p>
+</blockquote>
+<h2 id="1-isoiec-25010"><a class="markdownIt-Anchor" href="#1-isoiec-25010"></a> 📘 1. <strong>ISO/IEC 25010</strong>：</h2>
+<ul>
+<li><strong>Product Quality Model</strong>（软件产品质量模型）</li>
+<li><strong>Quality in Use Model</strong>（使用中的质量模型）</li>
+</ul>
+<hr />
+<h3 id="2-product-quality-的-8-个特性记关键词"><a class="markdownIt-Anchor" href="#2-product-quality-的-8-个特性记关键词"></a> 🧩 2. <strong>Product Quality 的 8 个特性（记关键词）</strong>：</h3>
+<table>
+<thead>
+<tr>
+<th>特性编号</th>
+<th>名称</th>
+<th>中文含义</th>
+<th>子特性（重点记）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Functional suitability</strong></td>
+<td>功能适合性</td>
+<td>Functional correctness, completeness</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Performance efficiency</strong></td>
+<td>性能效率</td>
+<td>Time behavior, resource utilization</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Compatibility</strong></td>
+<td>兼容性</td>
+<td>Co-existence, interoperability</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Usability</strong></td>
+<td>易用性</td>
+<td>Learnability, user error protection</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Reliability</strong></td>
+<td>可靠性</td>
+<td>Maturity, fault tolerance, recoverability</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Security</strong></td>
+<td>安全性</td>
+<td>Confidentiality, integrity, non-repudiation</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Maintainability</strong></td>
+<td>可维护性</td>
+<td>Modularity, analysability, modifiability</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Portability</strong></td>
+<td>可移植性</td>
+<td>Adaptability, installability, replaceability</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="1-functional-suitability-功能适合性"><a class="markdownIt-Anchor" href="#1-functional-suitability-功能适合性"></a> ✅ 1. <strong>Functional Suitability 功能适合性</strong></h4>
+<p><strong>Definition 定义</strong>:<br />
+The degree to which the system provides functions that meet stated and implied needs.<br />
+系统在多大程度上提供符合明确和隐含需求的功能。</p>
+<h4 id="sub-characteristics-子特性"><a class="markdownIt-Anchor" href="#sub-characteristics-子特性"></a> 🔹 Sub-characteristics 子特性：</h4>
+<ul>
+<li><strong>Functional completeness 功能完整性</strong><br />
+👉 <em>Example</em>: The e-commerce site supports search, filter, checkout, and payment functions as expected.<br />
+👉 <em>示例</em>: 电商平台支持完整的搜索、筛选、结账和支付功能。</li>
+<li><strong>Functional correctness 功能正确性</strong><br />
+👉 <em>Example</em>: The total price calculation always includes the correct discount and tax.<br />
+👉 <em>示例</em>: 系统始终正确地计算折扣和税费。</li>
+<li><strong>Functional appropriateness 功能适当性</strong><br />
+👉 <em>Example</em>: The one-click reorder function reduces steps for frequent buyers.<br />
+👉 <em>示例</em>: “一键复购”功能简化了老客户的操作流程。</li>
+</ul>
+<hr />
+<h4 id="2-performance-efficiency-性能效率"><a class="markdownIt-Anchor" href="#2-performance-efficiency-性能效率"></a> ✅ 2. <strong>Performance Efficiency 性能效率</strong></h4>
+<p><strong>Definition 定义</strong>:<br />
+How the system uses resources and responds within acceptable time limits.<br />
+系统在可接受的时间和资源内完成任务的能力。</p>
+<h4 id="sub-characteristics-子特性-2"><a class="markdownIt-Anchor" href="#sub-characteristics-子特性-2"></a> 🔹 Sub-characteristics 子特性：</h4>
+<ul>
+<li><strong>Time behavior 时间行为</strong><br />
+👉 <em>Example</em>: Product detail pages load in less than 2 seconds for 95% of users.<br />
+👉 <em>示例</em>: 商品页面在 95% 的情况下加载时间低于 2 秒。</li>
+<li><strong>Resource utilization 资源利用率</strong><br />
+👉 <em>Example</em>: The server CPU remains below 75% during flash sales.<br />
+👉 <em>示例</em>: 秒杀活动期间 CPU 占用率不超过 75%。</li>
+<li><strong>Capacity 容量处理能力</strong><br />
+👉 <em>Example</em>: The platform supports up to 10,000 simultaneous users without crashing.<br />
+👉 <em>示例</em>: 平台支持最多 10,000 并发用户而不崩溃。</li>
+</ul>
+<hr />
+<h4 id="3-compatibility-兼容性"><a class="markdownIt-Anchor" href="#3-compatibility-兼容性"></a> ✅ 3. <strong>Compatibility 兼容性</strong></h4>
+<p><strong>Definition 定义</strong>:<br />
+The system’s ability to operate with other systems.<br />
+系统与其他系统共存或交互的能力。</p>
+<h4 id="sub-characteristics-子特性-3"><a class="markdownIt-Anchor" href="#sub-characteristics-子特性-3"></a> 🔹 Sub-characteristics 子特性：</h4>
+<ul>
+<li><strong>Co-existence 共存性</strong><br />
+👉 <em>Example</em>: The desktop app coexists with antivirus software without conflict.<br />
+👉 <em>示例</em>: 桌面程序与杀毒软件可以正常共存，不冲突。</li>
+<li><strong>Interoperability 互操作性</strong><br />
+👉 <em>Example</em>: Integrates smoothly with PayPal and Stripe through APIs.<br />
+👉 <em>示例</em>: 系统可通过 API 与 PayPal、Stripe 支付系统顺利对接。</li>
+</ul>
+<hr />
+<h4 id="4-usability-易用性"><a class="markdownIt-Anchor" href="#4-usability-易用性"></a> ✅ 4. <strong>Usability 易用性</strong></h4>
+<p><strong>Definition 定义</strong>:<br />
+The ease with which users can learn and use the system.<br />
+用户学习和操作系统的难易程度。</p>
+<h4 id="sub-characteristics-子特性-4"><a class="markdownIt-Anchor" href="#sub-characteristics-子特性-4"></a> 🔹 Sub-characteristics 子特性：</h4>
+<ul>
+<li><strong>Learnability 可学习性</strong><br />
+👉 <em>Example</em>: New users can complete checkout without training within 5 minutes.<br />
+👉 <em>示例</em>: 新用户可在 5 分钟内无需培训完成结账流程。</li>
+<li><strong>Operability 可操作性</strong><br />
+👉 <em>Example</em>: Key actions like “Add to cart” are always within two clicks.<br />
+👉 <em>示例</em>: 购物车按钮等关键操作不超过两次点击即可完成。</li>
+<li><strong>User error protection 用户错误预防</strong><br />
+👉 <em>Example</em>: Warns users before deleting saved addresses.<br />
+👉 <em>示例</em>: 删除地址前弹出确认提示，避免误操作。</li>
+<li><strong>Accessibility 可访问性</strong><br />
+👉 <em>Example</em>: Fully navigable by screen readers for visually impaired users.<br />
+👉 <em>示例</em>: 支持屏幕阅读器，方便视障用户操作系统。</li>
+</ul>
+<hr />
+<h4 id="5-reliability-可靠性"><a class="markdownIt-Anchor" href="#5-reliability-可靠性"></a> ✅ 5. <strong>Reliability 可靠性</strong></h4>
+<p><strong>Definition 定义</strong>:<br />
+The ability of the system to function under defined conditions.<br />
+系统在指定条件下持续工作的能力。</p>
+<h3 id="sub-characteristics-子特性-5"><a class="markdownIt-Anchor" href="#sub-characteristics-子特性-5"></a> 🔹 Sub-characteristics 子特性：</h3>
+<ul>
+<li><strong>Maturity 成熟性</strong><br />
+👉 <em>Example</em>: The system has had no downtime in the past 6 months.<br />
+👉 <em>示例</em>: 过去 6 个月无任何系统中断。</li>
+<li><strong>Fault tolerance 容错性</strong><br />
+👉 <em>Example</em>: If one payment server fails, another takes over seamlessly.<br />
+👉 <em>示例</em>: 如果一个支付节点故障，系统能自动切换至备用节点。</li>
+<li><strong>Recoverability 可恢复性</strong><br />
+👉 <em>Example</em>: User sessions are restored within 10 seconds after a crash.<br />
+👉 <em>示例</em>: 系统崩溃后在 10 秒内恢复用户会话。</li>
+<li><strong>Availability 可用性</strong><br />
+👉 <em>Example</em>: The website guarantees 99.9% uptime per month.<br />
+👉 <em>示例</em>: 网站每月可用性保证达 99.9%。</li>
+</ul>
+<hr />
+<h4 id="6-security-安全性"><a class="markdownIt-Anchor" href="#6-security-安全性"></a> ✅ 6. <strong>Security 安全性</strong></h4>
+<p><strong>Definition 定义</strong>:<br />
+The system protects information and prevents unauthorized access.<br />
+系统保护信息安全，防止未经授权的访问。</p>
+<h4 id="sub-characteristics-子特性-6"><a class="markdownIt-Anchor" href="#sub-characteristics-子特性-6"></a> 🔹 Sub-characteristics 子特性：</h4>
+<ul>
+<li><strong>Confidentiality 机密性</strong><br />
+👉 <em>Example</em>: User passwords are stored using SHA-256 encryption.<br />
+👉 <em>示例</em>: 用户密码使用 SHA-256 加密存储。</li>
+<li><strong>Integrity 完整性</strong><br />
+👉 <em>Example</em>: Order records are digitally signed to prevent tampering.<br />
+👉 <em>示例</em>: 订单记录加签防篡改。</li>
+<li><strong>Non-repudiation 不可否认性</strong><br />
+👉 <em>Example</em>: Admin actions are logged with timestamps and usernames.<br />
+👉 <em>示例</em>: 所有管理员操作都有时间戳和用户名记录，防止事后抵赖。</li>
+<li><strong>Accountability 可追责性</strong><br />
+👉 <em>Example</em>: Audit trails identify who accessed which records and when.<br />
+👉 <em>示例</em>: 审计日志可记录每次数据访问的用户和时间。</li>
+<li><strong>Authenticity 真实性</strong><br />
+👉 <em>Example</em>: Two-factor authentication is required for admin login.<br />
+👉 <em>示例</em>: 管理员登录必须启用双因素认证。</li>
+</ul>
+<hr />
+<h4 id="7-maintainability-可维护性"><a class="markdownIt-Anchor" href="#7-maintainability-可维护性"></a> ✅ 7. <strong>Maintainability 可维护性</strong></h4>
+<p><strong>Definition 定义</strong>:<br />
+The ease with which the software can be modified.<br />
+软件修改、升级或修复的难易程度。</p>
+<h4 id="sub-characteristics-子特性-7"><a class="markdownIt-Anchor" href="#sub-characteristics-子特性-7"></a> 🔹 Sub-characteristics 子特性：</h4>
+<ul>
+<li><strong>Modularity 模块化</strong><br />
+👉 <em>Example</em>: Product and payment modules can be updated separately.<br />
+👉 <em>示例</em>: 产品模块和支付模块可独立升级不互相影响。</li>
+<li><strong>Reusability 可复用性</strong><br />
+👉 <em>Example</em>: The login component is reused across multiple systems.<br />
+👉 <em>示例</em>: 登录模块可在多个系统间复用。</li>
+<li><strong>Analysability 可分析性</strong><br />
+👉 <em>Example</em>: System logs clearly show root causes of failures.<br />
+👉 <em>示例</em>: 日志清晰可用，便于定位故障原因。</li>
+<li><strong>Modifiability 可修改性</strong><br />
+👉 <em>Example</em>: Tax rate changes can be made without editing other modules.<br />
+👉 <em>示例</em>: 修改税率不影响其他功能模块。</li>
+<li><strong>Testability 可测试性</strong><br />
+👉 <em>Example</em>: Business logic is fully covered by unit and integration tests.<br />
+👉 <em>示例</em>: 所有核心业务逻辑均可自动化测试。</li>
+</ul>
+<hr />
+<h4 id="8-portability-可移植性"><a class="markdownIt-Anchor" href="#8-portability-可移植性"></a> ✅ 8. <strong>Portability 可移植性</strong></h4>
+<p><strong>Definition 定义</strong>:<br />
+The ease with which the system can be transferred to another environment.<br />
+系统在不同平台或环境间迁移的难易程度。</p>
+<h4 id="sub-characteristics-子特性-8"><a class="markdownIt-Anchor" href="#sub-characteristics-子特性-8"></a> 🔹 Sub-characteristics 子特性：</h4>
+<ul>
+<li><strong>Adaptability 适应性</strong><br />
+👉 <em>Example</em>: The app runs on Windows, macOS, and Linux without code changes.<br />
+👉 <em>示例</em>: 应用可在 Win/Mac/Linux 系统中无需修改直接运行。</li>
+<li><strong>Installability 可安装性</strong><br />
+👉 <em>Example</em>: The system offers a one-click Docker deployment script.<br />
+👉 <em>示例</em>: 提供一键部署脚本，安装简单快速。</li>
+<li><strong>Replaceability 可替换性</strong><br />
+👉 <em>Example</em>: Stripe can be replaced with PayPal via configuration only.<br />
+👉 <em>示例</em>: 支付模块可通过配置切换为 PayPal，无需改动代码。</li>
+</ul>
+<h3 id="️-quality-in-use-的-5-个特性中英文对照-示例"><a class="markdownIt-Anchor" href="#️-quality-in-use-的-5-个特性中英文对照-示例"></a> ✳️ Quality in Use 的 5 个特性（中英文对照 + 示例）</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>特性名称</th>
+<th>英文名称</th>
+<th>简要解释</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>有效性</td>
+<td><strong>Effectiveness</strong></td>
+<td>用户能否成功、准确完成目标任务</td>
+<td>用户是否能顺利下单并收到确认</td>
+</tr>
+<tr>
+<td>2</td>
+<td>效率</td>
+<td><strong>Efficiency</strong></td>
+<td>用户完成任务所花的时间、资源是否合理</td>
+<td>用户可在 2 分钟内完成购物流程</td>
+</tr>
+<tr>
+<td>3</td>
+<td>满意度</td>
+<td><strong>Satisfaction</strong></td>
+<td>用户对产品的整体满意程度</td>
+<td>用户给出好评或愿意推荐</td>
+</tr>
+<tr>
+<td>4</td>
+<td>风险规避性</td>
+<td><strong>Freedom from Risk</strong></td>
+<td>产品使用中不会带来经济/健康/隐私等风险</td>
+<td>系统防止支付泄露或误操作退款</td>
+</tr>
+<tr>
+<td>5</td>
+<td>情境覆盖性</td>
+<td><strong>Context Coverage</strong></td>
+<td>产品在不同使用场景下都能正常发挥功能</td>
+<td>无论用户使用手机还是桌面，系统都能稳定运行</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4 id="每个子特性英文定义-示例背诵用"><a class="markdownIt-Anchor" href="#每个子特性英文定义-示例背诵用"></a> 📘 每个子特性英文定义 + 示例（背诵用）</h4>
+<hr />
+<h4 id="1-effectiveness有效性"><a class="markdownIt-Anchor" href="#1-effectiveness有效性"></a> 1. <strong>Effectiveness（有效性）</strong></h4>
+<ul>
+<li><strong>Definition</strong>:<br />
+Accuracy and completeness with which users achieve goals.</li>
+<li><strong>Example</strong>:<br />
+<em>Users can successfully complete the checkout process and receive order confirmation every time.</em></li>
+<li><strong>中文示例</strong>：用户每次都能成功完成结账并收到订单确认。</li>
+</ul>
+<hr />
+<h4 id="2-efficiency效率"><a class="markdownIt-Anchor" href="#2-efficiency效率"></a> 2. <strong>Efficiency（效率）</strong></h4>
+<ul>
+<li><strong>Definition</strong>:<br />
+Resources expended in relation to the accuracy and completeness of goal achievement.</li>
+<li><strong>Example</strong>:<br />
+<em>Users can finish placing an order in less than 2 minutes using no more than 5 steps.</em></li>
+<li><strong>中文示例</strong>：用户下单不超过 5 步，总时长不超过 2 分钟。</li>
+</ul>
+<hr />
+<h4 id="3-satisfaction满意度"><a class="markdownIt-Anchor" href="#3-satisfaction满意度"></a> 3. <strong>Satisfaction（满意度）</strong></h4>
+<ul>
+<li><strong>Definition</strong>:<br />
+Degree to which user needs are fulfilled and they are pleased with the product.</li>
+<li><strong>Example</strong>:<br />
+<em>80% of users rate the system 4 stars or higher in satisfaction surveys.</em></li>
+<li><strong>中文示例</strong>：80% 用户在满意度调查中打出 4 星以上评分。</li>
+</ul>
+<hr />
+<h4 id="4-freedom-from-risk风险规避性"><a class="markdownIt-Anchor" href="#4-freedom-from-risk风险规避性"></a> 4. <strong>Freedom from Risk（风险规避性）</strong></h4>
+<ul>
+<li><strong>Definition</strong>:<br />
+Avoidance of economic, health, environmental or social risks to users.</li>
+<li><strong>Example</strong>:<br />
+<em>The system prevents double payment and protects user data through encryption.</em></li>
+<li><strong>中文示例</strong>：系统防止重复扣款，并使用加密保护用户信息。</li>
+</ul>
+<hr />
+<h4 id="5-context-coverage情境覆盖性"><a class="markdownIt-Anchor" href="#5-context-coverage情境覆盖性"></a> 5. <strong>Context Coverage（情境覆盖性）</strong></h4>
+<ul>
+<li><strong>Definition</strong>:<br />
+Degree to which the product works well across various contexts of use (devices, users, environments).</li>
+<li><strong>Example</strong>:<br />
+<em>The app works consistently on desktop, tablet, and mobile, with accessible features for all user groups.</em></li>
+<li><strong>中文示例</strong>：应用在桌面、平板、手机等不同设备上功能一致，且适配残障用户。</li>
+</ul>
+<h2 id="srssoftware-requirements-specification软件需求规格说明"><a class="markdownIt-Anchor" href="#srssoftware-requirements-specification软件需求规格说明"></a> ✅ <strong>SRS：Software Requirements Specification（软件需求规格说明）</strong></h2>
+<blockquote>
+<p>📌 考试中常考写作题（比如“改写模糊的 SRS”），也有结构题、判断题<br />
+🔍 特别爱出现在与 Verification（验证）相关的题目中</p>
+</blockquote>
+<hr />
+<h3 id="一-定义中英对照"><a class="markdownIt-Anchor" href="#一-定义中英对照"></a> 📘 一、定义（中英对照）</h3>
+<ul>
+<li><strong>英文定义</strong>：<br />
+An SRS is a structured document that describes what the software system should do, how it should interact with users, and any constraints on its operation or design.</li>
+<li><strong>中文定义</strong>：<br />
+软件需求规格说明书是一份结构化文档，用于准确描述<strong>软件应该做什么</strong>、<strong>与用户如何交互</strong>、以及<strong>任何运行或设计上的约束</strong>。</li>
+</ul>
+<hr />
+<h3 id="二-标准结构ieee-830-模型考试常考"><a class="markdownIt-Anchor" href="#二-标准结构ieee-830-模型考试常考"></a> 📦 二、标准结构（IEEE 830 模型，考试常考）</h3>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>模块</th>
+<th>英文名</th>
+<th>说明（中英对照）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1️⃣</td>
+<td>引言</td>
+<td>Introduction</td>
+<td>描述目的、术语、参考资料</td>
+</tr>
+<tr>
+<td>2️⃣</td>
+<td>总体描述</td>
+<td>Overall Description</td>
+<td>用户特征、功能概览、约束、假设等</td>
+</tr>
+<tr>
+<td>3️⃣</td>
+<td>具体需求</td>
+<td>Specific Requirements</td>
+<td>对每个功能和非功能要求的具体描述</td>
+</tr>
+<tr>
+<td>4️⃣</td>
+<td>外部接口</td>
+<td>External Interfaces</td>
+<td>用户界面、硬件、通信协议等接口需求</td>
+</tr>
+<tr>
+<td>5️⃣</td>
+<td>非功能需求</td>
+<td>Non-functional Requirements</td>
+<td>性能、安全、可靠性、可维护性等</td>
+</tr>
+<tr>
+<td>6️⃣</td>
+<td>其他附录</td>
+<td>Appendices</td>
+<td>图表、词汇表、支持材料等</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="三-常考内容分类"><a class="markdownIt-Anchor" href="#三-常考内容分类"></a> ✅ 三、常考内容分类：</h3>
+<h4 id="1-functional-requirements功能性需求"><a class="markdownIt-Anchor" href="#1-functional-requirements功能性需求"></a> 🔹 1. Functional Requirements（功能性需求）</h4>
+<ul>
+<li>描述软件<strong>必须执行的具体功能</strong></li>
+<li>常用句式：<em>The system shall allow…</em></li>
+</ul>
+<p>✅ 示例：The system shall allow users to search products by name and category.<br />
+✅ 中文：系统应允许用户按名称和类别搜索商品。</p>
+<hr />
+<h4 id="2-non-functional-requirements非功能性需求"><a class="markdownIt-Anchor" href="#2-non-functional-requirements非功能性需求"></a> 🔹 2. Non-Functional Requirements（非功能性需求）</h4>
+<ul>
+<li>关注性能、可靠性、安全、可用性等“质量属性”</li>
+<li>常常要你识别“模糊”的非功能需求并<strong>重写成具体、可测量语句</strong></li>
+</ul>
+<p>✅ 示例改写题：</p>
+<blockquote>
+<p>❌ 原句：The system should be fast.<br />
+✅ 改写：The system shall respond to user actions within 2 seconds for 95% of requests.</p>
+</blockquote>
+<hr />
+<h4 id="3-ambiguous-clear-重写考试热点"><a class="markdownIt-Anchor" href="#3-ambiguous-clear-重写考试热点"></a> 🔹 3. Ambiguous → Clear 重写（考试热点）</h4>
+<p>题目经常给你一句模糊的 SRS，让你指出问题并改写：</p>
+<p><strong>题目：</strong></p>
+<blockquote>
+<p>SRS-01: The system shall allow each customer to access only their own personal data quickly and not any other data related to any other customer.</p>
+</blockquote>
+<p><strong>改写思路：</strong></p>
+<ul>
+<li>明确“quickly”：给出时间指标</li>
+<li>拆分多个需求（可访问 + 不能访问他人数据）</li>
+<li>明确“personal data”是什么字段？</li>
+</ul>
+<p>✅ 改写示例：</p>
+<ol>
+<li><em>Each user shall be able to retrieve their own account data (including name, email, and order history) within 3 seconds.</em></li>
+<li><em>The system shall prevent users from accessing the data of any other users.</em></li>
+</ol>
+<hr />
+<h3 id="四-关键词与写作句式总结"><a class="markdownIt-Anchor" href="#四-关键词与写作句式总结"></a> 🧠 四、关键词与写作句式总结</h3>
+<table>
+<thead>
+<tr>
+<th>英文句式</th>
+<th>中文含义</th>
+<th>用于哪种需求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The system shall…</td>
+<td>系统应…</td>
+<td>所有 SRS 推荐写法</td>
+</tr>
+<tr>
+<td>shall support…</td>
+<td>应支持…</td>
+<td>功能性</td>
+</tr>
+<tr>
+<td>shall respond within…</td>
+<td>应在…内响应</td>
+<td>性能</td>
+</tr>
+<tr>
+<td>shall be accessible to…</td>
+<td>应对…可访问</td>
+<td>可用性</td>
+</tr>
+<tr>
+<td>shall restrict access to…</td>
+<td>应限制访问…</td>
+<td>安全性</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="五-常考练习题可试做"><a class="markdownIt-Anchor" href="#五-常考练习题可试做"></a> 🧪 五、常考练习题（可试做）</h3>
+<ol>
+<li>Identify any ambiguity in this requirement:<br />
+<em>“The system should support large-scale traffic.”</em><br />
+→ ❓ 哪些词模糊？你能重写吗？</li>
+<li>List three non-functional requirements categories in SRS.<br />
+→ ✅ 性能效率、兼容性、可维护性</li>
+</ol>
+<h2 id="software-testing-types-levels软件测试类型与级别"><a class="markdownIt-Anchor" href="#software-testing-types-levels软件测试类型与级别"></a> ✅ <strong>Software Testing Types &amp; Levels（软件测试类型与级别）</strong></h2>
+<ul>
+<li>判断题：某测试属于哪个阶段</li>
+<li>选择题：哪个是黑盒测试？哪个是系统测试？</li>
+<li>简答题：对比测试类型、说明各层级目的</li>
+<li>实战题：某代码/流程该用什么测试？</li>
+</ul>
+<h3 id="一-四个常见测试层级test-levels"><a class="markdownIt-Anchor" href="#一-四个常见测试层级test-levels"></a> 📘 一、四个常见<strong>测试层级</strong>（Test Levels）</h3>
+<table>
+<thead>
+<tr>
+<th>层级</th>
+<th>英文名称</th>
+<th>中文名称</th>
+<th>目标</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1️⃣</td>
+<td>Unit Testing</td>
+<td>单元测试</td>
+<td>测试最小功能单元，如类、函数</td>
+<td><code>testAddProduct()</code></td>
+</tr>
+<tr>
+<td>2️⃣</td>
+<td>Integration Testing</td>
+<td>集成测试</td>
+<td>测试模块之间的接口与交互</td>
+<td>用户登录后跳转购物车模块</td>
+</tr>
+<tr>
+<td>3️⃣</td>
+<td>System Testing</td>
+<td>系统测试</td>
+<td>整体测试系统功能是否满足需求</td>
+<td>测试整个平台从注册到支付是否顺畅</td>
+</tr>
+<tr>
+<td>4️⃣</td>
+<td>Acceptance Testing</td>
+<td>验收测试</td>
+<td>最终用户是否接受系统</td>
+<td>用户代表测试是否能完成下单并收到确认</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="二-黑盒-vs-白盒-测试类型test-types"><a class="markdownIt-Anchor" href="#二-黑盒-vs-白盒-测试类型test-types"></a> 🧪 二、黑盒 vs 白盒 测试类型（Test Types）</h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>定义</th>
+<th>是否依赖代码结构</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Black-box</strong></td>
+<td>不看代码，仅测试输入输出</td>
+<td>❌ 不依赖</td>
+<td>UI 测试、功能测试</td>
+</tr>
+<tr>
+<td><strong>White-box</strong></td>
+<td>依据代码结构设计测试用例</td>
+<td>✅ 依赖结构</td>
+<td>单元测试、语句覆盖</td>
+</tr>
+<tr>
+<td><strong>Grey-box</strong></td>
+<td>结合部分代码结构信息与行为测试</td>
+<td>⚠️ 部分依赖</td>
+<td>集成接口测试</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="三-测试类型汇总常考分类题"><a class="markdownIt-Anchor" href="#三-测试类型汇总常考分类题"></a> 🧩 三、测试类型汇总（常考分类题）</h3>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>类型</th>
+<th>中文名</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>功能性测试</td>
+<td>Functional Testing</td>
+<td>功能测试</td>
+<td>登录、购物车是否正常</td>
+</tr>
+<tr>
+<td>非功能测试</td>
+<td>Performance Testing</td>
+<td>性能测试</td>
+<td>并发下单是否卡顿</td>
+</tr>
+<tr>
+<td>非功能测试</td>
+<td>Security Testing</td>
+<td>安全测试</td>
+<td>XSS、SQL 注入检测</td>
+</tr>
+<tr>
+<td>非功能测试</td>
+<td>Usability Testing</td>
+<td>可用性测试</td>
+<td>用户是否易于操作</td>
+</tr>
+<tr>
+<td>特殊测试</td>
+<td>Regression Testing</td>
+<td>回归测试</td>
+<td>修改代码后检查旧功能是否崩了</td>
+</tr>
+<tr>
+<td>特殊测试</td>
+<td>Smoke Testing</td>
+<td>冒烟测试</td>
+<td>发布前快速检查关键流程能否跑通</td>
+</tr>
+<tr>
+<td>特殊测试</td>
+<td>Stress Testing</td>
+<td>压力测试</td>
+<td>系统能撑多少并发？</td>
+</tr>
+<tr>
+<td>特殊测试</td>
+<td>Load Testing</td>
+<td>负载测试</td>
+<td>模拟 1000 用户下单场景</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vvverification-and-validation验证与确认"><a class="markdownIt-Anchor" href="#vvverification-and-validation验证与确认"></a> ✅ <strong>V&amp;V：Verification and Validation（验证与确认）</strong></h2>
+<ul>
+<li>区分 Verification 和 Validation 的本质</li>
+<li>各自常用的方法和测试活动</li>
+<li>它们分别在软件生命周期中的位置</li>
+</ul>
+<h3 id="一-核心定义中英对照必背"><a class="markdownIt-Anchor" href="#一-核心定义中英对照必背"></a> 📘 一、核心定义（中英对照，必背）</h3>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>英文定义</th>
+<th>中文定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Verification</strong></td>
+<td>Are we building the product right?</td>
+<td>我们做的东西“对”吗？（符合规格说明）</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td>Are we building the right product?</td>
+<td>我们做的是“对的东西”吗？（满足用户需求）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>🔍 快速理解方法：</p>
+<blockquote>
+<p>✅ <strong>Verification = 规范为王</strong>：我们按照规格说明（SRS、设计文档）来检查产品。<br />
+✅ <strong>Validation = 用户为王</strong>：我们关心用户是否满意、是否用得上。</p>
+</blockquote>
+<hr />
+<h3 id="二-对比表考试答题万能模板"><a class="markdownIt-Anchor" href="#二-对比表考试答题万能模板"></a> 🧪 二、对比表（考试答题万能模板）</h3>
+<table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>Verification（验证）</th>
+<th>Validation（确认）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>问题</td>
+<td><strong>我们是否按照规格做？</strong></td>
+<td><strong>我们做的是用户想要的吗？</strong></td>
+</tr>
+<tr>
+<td>依据</td>
+<td>软件规格说明（SRS、设计文档）</td>
+<td>用户需求、业务目标</td>
+</tr>
+<tr>
+<td>发生阶段</td>
+<td>开发过程的每一阶段</td>
+<td>开发后期、交付前</td>
+</tr>
+<tr>
+<td>常用活动</td>
+<td>走查、审查、静态分析</td>
+<td>用户测试、验收测试、Beta 测试</td>
+</tr>
+<tr>
+<td>是否运行程序</td>
+<td>❌ 通常不运行（静态）</td>
+<td>✅ 必须运行（动态）</td>
+</tr>
+<tr>
+<td>参与者</td>
+<td>开发人员、QA、审查组</td>
+<td>用户、客户、验收团队</td>
+</tr>
+<tr>
+<td>示例</td>
+<td>代码审查、设计审查、模型对比</td>
+<td>用户能否成功下单并满意使用</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>🧠 口诀助记法：</p>
+<blockquote>
+<p><strong>验证：对照规格查质量；确认：用户满意最重要。</strong></p>
+</blockquote>
+<hr />
+<h3 id="三-举例理解考试常见改写题"><a class="markdownIt-Anchor" href="#三-举例理解考试常见改写题"></a> 📦 三、举例理解（考试常见改写题）</h3>
+<h4 id="verification-例子"><a class="markdownIt-Anchor" href="#verification-例子"></a> ✅ Verification 例子：</h4>
+<ul>
+<li>静态检查代码是否符合模块接口规范 → 不跑程序 ✔</li>
+<li>审查设计文档是否符合系统结构要求</li>
+<li>检查是否实现了所有 SRS 中列出的功能点</li>
+</ul>
+<h4 id="validation-例子"><a class="markdownIt-Anchor" href="#validation-例子"></a> ✅ Validation 例子：</h4>
+<ul>
+<li>用户点击结账后是否真的能下单成功</li>
+<li>用户能否在手机上顺利浏览商品</li>
+<li>系统是否“真的解决了他们的业务问题”</li>
+</ul>
+<hr />
+<h3 id="四-vv-在生命周期中所处阶段"><a class="markdownIt-Anchor" href="#四-vv-在生命周期中所处阶段"></a> 📘 四、V&amp;V 在生命周期中所处阶段</h3>
+<table>
+<thead>
+<tr>
+<th>生命周期阶段</th>
+<th>验证（Verification）</th>
+<th>确认（Validation）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>需求分析</td>
+<td>审查需求文档是否规范</td>
+<td>用户是否认同需求</td>
+</tr>
+<tr>
+<td>设计</td>
+<td>审查是否符合架构标准</td>
+<td>原型演示是否满足用户预期</td>
+</tr>
+<tr>
+<td>编码</td>
+<td>单元测试是否覆盖函数逻辑</td>
+<td>用户测试是否满意最终结果</td>
+</tr>
+<tr>
+<td>测试</td>
+<td>代码是否符合测试用例设计</td>
+<td>用户是否能实际操作通过流程</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>总结一句话：</p>
+<blockquote>
+<p><strong>Verification 是“做对事情”，Validation 是“做正确的事情”。两者缺一不可。</strong></p>
+</blockquote>
+<h2 id="qp-qa-qc软件质量的三个核心概念"><a class="markdownIt-Anchor" href="#qp-qa-qc软件质量的三个核心概念"></a> ✅ <strong>QP, QA, QC：软件质量的三个核心概念</strong></h2>
+<p>这是课程中非常基础又常考的概念组合，常用于选择题、简答题，尤其是要你：</p>
+<ul>
+<li>区分 QP、QA、QC 的概念</li>
+<li>给出实例</li>
+<li>说明它们在软件开发中的位置和作用</li>
+</ul>
+<hr />
+<h3 id="一-核心定义中英对照"><a class="markdownIt-Anchor" href="#一-核心定义中英对照"></a> 📘 一、核心定义（中英对照）</h3>
+<table>
+<thead>
+<tr>
+<th>缩写</th>
+<th>全称</th>
+<th>中文含义</th>
+<th>定义（简洁背诵）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>QP</strong></td>
+<td>Quality Planning</td>
+<td>质量规划</td>
+<td>确定质量目标和标准，并制定实现这些目标的过程和计划</td>
+</tr>
+<tr>
+<td><strong>QA</strong></td>
+<td>Quality Assurance</td>
+<td>质量保证</td>
+<td>建立流程并确保按流程开发，<strong>防止缺陷</strong>发生</td>
+</tr>
+<tr>
+<td><strong>QC</strong></td>
+<td>Quality Control</td>
+<td>质量控制</td>
+<td>通过测试与检查发现并修复<strong>已经存在的缺陷</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="二-万能对比口诀"><a class="markdownIt-Anchor" href="#二-万能对比口诀"></a> 🧠 二、万能对比口诀：</h3>
+<blockquote>
+<p>✅ QP：计划做什么 →<br />
+✅ QA：确保正确做 →<br />
+✅ QC：检查有没有错</p>
+</blockquote>
+<hr />
+<h3 id="三-详细对比考试答题模板"><a class="markdownIt-Anchor" href="#三-详细对比考试答题模板"></a> 🧪 三、详细对比（考试答题模板）</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>QP（质量规划）</th>
+<th>QA（质量保证）</th>
+<th>QC（质量控制）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标</td>
+<td>明确要达到什么样的质量</td>
+<td>建立流程避免错误</td>
+<td>发现并纠正错误</td>
+</tr>
+<tr>
+<td>时间</td>
+<td>项目前期</td>
+<td>项目执行全过程</td>
+<td>项目执行中 &amp; 后期</td>
+</tr>
+<tr>
+<td>方法</td>
+<td>编写质量计划、设定目标</td>
+<td>审查、标准化流程、培训</td>
+<td>测试、评审、缺陷报告</td>
+</tr>
+<tr>
+<td>是否检测缺陷</td>
+<td>❌ 不直接检测</td>
+<td>❌ 不直接检测</td>
+<td>✅ 直接检测并修复缺陷</td>
+</tr>
+<tr>
+<td>示例</td>
+<td>确定要支持哪些平台、多少用户</td>
+<td>建立代码审查流程、SQA 小组</td>
+<td>执行单元测试、系统测试</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="四-每个的英文举例-中文解释用于写作题"><a class="markdownIt-Anchor" href="#四-每个的英文举例-中文解释用于写作题"></a> 📘 四、每个的英文举例 + 中文解释（用于写作题）</h3>
+<h4 id="qp-示例"><a class="markdownIt-Anchor" href="#qp-示例"></a> ✅ QP 示例：</h4>
+<blockquote>
+<p><em>The project manager sets a quality goal: system must support 10,000 users with 99.9% uptime.</em><br />
+➜ 项目经理制定质量目标：“系统需支持 1 万用户，月可用性达 99.9%。”</p>
+</blockquote>
+<h4 id="qa-示例"><a class="markdownIt-Anchor" href="#qa-示例"></a> ✅ QA 示例：</h4>
+<blockquote>
+<p><em>The team enforces coding standards and conducts regular peer reviews.</em><br />
+➜ 团队实施代码规范和定期代码走查，确保按流程开发。</p>
+</blockquote>
+<h4 id="qc-示例"><a class="markdownIt-Anchor" href="#qc-示例"></a> ✅ QC 示例：</h4>
+<blockquote>
+<p><em>Testers run regression tests and report 17 critical bugs before release.</em><br />
+➜ 测试人员回归测试发现 17 个严重缺陷并提交修复。</p>
+</blockquote>
+<hr />
+<h2 id="总结对照表背诵必备"><a class="markdownIt-Anchor" href="#总结对照表背诵必备"></a> 🎯 总结对照表（背诵必备）</h2>
+<table>
+<thead>
+<tr>
+<th>缩写</th>
+<th>中文名</th>
+<th>动词关键词</th>
+<th>是否防缺陷</th>
+<th>是否查缺陷</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QP</td>
+<td>质量规划</td>
+<td><strong>计划</strong></td>
+<td>✅ 是</td>
+<td>❌ 否</td>
+</tr>
+<tr>
+<td>QA</td>
+<td>质量保证</td>
+<td><strong>预防</strong></td>
+<td>✅ 是</td>
+<td>❌ 否</td>
+</tr>
+<tr>
+<td>QC</td>
+<td>质量控制</td>
+<td><strong>检测 + 修正</strong></td>
+<td>❌ 否</td>
+<td>✅ 是</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>📌 衍生考试题目有：</p>
+<ul>
+<li><strong>Which phase ensures prevention of defects?</strong> → ✅ QA</li>
+<li><strong>Which activity happens after development to find defects?</strong> → ✅ QC</li>
+<li><strong>Which phase defines the criteria and methods to achieve quality?</strong> → ✅ QP</li>
+</ul>
+<h2 id="software-test-plan软件测试计划"><a class="markdownIt-Anchor" href="#software-test-plan软件测试计划"></a> ✅ <strong>Software Test Plan（软件测试计划）</strong></h2>
+<h3 id="一-定义中英对照-2"><a class="markdownIt-Anchor" href="#一-定义中英对照-2"></a> 📘 一、定义（中英对照）</h3>
+<ul>
+<li><strong>英文</strong>：A Software Test Plan is a detailed document that outlines the test strategy, objectives, schedule, resources, scope, and activities required to verify the quality of a software product.</li>
+<li><strong>中文</strong>：测试计划是一份详细说明<strong>测试目标、策略、范围、资源、进度和活动</strong>的文档，用于确保软件产品符合质量要求。</li>
+</ul>
+<hr />
+<h3 id="二-标准结构ieee-829-实际模板混合"><a class="markdownIt-Anchor" href="#二-标准结构ieee-829-实际模板混合"></a> 📦 二、标准结构（IEEE 829 &amp; 实际模板混合）</h3>
+<p>以下是测试计划的常见部分（考试必背结构）：</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>模块名称</th>
+<th>英文名称</th>
+<th>说明（中英对照）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1️⃣</td>
+<td>测试计划标识</td>
+<td>Test Plan Identifier</td>
+<td>文档编号或版本信息</td>
+</tr>
+<tr>
+<td>2️⃣</td>
+<td>引言</td>
+<td>Introduction</td>
+<td>说明测试目标、背景、约束</td>
+</tr>
+<tr>
+<td>3️⃣</td>
+<td>被测项目</td>
+<td>Test Items</td>
+<td>说明测试的系统或模块</td>
+</tr>
+<tr>
+<td>4️⃣</td>
+<td>特性要测试</td>
+<td>Features to be Tested</td>
+<td>将被验证的功能清单</td>
+</tr>
+<tr>
+<td>5️⃣</td>
+<td>特性不测试</td>
+<td>Features Not to be Tested</td>
+<td>明确本次不测的部分（范围外）</td>
+</tr>
+<tr>
+<td>6️⃣</td>
+<td>测试策略</td>
+<td>Test Strategy / Approach</td>
+<td>描述采用的测试类型和方法（黑盒/白盒/自动化等）</td>
+</tr>
+<tr>
+<td>7️⃣</td>
+<td>通过标准</td>
+<td>Pass/Fail Criteria</td>
+<td>测试是否通过的判断标准（如：100% 通过关键路径）</td>
+</tr>
+<tr>
+<td>8️⃣</td>
+<td>退出准则</td>
+<td>Exit Criteria</td>
+<td>测试完成的条件，例如缺陷关闭率 ≥ 95%</td>
+</tr>
+<tr>
+<td>9️⃣</td>
+<td>测试任务</td>
+<td>Test Deliverables</td>
+<td>要提交的测试成果，如测试用例、报告、缺陷日志</td>
+</tr>
+<tr>
+<td>🔟</td>
+<td>时间安排</td>
+<td>Schedule</td>
+<td>每个阶段的开始与结束时间</td>
+</tr>
+<tr>
+<td>1️⃣1️⃣</td>
+<td>人员与角色</td>
+<td>Roles and Responsibilities</td>
+<td>每个测试相关人员的职责</td>
+</tr>
+<tr>
+<td>1️⃣2️⃣</td>
+<td>风险分析</td>
+<td>Risks and Contingencies</td>
+<td>可能的问题及应对方案（如测试人员不足、延迟等）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="三-考试常考示例题型"><a class="markdownIt-Anchor" href="#三-考试常考示例题型"></a> ✅ 三、考试常考示例题型：</h3>
+<h4 id="q1-list-5-components-of-a-good-test-plan"><a class="markdownIt-Anchor" href="#q1-list-5-components-of-a-good-test-plan"></a> Q1: List 5 components of a good test plan.</h4>
+<p>→ 答：Test Items, Features to be Tested, Test Strategy, Pass Criteria, Schedule</p>
+<h4 id="q2-what-is-the-difference-between-exit-criteria-and-pass-criteria"><a class="markdownIt-Anchor" href="#q2-what-is-the-difference-between-exit-criteria-and-pass-criteria"></a> Q2: What is the difference between Exit Criteria and Pass Criteria?</h4>
+<p>→ <strong>Pass Criteria</strong> 是针对<strong>单个测试用例</strong>是否成功，<br />
+→ <strong>Exit Criteria</strong> 是针对<strong>整个测试流程是否可以结束</strong>。</p>
+<h4 id="q3-why-is-features-not-to-be-tested-important"><a class="markdownIt-Anchor" href="#q3-why-is-features-not-to-be-tested-important"></a> Q3: Why is “Features Not to be Tested” important?</h4>
+<p>→ 避免误解和扩大测试范围，让团队知道哪些模块不在本次测试目标内。</p>
+<h2 id="static-vs-dynamic-analysis静态分析-vs-动态分析"><a class="markdownIt-Anchor" href="#static-vs-dynamic-analysis静态分析-vs-动态分析"></a> ✅ <strong>Static vs Dynamic Analysis（静态分析 vs 动态分析）</strong></h2>
+<hr />
+<h3 id="一-核心定义中英文对照"><a class="markdownIt-Anchor" href="#一-核心定义中英文对照"></a> 📘 一、核心定义（中英文对照）</h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>英文定义</th>
+<th>中文定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Static Analysis</strong></td>
+<td>Analysis of the software <strong>without executing</strong> it.</td>
+<td><strong>不运行程序</strong>，通过检查代码、文档、模型来发现缺陷的过程。</td>
+</tr>
+<tr>
+<td><strong>Dynamic Analysis</strong></td>
+<td>Analysis of the software by <strong>executing</strong> it.</td>
+<td><strong>运行程序时</strong>观察其行为、性能、输出的过程。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="二-对比表考试背诵模板"><a class="markdownIt-Anchor" href="#二-对比表考试背诵模板"></a> 🧪 二、对比表（考试背诵模板）</h3>
+<table>
+<thead>
+<tr>
+<th>比较项</th>
+<th>Static Analysis（静态分析）</th>
+<th>Dynamic Analysis（动态分析）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>是否执行程序</td>
+<td>❌ 不执行代码</td>
+<td>✅ 需要执行代码</td>
+</tr>
+<tr>
+<td>发生阶段</td>
+<td>编码前/编译前</td>
+<td>编译后或部署后</td>
+</tr>
+<tr>
+<td>检查目标</td>
+<td>代码结构、语法、逻辑、标准</td>
+<td>程序运行行为、性能、输出</td>
+</tr>
+<tr>
+<td>方法示例</td>
+<td>代码审查、Lint 工具、模型分析、型检查</td>
+<td>单元测试、系统测试、性能测试</td>
+</tr>
+<tr>
+<td>工具示例</td>
+<td>ESLint, SonarQube, FindBugs</td>
+<td>JUnit, Selenium, JMeter</td>
+</tr>
+<tr>
+<td>发现缺陷类型</td>
+<td>潜在 bug、死代码、不规范命名、未使用变量</td>
+<td>内存泄漏、崩溃、性能瓶颈、边界错误</td>
+</tr>
+<tr>
+<td>是否自动化</td>
+<td>✅ 高度自动化</td>
+<td>✅ 多数也可自动化</td>
+</tr>
+<tr>
+<td>优势</td>
+<td>早发现问题，节省测试成本</td>
+<td>真实模拟运行情况，更接近用户体验</td>
+</tr>
+<tr>
+<td>局限</td>
+<td>无法检测运行时错误</td>
+<td>无法在早期发现逻辑错误或结构问题</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="三-例题训练判断题-选择题常考"><a class="markdownIt-Anchor" href="#三-例题训练判断题-选择题常考"></a> 🎯 三、例题训练（判断题 / 选择题常考）</h3>
+<blockquote>
+<p>❓ <strong>Which of the following is a static analysis activity?</strong><br />
+✅ A: Code walkthrough<br />
+❌ B: Load testing<br />
+❌ C: Acceptance testing<br />
+✅ D: Linting source code</p>
+</blockquote>
+<hr />
+<h3 id="记忆口诀"><a class="markdownIt-Anchor" href="#记忆口诀"></a> 🧠 记忆口诀</h3>
+<blockquote>
+<p><strong>“静态不跑代码，动态观察行为”</strong><br />
+Static 看“形”，Dynamic 看“跑”</p>
+</blockquote>
+<hr />
+<h3 id="四-各自的典型工具补充记忆"><a class="markdownIt-Anchor" href="#四-各自的典型工具补充记忆"></a> 🧪 四、各自的典型工具（补充记忆）</h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>工具举例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🧊 静态分析</td>
+<td>SonarQube, ESLint, StyleCop, Checkstyle</td>
+<td>检查语法、规范、未使用变量</td>
+</tr>
+<tr>
+<td>🔥 动态分析</td>
+<td>JUnit, PyTest, Selenium, JMeter, Valgrind</td>
+<td>执行测试、检查内存、测试性能</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>📌 你还可以用这个思路套用答题句式：</p>
+<blockquote>
+<p><em>Static analysis is important because it helps detect issues early in development without running the software. In contrast, dynamic analysis reveals issues that only occur during runtime, such as memory leaks or crashes.</em></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.433200.xyz">Xiaotan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.433200.xyz/2808f181.html">https://www.433200.xyz/2808f181.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.433200.xyz" target="_blank">Xiaotan's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/attach/1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/attach/2wx.png" target="_blank"><img class="post-qr-code-img" src="/attach/2wx.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/attach/2zfb.png" target="_blank"><img class="post-qr-code-img" src="/attach/2zfb.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#pcmm"><span class="toc-text"> PCMM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E7%9B%AE%E6%A0%87"><span class="toc-text"> 🎯 整体目标：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#level-1-initial-%E5%88%9D%E5%A7%8B%E7%BA%A7"><span class="toc-text"> 🟩 Level 1: Initial 初始级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#level-2-managed-%E5%8F%97%E6%8E%A7%E7%BA%A7"><span class="toc-text"> 🟨 Level 2: Managed 受控级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#level-3-defined-%E5%B7%B2%E5%AE%9A%E4%B9%89%E7%BA%A7"><span class="toc-text"> 🟧 Level 3: Defined 已定义级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#level-4-predictable-%E5%8F%AF%E9%A2%84%E6%B5%8B%E7%BA%A7"><span class="toc-text"> 🟦 Level 4: Predictable 可预测级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#level-5-optimizing-%E4%BC%98%E5%8C%96%E7%BA%A7"><span class="toc-text"> 🟪 Level 5: Optimizing 优化级</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#agile%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E5%A4%8D%E4%B9%A0%E5%85%A8%E6%94%BB%E7%95%A5"><span class="toc-text"> ✅ Agile（敏捷开发）复习全攻略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-agile-%E5%AE%9A%E4%B9%89%E4%B8%AD%E8%8B%B1%E5%AF%B9%E7%85%A7"><span class="toc-text"> 📘 一、Agile 定义（中英对照）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-agile-manifesto%E6%95%8F%E6%8D%B7%E5%AE%A3%E8%A8%80-4-%E5%AF%B9%E4%BB%B7%E5%80%BC%E8%A7%82"><span class="toc-text"> 🧠 二、Agile Manifesto（敏捷宣言 4 对价值观）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-agile-%E4%B8%8E-waterfall-%E5%AF%B9%E6%AF%94%E8%80%83%E8%AF%95%E5%B8%B8%E8%80%83"><span class="toc-text"> 🧩 三、Agile 与 Waterfall 对比（考试常考）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-agile-%E5%B8%B8%E8%A7%81%E6%9C%AF%E8%AF%AD%E5%BF%85%E9%A1%BB%E8%AE%A4%E8%AF%86"><span class="toc-text"> 🔁 四、Agile 常见术语（必须认识）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E8%80%83%E8%AF%95%E5%B8%B8%E8%A7%81%E9%A2%98%E5%9E%8B%E4%BE%8B%E5%AD%90"><span class="toc-text"> ✅ 五、考试常见题型例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E5%8F%A3%E8%AF%80%E8%83%8C%E8%AF%B5%E6%80%BB%E7%BB%93"><span class="toc-text"> 🎯 小口诀（背诵总结）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-isoiec-25010"><span class="toc-text"> 📘 1. ISO&#x2F;IEC 25010：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-product-quality-%E7%9A%84-8-%E4%B8%AA%E7%89%B9%E6%80%A7%E8%AE%B0%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-text"> 🧩 2. Product Quality 的 8 个特性（记关键词）：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-functional-suitability-%E5%8A%9F%E8%83%BD%E9%80%82%E5%90%88%E6%80%A7"><span class="toc-text"> ✅ 1. Functional Suitability 功能适合性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sub-characteristics-%E5%AD%90%E7%89%B9%E6%80%A7"><span class="toc-text"> 🔹 Sub-characteristics 子特性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-performance-efficiency-%E6%80%A7%E8%83%BD%E6%95%88%E7%8E%87"><span class="toc-text"> ✅ 2. Performance Efficiency 性能效率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sub-characteristics-%E5%AD%90%E7%89%B9%E6%80%A7-2"><span class="toc-text"> 🔹 Sub-characteristics 子特性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-compatibility-%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-text"> ✅ 3. Compatibility 兼容性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sub-characteristics-%E5%AD%90%E7%89%B9%E6%80%A7-3"><span class="toc-text"> 🔹 Sub-characteristics 子特性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-usability-%E6%98%93%E7%94%A8%E6%80%A7"><span class="toc-text"> ✅ 4. Usability 易用性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sub-characteristics-%E5%AD%90%E7%89%B9%E6%80%A7-4"><span class="toc-text"> 🔹 Sub-characteristics 子特性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-reliability-%E5%8F%AF%E9%9D%A0%E6%80%A7"><span class="toc-text"> ✅ 5. Reliability 可靠性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sub-characteristics-%E5%AD%90%E7%89%B9%E6%80%A7-5"><span class="toc-text"> 🔹 Sub-characteristics 子特性：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-security-%E5%AE%89%E5%85%A8%E6%80%A7"><span class="toc-text"> ✅ 6. Security 安全性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sub-characteristics-%E5%AD%90%E7%89%B9%E6%80%A7-6"><span class="toc-text"> 🔹 Sub-characteristics 子特性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-maintainability-%E5%8F%AF%E7%BB%B4%E6%8A%A4%E6%80%A7"><span class="toc-text"> ✅ 7. Maintainability 可维护性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sub-characteristics-%E5%AD%90%E7%89%B9%E6%80%A7-7"><span class="toc-text"> 🔹 Sub-characteristics 子特性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-portability-%E5%8F%AF%E7%A7%BB%E6%A4%8D%E6%80%A7"><span class="toc-text"> ✅ 8. Portability 可移植性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sub-characteristics-%E5%AD%90%E7%89%B9%E6%80%A7-8"><span class="toc-text"> 🔹 Sub-characteristics 子特性：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%B8%8F-quality-in-use-%E7%9A%84-5-%E4%B8%AA%E7%89%B9%E6%80%A7%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AF%B9%E7%85%A7-%E7%A4%BA%E4%BE%8B"><span class="toc-text"> ✳️ Quality in Use 的 5 个特性（中英文对照 + 示例）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AF%8F%E4%B8%AA%E5%AD%90%E7%89%B9%E6%80%A7%E8%8B%B1%E6%96%87%E5%AE%9A%E4%B9%89-%E7%A4%BA%E4%BE%8B%E8%83%8C%E8%AF%B5%E7%94%A8"><span class="toc-text"> 📘 每个子特性英文定义 + 示例（背诵用）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-effectiveness%E6%9C%89%E6%95%88%E6%80%A7"><span class="toc-text"> 1. Effectiveness（有效性）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-efficiency%E6%95%88%E7%8E%87"><span class="toc-text"> 2. Efficiency（效率）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-satisfaction%E6%BB%A1%E6%84%8F%E5%BA%A6"><span class="toc-text"> 3. Satisfaction（满意度）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-freedom-from-risk%E9%A3%8E%E9%99%A9%E8%A7%84%E9%81%BF%E6%80%A7"><span class="toc-text"> 4. Freedom from Risk（风险规避性）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-context-coverage%E6%83%85%E5%A2%83%E8%A6%86%E7%9B%96%E6%80%A7"><span class="toc-text"> 5. Context Coverage（情境覆盖性）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#srssoftware-requirements-specification%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E8%A7%84%E6%A0%BC%E8%AF%B4%E6%98%8E"><span class="toc-text"> ✅ SRS：Software Requirements Specification（软件需求规格说明）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E5%AE%9A%E4%B9%89%E4%B8%AD%E8%8B%B1%E5%AF%B9%E7%85%A7"><span class="toc-text"> 📘 一、定义（中英对照）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E6%A0%87%E5%87%86%E7%BB%93%E6%9E%84ieee-830-%E6%A8%A1%E5%9E%8B%E8%80%83%E8%AF%95%E5%B8%B8%E8%80%83"><span class="toc-text"> 📦 二、标准结构（IEEE 830 模型，考试常考）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E5%B8%B8%E8%80%83%E5%86%85%E5%AE%B9%E5%88%86%E7%B1%BB"><span class="toc-text"> ✅ 三、常考内容分类：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-functional-requirements%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82"><span class="toc-text"> 🔹 1. Functional Requirements（功能性需求）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-non-functional-requirements%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82"><span class="toc-text"> 🔹 2. Non-Functional Requirements（非功能性需求）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-ambiguous-clear-%E9%87%8D%E5%86%99%E8%80%83%E8%AF%95%E7%83%AD%E7%82%B9"><span class="toc-text"> 🔹 3. Ambiguous → Clear 重写（考试热点）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E5%85%B3%E9%94%AE%E8%AF%8D%E4%B8%8E%E5%86%99%E4%BD%9C%E5%8F%A5%E5%BC%8F%E6%80%BB%E7%BB%93"><span class="toc-text"> 🧠 四、关键词与写作句式总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E5%B8%B8%E8%80%83%E7%BB%83%E4%B9%A0%E9%A2%98%E5%8F%AF%E8%AF%95%E5%81%9A"><span class="toc-text"> 🧪 五、常考练习题（可试做）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#software-testing-types-levels%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%9E%8B%E4%B8%8E%E7%BA%A7%E5%88%AB"><span class="toc-text"> ✅ Software Testing Types &amp; Levels（软件测试类型与级别）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E5%9B%9B%E4%B8%AA%E5%B8%B8%E8%A7%81%E6%B5%8B%E8%AF%95%E5%B1%82%E7%BA%A7test-levels"><span class="toc-text"> 📘 一、四个常见测试层级（Test Levels）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E9%BB%91%E7%9B%92-vs-%E7%99%BD%E7%9B%92-%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%9E%8Btest-types"><span class="toc-text"> 🧪 二、黑盒 vs 白盒 测试类型（Test Types）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%9E%8B%E6%B1%87%E6%80%BB%E5%B8%B8%E8%80%83%E5%88%86%E7%B1%BB%E9%A2%98"><span class="toc-text"> 🧩 三、测试类型汇总（常考分类题）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vvverification-and-validation%E9%AA%8C%E8%AF%81%E4%B8%8E%E7%A1%AE%E8%AE%A4"><span class="toc-text"> ✅ V&amp;V：Verification and Validation（验证与确认）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E6%A0%B8%E5%BF%83%E5%AE%9A%E4%B9%89%E4%B8%AD%E8%8B%B1%E5%AF%B9%E7%85%A7%E5%BF%85%E8%83%8C"><span class="toc-text"> 📘 一、核心定义（中英对照，必背）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E5%AF%B9%E6%AF%94%E8%A1%A8%E8%80%83%E8%AF%95%E7%AD%94%E9%A2%98%E4%B8%87%E8%83%BD%E6%A8%A1%E6%9D%BF"><span class="toc-text"> 🧪 二、对比表（考试答题万能模板）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E4%B8%BE%E4%BE%8B%E7%90%86%E8%A7%A3%E8%80%83%E8%AF%95%E5%B8%B8%E8%A7%81%E6%94%B9%E5%86%99%E9%A2%98"><span class="toc-text"> 📦 三、举例理解（考试常见改写题）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#verification-%E4%BE%8B%E5%AD%90"><span class="toc-text"> ✅ Verification 例子：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#validation-%E4%BE%8B%E5%AD%90"><span class="toc-text"> ✅ Validation 例子：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-vv-%E5%9C%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E4%B8%AD%E6%89%80%E5%A4%84%E9%98%B6%E6%AE%B5"><span class="toc-text"> 📘 四、V&amp;V 在生命周期中所处阶段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#qp-qa-qc%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E7%9A%84%E4%B8%89%E4%B8%AA%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="toc-text"> ✅ QP, QA, QC：软件质量的三个核心概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E6%A0%B8%E5%BF%83%E5%AE%9A%E4%B9%89%E4%B8%AD%E8%8B%B1%E5%AF%B9%E7%85%A7"><span class="toc-text"> 📘 一、核心定义（中英对照）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E4%B8%87%E8%83%BD%E5%AF%B9%E6%AF%94%E5%8F%A3%E8%AF%80"><span class="toc-text"> 🧠 二、万能对比口诀：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E8%AF%A6%E7%BB%86%E5%AF%B9%E6%AF%94%E8%80%83%E8%AF%95%E7%AD%94%E9%A2%98%E6%A8%A1%E6%9D%BF"><span class="toc-text"> 🧪 三、详细对比（考试答题模板）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E6%AF%8F%E4%B8%AA%E7%9A%84%E8%8B%B1%E6%96%87%E4%B8%BE%E4%BE%8B-%E4%B8%AD%E6%96%87%E8%A7%A3%E9%87%8A%E7%94%A8%E4%BA%8E%E5%86%99%E4%BD%9C%E9%A2%98"><span class="toc-text"> 📘 四、每个的英文举例 + 中文解释（用于写作题）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#qp-%E7%A4%BA%E4%BE%8B"><span class="toc-text"> ✅ QP 示例：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#qa-%E7%A4%BA%E4%BE%8B"><span class="toc-text"> ✅ QA 示例：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#qc-%E7%A4%BA%E4%BE%8B"><span class="toc-text"> ✅ QC 示例：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E5%AF%B9%E7%85%A7%E8%A1%A8%E8%83%8C%E8%AF%B5%E5%BF%85%E5%A4%87"><span class="toc-text"> 🎯 总结对照表（背诵必备）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#software-test-plan%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92"><span class="toc-text"> ✅ Software Test Plan（软件测试计划）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E5%AE%9A%E4%B9%89%E4%B8%AD%E8%8B%B1%E5%AF%B9%E7%85%A7-2"><span class="toc-text"> 📘 一、定义（中英对照）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E6%A0%87%E5%87%86%E7%BB%93%E6%9E%84ieee-829-%E5%AE%9E%E9%99%85%E6%A8%A1%E6%9D%BF%E6%B7%B7%E5%90%88"><span class="toc-text"> 📦 二、标准结构（IEEE 829 &amp; 实际模板混合）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E8%80%83%E8%AF%95%E5%B8%B8%E8%80%83%E7%A4%BA%E4%BE%8B%E9%A2%98%E5%9E%8B"><span class="toc-text"> ✅ 三、考试常考示例题型：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#q1-list-5-components-of-a-good-test-plan"><span class="toc-text"> Q1: List 5 components of a good test plan.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#q2-what-is-the-difference-between-exit-criteria-and-pass-criteria"><span class="toc-text"> Q2: What is the difference between Exit Criteria and Pass Criteria?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#q3-why-is-features-not-to-be-tested-important"><span class="toc-text"> Q3: Why is “Features Not to be Tested” important?</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#static-vs-dynamic-analysis%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90-vs-%E5%8A%A8%E6%80%81%E5%88%86%E6%9E%90"><span class="toc-text"> ✅ Static vs Dynamic Analysis（静态分析 vs 动态分析）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E6%A0%B8%E5%BF%83%E5%AE%9A%E4%B9%89%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AF%B9%E7%85%A7"><span class="toc-text"> 📘 一、核心定义（中英文对照）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E5%AF%B9%E6%AF%94%E8%A1%A8%E8%80%83%E8%AF%95%E8%83%8C%E8%AF%B5%E6%A8%A1%E6%9D%BF"><span class="toc-text"> 🧪 二、对比表（考试背诵模板）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E4%BE%8B%E9%A2%98%E8%AE%AD%E7%BB%83%E5%88%A4%E6%96%AD%E9%A2%98-%E9%80%89%E6%8B%A9%E9%A2%98%E5%B8%B8%E8%80%83"><span class="toc-text"> 🎯 三、例题训练（判断题 &#x2F; 选择题常考）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%BF%86%E5%8F%A3%E8%AF%80"><span class="toc-text"> 🧠 记忆口诀</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E5%90%84%E8%87%AA%E7%9A%84%E5%85%B8%E5%9E%8B%E5%B7%A5%E5%85%B7%E8%A1%A5%E5%85%85%E8%AE%B0%E5%BF%86"><span class="toc-text"> 🧪 四、各自的典型工具（补充记忆）</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2002 - 2025 By Xiaotan</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.staticfile.net/instant.page/5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://xtbolg.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://xtbolg.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(init,0)
+    else getScript('https://cdn.staticfile.net/twikoo/1.6.30/twikoo.all.min.js').then(init)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script defer src="/js/universe.js"></script><canvas id="universe"></canvas><script async src="/js/title.js"></script><div class="aplayer no-destroy" data-id="13582149382" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-order="random" data-pjax> </div><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.staticfile.net/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.staticfile.net/aplayer/1.10.1/APlayer.min.js"></script><script src="/js/meting.min.js"></script><script src="https://cdn.staticfile.net/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="https://cn.vercount.one/js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/学习/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 学习笔记 (37)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/折腾/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🔧 折腾记录 (12)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/心理/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👓 心理/MBTI (7)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/菜谱/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🍜 好吃的 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://www.433200.xyz/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #FFC0CB}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v6.2.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.3.1" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用多线部署，主线路托管于Vercel" title=""><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://dashboard.4everland.org/" style="margin-inline:5px" data-title="本站采用多线部署，备用线路托管于4EVERLAND" title=""><img src="https://img.shields.io/badge/Hosted-4EVERLAND-22DDDD?style=flat&amp;logo=IPFS" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-info');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-tags');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-webinfo');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.staticfile.net/wow/1.1.2/wow.min.js"></script><script defer src="/js/wow_init.js"></script><!-- hexo injector body_end end --></body></html>

@@ -1,0 +1,571 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+<!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>数据结构相关笔记⑥ | Xiaotan's Blog</title><meta name="author" content="Xiaotan"><meta name="copyright" content="Xiaotan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="W7-W8  数据结构相关笔记①数据结构相关笔记②数据结构相关笔记③数据结构相关笔记④数据结构相关笔记⑤数据结构相关笔记⑥数据结构相关笔记⑦  1.图的基本概念（Graph Basics）  1.1 图的定义  图（Graph）是由顶点（Vertices）和边（Edges）组成的一种数据结构。图是一种非线性数据结构，它是由顶点的有穷非空集合和顶点之间边的集合组成的。   1.2 边的类型（Edge">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构相关笔记⑥">
+<meta property="og:url" content="https://www.433200.xyz/62d774a6.html">
+<meta property="og:site_name" content="Xiaotan&#39;s Blog">
+<meta property="og:description" content="W7-W8  数据结构相关笔记①数据结构相关笔记②数据结构相关笔记③数据结构相关笔记④数据结构相关笔记⑤数据结构相关笔记⑥数据结构相关笔记⑦  1.图的基本概念（Graph Basics）  1.1 图的定义  图（Graph）是由顶点（Vertices）和边（Edges）组成的一种数据结构。图是一种非线性数据结构，它是由顶点的有穷非空集合和顶点之间边的集合组成的。   1.2 边的类型（Edge">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.433200.xyz/attach/1.png">
+<meta property="article:published_time" content="2024-09-13T07:26:43.000Z">
+<meta property="article:modified_time" content="2025-11-26T05:19:10.598Z">
+<meta property="article:author" content="Xiaotan">
+<meta property="article:tag" content="#数据结构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.433200.xyz/attach/1.png"><link rel="shortcut icon" href="/attach/2.png"><link rel="canonical" href="https://www.433200.xyz/62d774a6.html"><link rel="preconnect" href="//cdnjs.cloudflare.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdnjs.cloudflare.com/ajax/libs/egjs-infinitegrid/4.11.1/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数据结构相关笔记⑥',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-26 13:19:10'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link href="https://cdn.staticfile.net/lxgw-wenkai-webfont/1.7.0/style.min.css" rel="stylesheet"><!-- hexo injector head_end start --><link rel="stylesheet" href="/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.staticfile.net/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="/css/progress_bar.css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/attach/1.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/webs/"><i class="fa-fw fab fa-webflow"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Xiaotan's Blog"><span class="site-name">Xiaotan's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/webs/"><i class="fa-fw fab fa-webflow"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">数据结构相关笔记⑥</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-13T07:26:43.000Z" title="发表于 2024-09-13 15:26:43">2024-09-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-26T05:19:10.598Z" title="更新于 2025-11-26 13:19:10">2025-11-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span id="" data-flag-title="数据结构相关笔记⑥"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/62d774a6.html#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="note info modern"><p>W7-W8</p>
+</div>
+<ol><li><a href="/8a8cf2ca.html" title="数据结构相关笔记①">数据结构相关笔记①</a></li><li><a href="/fd8bc25c.html" title="数据结构相关笔记②">数据结构相关笔记②</a></li><li><a href="/648293e6.html" title="数据结构相关笔记③">数据结构相关笔记③</a></li><li><a href="/1385a370.html" title="数据结构相关笔记④">数据结构相关笔记④</a></li><li><a href="/8de136d3.html" title="数据结构相关笔记⑤">数据结构相关笔记⑤</a></li><li><a href="/62d774a6.html" title="数据结构相关笔记⑥">数据结构相关笔记⑥</a></li><li><a href="/ed7d1563.html" title="数据结构相关笔记⑦">数据结构相关笔记⑦</a></li></ol>
+<h2 id="1图的基本概念graph-basics"><a class="markdownIt-Anchor" href="#1图的基本概念graph-basics"></a> 1.图的基本概念（Graph Basics）</h2>
+<h3 id="11-图的定义"><a class="markdownIt-Anchor" href="#11-图的定义"></a> 1.1 图的定义</h3>
+<ul>
+<li><strong>图</strong>（Graph）是由<strong>顶点</strong>（Vertices）和<strong>边</strong>（Edges）组成的一种数据结构。图是一种非线性数据结构，它是由顶点的有穷非空集合和顶点之间边的集合组成的。</li>
+</ul>
+<h3 id="12-边的类型edge-types"><a class="markdownIt-Anchor" href="#12-边的类型edge-types"></a> 1.2 边的类型（Edge Types）</h3>
+<ul>
+<li>
+<p><strong>有向边</strong>（Directed Edge）：有向边是一个有序对，它连接两个顶点，其中一个是起始顶点，另一个是终止顶点，有一个箭头指向。</p>
+</li>
+<li>
+<p><strong>无向边</strong>（Undirected Edge）：无向边是一个无序对，它连接两个顶点，没有起始顶点和终止顶点之分。</p>
+</li>
+</ul>
+<h3 id="13-应用场景applications"><a class="markdownIt-Anchor" href="#13-应用场景applications"></a> 1.3 应用场景（Applications）</h3>
+<ul>
+<li>电子电路： 印刷电路板、集成电路。</li>
+<li>交通网络： 公路网、航线网络。</li>
+<li>计算机网络： 互联网、网页。</li>
+<li>建模： 实体关系图、甘特图中的优先关系。</li>
+</ul>
+<h2 id="2图的概念和术语-graph-concepts-and-terminology"><a class="markdownIt-Anchor" href="#2图的概念和术语-graph-concepts-and-terminology"></a> 2.图的概念和术语 (Graph Concepts and Terminology)</h2>
+<h3 id="21-路径path"><a class="markdownIt-Anchor" href="#21-路径path"></a> 2.1 路径（Path）</h3>
+<ul>
+<li><strong>定义</strong>：路径是图中的一个顶点序列，其中每个顶点都是由边连接到下一个顶点的。</li>
+<li><strong>简单路径（Simple Path）</strong>：路径中的顶点不重复。<br />
+<img src="../attach/Pasted%20image%2020240913153812.png" alt="" /></li>
+<li><strong>示例</strong>：(V, X, Z) 是一个简单路径；(U, W, X, Y, W, V) 是一个非简单路径。</li>
+</ul>
+<h3 id="22-环cycle"><a class="markdownIt-Anchor" href="#22-环cycle"></a> 2.2 环（Cycle）</h3>
+<ul>
+<li><strong>定义</strong>：环是一个简单路径，它的起始顶点和终止顶点相同。</li>
+<li><strong>简单环（Simple Cycle）</strong>：环中的顶点不重复，除了起始顶点和终止顶点。<br />
+<img src="../attach/Pasted%20image%2020240913153955.png" alt="" /></li>
+<li><strong>示例</strong>：(V, X, Y, W, U, V) 是一个简单环；(U, W, X, Y, W, V, U) 是一个非简单环。</li>
+</ul>
+<h3 id="23-子图subgraph"><a class="markdownIt-Anchor" href="#23-子图subgraph"></a> 2.3 子图（Subgraph）</h3>
+<ul>
+<li><strong>定义</strong>：子图是一个图的一部分，它包含图中的一些顶点和边。</li>
+<li><strong>示例</strong>：<img src="../attach/Pasted%20image%2020240913154157.png" alt="" /></li>
+</ul>
+<h3 id="24-连通性connectivity"><a class="markdownIt-Anchor" href="#24-连通性connectivity"></a> 2.4 连通性（Connectivity）</h3>
+<ul>
+<li><strong>定义</strong>： 如果图 G 中的每对顶点之间都有路径相连，则图 G 是连通的。</li>
+<li><strong>连通分量（Connected Component）</strong>：图 G 的极大连通子图称为 G 的连通分量。<br />
+<img src="../attach/Pasted%20image%2020240913154428.png" alt="" /></li>
+</ul>
+<h3 id="25-树和森林tree-and-forest"><a class="markdownIt-Anchor" href="#25-树和森林tree-and-forest"></a> 2.5 树和森林（Tree and Forest）</h3>
+<ul>
+<li><strong>树（Tree）</strong>：一个<em>无环</em>的<em>连通</em>图。</li>
+<li><strong>森林（Forest）</strong>：一个或多个树的集合/是一个无环的图，其连通分量都是树。<br />
+<img src="../attach/Pasted%20image%2020240913154534.png" alt="" /></li>
+</ul>
+<h2 id="3图的数据结构和实现方法graph-data-structure"><a class="markdownIt-Anchor" href="#3图的数据结构和实现方法graph-data-structure"></a> 3.图的数据结构和实现方法（Graph Data Structure）</h2>
+<h3 id="31-抽象数据类型adt方法说明"><a class="markdownIt-Anchor" href="#31-抽象数据类型adt方法说明"></a> 3.1 抽象数据类型（ADT）方法说明</h3>
+<ul>
+<li><code>numVertices()</code>：返回图中顶点的数量。</li>
+<li><code>numEdges()</code>：返回图中边的数量。</li>
+<li><code>vertices()</code>：返回图中所有顶点的列表。</li>
+<li><code>edges()</code>：返回图中所有边的列表。</li>
+<li><code>getEdge(u, v)</code>：返回从顶点 u 到顶点 v 的边。对于无向图，(u, v) 和 (v, u) 是相同的。</li>
+<li><code>endVertices(e)</code>：返回边 e 的两个顶点的数组/列表。如果是有向图，返回的第一个顶点是起始顶点，第二个顶点是终止顶点。</li>
+<li><code>opposite(v, e)</code>：返回边 e 的另一个顶点。如果 v 是 e 的一个顶点，则返回 e 的另一个顶点，否则返回错误。</li>
+<li><code>outDegree(v)</code>：返回顶点 v 出度的数量（从顶点 v 发出的所有边）</li>
+<li><code>inDegree(v)</code>：返回顶点 v 入度的数量（指向顶点 v 的所有边），对于无向图，入度和出度相同。</li>
+<li><code>outgoingEdges(v)</code>：返回从顶点 v 出发的所有边的列表。</li>
+<li><code>incomingEdges(v)</code>：返回指向顶点 v 的所有边的列表，对于无向图，返回的和 outgoingEdges(v) 相同。</li>
+<li><code>insertVertex(x)</code>：在图中插入一个顶点 x。</li>
+<li><code>insertEdge(u, v, x)</code>：在顶点 u 和 v 之间插入一条边，储存 x。如果已经存在这条边，则返回错误。</li>
+<li><code>removeVertex(v)</code>：删除顶点 v 和与之相关的所有边。</li>
+<li><code>removeEdge(e)</code>：删除边 e。</li>
+</ul>
+<h3 id="32-边列表-edge-list"><a class="markdownIt-Anchor" href="#32-边列表-edge-list"></a> 3.2 边列表 (Edge List)</h3>
+<ul>
+<li>
+<p><strong>实现方法</strong>：使用两个列表，一个存储顶点，一个存储边。</p>
+</li>
+<li>
+<p><strong>顶点序列（Vertex Sequence）</strong>：顶点的列表。</p>
+</li>
+<li>
+<p><strong>顶点对象（Vertex Object）</strong>：包含顶点的数据和指针。</p>
+</li>
+<li>
+<p><strong>边序列（Edge Sequence）</strong>：边的列表。</p>
+</li>
+<li>
+<p><strong>边对象（Edge Object）</strong>：每个边对象指向它连接的两个顶点。</p>
+</li>
+<li>
+<p><strong>示例</strong>：一个简单的无向图，包含四个顶点（u, v, w, z）和四条边（e, f, g, h）。<br />
+<img src="../attach/Pasted%20image%2020240913161944.png" alt="" /><br />
+<img src="../attach/Pasted%20image%2020240913162001.png" alt="" /><br />
+顶点序列 (V) 包含所有顶点对象。<br />
+边序列 (E) 包含所有边对象，每个边对象都指向它所连接的两个顶点。</p>
+</li>
+</ul>
+<h3 id="33-领接表-adjacency-list"><a class="markdownIt-Anchor" href="#33-领接表-adjacency-list"></a> 3.3 领接表 (Adjacency List)</h3>
+<ul>
+<li>
+<p><strong>定义</strong>：对于每个顶点 v，存储一个包含所有与 v 相关的边的列表。每个顶点（如 u, v, w）维护一个与其相关的边的序列。这个序列包含了所有连接到该顶点的边。对于每个边对象，存储它连接的两个顶点。</p>
+</li>
+<li>
+<p><strong>示例</strong>：一个简单的无向图，有三个顶点 (u, v, w) 和两条边 (a, b)。<br />
+<img src="../attach/Pasted%20image%2020240913163006.png" alt="" /><br />
+每个顶点维护一个与其相连的边的列表（例如，顶点 v 维护边 a 和 b 的列表）。<br />
+每个边对象（例如 a 和 b）指向与其连接的顶点，并在相应的顶点序列中记录它们的位置。</p>
+</li>
+</ul>
+<h3 id="34-领接矩阵-adjacency-matrix"><a class="markdownIt-Anchor" href="#34-领接矩阵-adjacency-matrix"></a> 3.4 领接矩阵 (Adjacency Matrix)</h3>
+<p><img src="../attach/Pasted%20image%2020240913163519.png" alt="" /></p>
+<ul>
+<li><strong>顶点数组 (Vertex Array)</strong></li>
+</ul>
+<p>将每个顶点分配一个从 0 到 n-1 的唯一索引，其中 n 是图中的顶点数量。<br />
+顶点 u 被分配了索引 0，v 是 1，w 是 2，z 是 3。</p>
+<ul>
+<li><strong>二维数组表示 (2D-Array Adjacency Matrix)</strong></li>
+</ul>
+<p>使用一个二维数组（矩阵）A 来表示图的邻接关系。矩阵的大小为 𝑛×𝑛，其中 𝑛 是顶点的数量。<br />
+如果顶点 i 和顶点 j 之间存在边，则 <code>A[i][j]</code> 存储该边的引用（或者对于无权图来说是一个标志，例如 1 或 true）。<br />
+如果顶点 i 和顶点 j 之间没有边，则 <code>A[i][j]</code> 为 null 或 0。</p>
+<p>邻接矩阵的特点：</p>
+<p>边的引用（Reference to Edge Object）：<br />
+对于相邻的顶点（例如 u 和 v 之间的边 e），矩阵中对应位置存储边对象的引用。<br />
+空值（Null for Nonadjacent Vertices）：<br />
+对于不相邻的顶点，矩阵中对应位置为 null，表示没有边连接这两个顶点.</p>
+<h3 id="对比"><a class="markdownIt-Anchor" href="#对比"></a> 对比</h3>
+<p><img src="../attach/Pasted%20image%2020240913163814.png" alt="" /></p>
+<h2 id="4图的遍历graph-traversal"><a class="markdownIt-Anchor" href="#4图的遍历graph-traversal"></a> 4.图的遍历（Graph Traversal）</h2>
+<h3 id="41-深度优先搜索depth-first-search-dfs"><a class="markdownIt-Anchor" href="#41-深度优先搜索depth-first-search-dfs"></a> 4.1 深度优先搜索（Depth-First Search, DFS）</h3>
+<ul>
+<li>
+<p><strong>定义</strong>：从一个起始顶点开始，沿着一条路径一直走到不能走为止，然后返回到上一个顶点，继续走下一条路径，直到所有的路径都走完。</p>
+<p><img src="../attach/recording.gif" alt="" /></p>
+</li>
+</ul>
+<h3 id="42-广度优先搜索breadth-first-search-bfs"><a class="markdownIt-Anchor" href="#42-广度优先搜索breadth-first-search-bfs"></a> 4.2 广度优先搜索（Breadth-First Search, BFS）</h3>
+<ul>
+<li>
+<p><strong>定义</strong>：从一个起始顶点开始，先访问起始顶点的所有邻居，然后再访问邻居的邻居，依次类推。</p>
+<p><img src="../attach/recording%202.gif" alt="" /></p>
+</li>
+</ul>
+<h2 id="最短路径shortest-path"><a class="markdownIt-Anchor" href="#最短路径shortest-path"></a> 最短路径（Shortest Path）</h2>
+<h3 id="dijkstras-algorithm"><a class="markdownIt-Anchor" href="#dijkstras-algorithm"></a> Dijkstra’s Algorithm</h3>
+
+<div class="bvideo">
+  <a href="//www.bilibili.com/video/BV1zz4y1m7Nq" target="_blank">
+    <div class="bvideo-box">
+      <div class="bvideo-cover">
+        <div class="cover-default"></div>
+        <div class="bvideo-cover-layer" style="background-image:url(https://images.weserv.nl/?url=http://i2.hdslb.com/bfs/archive/bb2be62e92f789c3542fba01d528278dcb56c6f2.jpg)">
+          <i class="icon-video"></i>
+        </div>
+        <span class="duration">00:05:15</span>
+      </div>
+      <div class="bvideo-info">
+        <p class="title">【算法】最短路径查找—Dijkstra算法</p>
+        <div class="partition">
+          <span class="svg-up"></span>
+          <span class="up-name">从0开始数</span>
+        </div>
+        <div class="card-status">
+          <span class="play-num">
+            <span class="svg-play"></span>
+            <span style="vertical-align:middle;">93.8万</span>
+          </span>
+          <span>
+          <span class="svg-danmaku"></span>
+            <span style="vertical-align:middle;">792</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+<h2 id="最小生成树minimum-spanning-tree"><a class="markdownIt-Anchor" href="#最小生成树minimum-spanning-tree"></a> 最小生成树（Minimum Spanning Tree）</h2>
+<h3 id="prims-algorithm"><a class="markdownIt-Anchor" href="#prims-algorithm"></a> Prim’s Algorithm</h3>
+<h3 id="kruskals-algorithm"><a class="markdownIt-Anchor" href="#kruskals-algorithm"></a> Kruskal’s Algorithm</h3>
+
+<div class="bvideo">
+  <a href="//www.bilibili.com/video/BV1wG411z79G" target="_blank">
+    <div class="bvideo-box">
+      <div class="bvideo-cover">
+        <div class="cover-default"></div>
+        <div class="bvideo-cover-layer" style="background-image:url(https://images.weserv.nl/?url=http://i2.hdslb.com/bfs/archive/49b0a509c6258d1a0c934b71263040485d7b23d1.jpg)">
+          <i class="icon-video"></i>
+        </div>
+        <span class="duration">00:16:59</span>
+      </div>
+      <div class="bvideo-info">
+        <p class="title">图-最小生成树-Prim(普里姆)算法和Kruskal(克鲁斯卡尔)算法</p>
+        <div class="partition">
+          <span class="svg-up"></span>
+          <span class="up-name">蓝不过海呀</span>
+        </div>
+        <div class="card-status">
+          <span class="play-num">
+            <span class="svg-play"></span>
+            <span style="vertical-align:middle;">32.3万</span>
+          </span>
+          <span>
+          <span class="svg-danmaku"></span>
+            <span style="vertical-align:middle;">1054</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.433200.xyz">Xiaotan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.433200.xyz/62d774a6.html">https://www.433200.xyz/62d774a6.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.433200.xyz" target="_blank">Xiaotan's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a></div><div class="post_share"><div class="social-share" data-image="/attach/1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/attach/2wx.png" target="_blank"><img class="post-qr-code-img" src="/attach/2wx.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/attach/2zfb.png" target="_blank"><img class="post-qr-code-img" src="/attach/2zfb.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/8a8cf2ca.html" title="数据结构相关笔记①"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-11</div><div class="title">数据结构相关笔记①</div></div></a></div><div><a href="/fd8bc25c.html" title="数据结构相关笔记②"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-25</div><div class="title">数据结构相关笔记②</div></div></a></div><div><a href="/648293e6.html" title="数据结构相关笔记③"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">数据结构相关笔记③</div></div></a></div><div><a href="/1385a370.html" title="数据结构相关笔记④"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-29</div><div class="title">数据结构相关笔记④</div></div></a></div><div><a href="/8de136d3.html" title="数据结构相关笔记⑤"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-10</div><div class="title">数据结构相关笔记⑤</div></div></a></div><div><a href="/ed7d1563.html" title="数据结构相关笔记⑦"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-30</div><div class="title">数据结构相关笔记⑦</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5graph-basics"><span class="toc-text"> 1.图的基本概念（Graph Basics）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E5%9B%BE%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text"> 1.1 图的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-%E8%BE%B9%E7%9A%84%E7%B1%BB%E5%9E%8Bedge-types"><span class="toc-text"> 1.2 边的类型（Edge Types）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AFapplications"><span class="toc-text"> 1.3 应用场景（Applications）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E5%9B%BE%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E6%9C%AF%E8%AF%AD-graph-concepts-and-terminology"><span class="toc-text"> 2.图的概念和术语 (Graph Concepts and Terminology)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#21-%E8%B7%AF%E5%BE%84path"><span class="toc-text"> 2.1 路径（Path）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22-%E7%8E%AFcycle"><span class="toc-text"> 2.2 环（Cycle）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-%E5%AD%90%E5%9B%BEsubgraph"><span class="toc-text"> 2.3 子图（Subgraph）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24-%E8%BF%9E%E9%80%9A%E6%80%A7connectivity"><span class="toc-text"> 2.4 连通性（Connectivity）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25-%E6%A0%91%E5%92%8C%E6%A3%AE%E6%9E%97tree-and-forest"><span class="toc-text"> 2.5 树和森林（Tree and Forest）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E5%9B%BE%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95graph-data-structure"><span class="toc-text"> 3.图的数据结构和实现方法（Graph Data Structure）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#31-%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8Badt%E6%96%B9%E6%B3%95%E8%AF%B4%E6%98%8E"><span class="toc-text"> 3.1 抽象数据类型（ADT）方法说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#32-%E8%BE%B9%E5%88%97%E8%A1%A8-edge-list"><span class="toc-text"> 3.2 边列表 (Edge List)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#33-%E9%A2%86%E6%8E%A5%E8%A1%A8-adjacency-list"><span class="toc-text"> 3.3 领接表 (Adjacency List)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#34-%E9%A2%86%E6%8E%A5%E7%9F%A9%E9%98%B5-adjacency-matrix"><span class="toc-text"> 3.4 领接矩阵 (Adjacency Matrix)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94"><span class="toc-text"> 对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86graph-traversal"><span class="toc-text"> 4.图的遍历（Graph Traversal）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#41-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2depth-first-search-dfs"><span class="toc-text"> 4.1 深度优先搜索（Depth-First Search, DFS）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#42-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2breadth-first-search-bfs"><span class="toc-text"> 4.2 广度优先搜索（Breadth-First Search, BFS）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84shortest-path"><span class="toc-text"> 最短路径（Shortest Path）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dijkstras-algorithm"><span class="toc-text"> Dijkstra’s Algorithm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91minimum-spanning-tree"><span class="toc-text"> 最小生成树（Minimum Spanning Tree）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#prims-algorithm"><span class="toc-text"> Prim’s Algorithm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#kruskals-algorithm"><span class="toc-text"> Kruskal’s Algorithm</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2002 - 2025 By Xiaotan</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.staticfile.net/instant.page/5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://xtbolg.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://xtbolg.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(init,0)
+    else getScript('https://cdn.staticfile.net/twikoo/1.6.30/twikoo.all.min.js').then(init)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script defer src="/js/universe.js"></script><canvas id="universe"></canvas><script async src="/js/title.js"></script><div class="aplayer no-destroy" data-id="13582149382" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-order="random" data-pjax> </div><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.staticfile.net/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.staticfile.net/aplayer/1.10.1/APlayer.min.js"></script><script src="/js/meting.min.js"></script><script src="https://cdn.staticfile.net/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="https://cn.vercount.one/js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/学习/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 学习笔记 (37)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/折腾/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🔧 折腾记录 (12)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/心理/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👓 心理/MBTI (7)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/菜谱/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🍜 好吃的 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://www.433200.xyz/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #FFC0CB}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v6.2.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.3.1" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用多线部署，主线路托管于Vercel" title=""><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://dashboard.4everland.org/" style="margin-inline:5px" data-title="本站采用多线部署，备用线路托管于4EVERLAND" title=""><img src="https://img.shields.io/badge/Hosted-4EVERLAND-22DDDD?style=flat&amp;logo=IPFS" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-info');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-tags');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-webinfo');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.staticfile.net/wow/1.1.2/wow.min.js"></script><script defer src="/js/wow_init.js"></script><!-- hexo injector body_end end --></body></html>

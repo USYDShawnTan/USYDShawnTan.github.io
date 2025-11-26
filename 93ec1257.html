@@ -1,0 +1,523 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+<!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>数据库相关笔记③ | Xiaotan's Blog</title><meta name="author" content="Xiaotan"><meta name="copyright" content="Xiaotan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数据库相关笔记①数据库相关笔记②数据库相关笔记③数据库相关笔记④  Integrity Constraints (ICs) 完整性约束 完整性约束是数据库中的一种机制，用于确保数据的准确性和一致性。这些约束可以在创建表或之后的任何时间定义。主要有以下几种类型的完整性约束：  主键约束（Primary Key Constraint）：确保列（或列组合）具有唯一的值，并且每个表中的每一行都有一个主键值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库相关笔记③">
+<meta property="og:url" content="https://www.433200.xyz/93ec1257.html">
+<meta property="og:site_name" content="Xiaotan&#39;s Blog">
+<meta property="og:description" content="数据库相关笔记①数据库相关笔记②数据库相关笔记③数据库相关笔记④  Integrity Constraints (ICs) 完整性约束 完整性约束是数据库中的一种机制，用于确保数据的准确性和一致性。这些约束可以在创建表或之后的任何时间定义。主要有以下几种类型的完整性约束：  主键约束（Primary Key Constraint）：确保列（或列组合）具有唯一的值，并且每个表中的每一行都有一个主键值">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.433200.xyz/attach/1.png">
+<meta property="article:published_time" content="2024-05-20T12:44:28.000Z">
+<meta property="article:modified_time" content="2025-11-26T05:19:10.597Z">
+<meta property="article:author" content="Xiaotan">
+<meta property="article:tag" content="#数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.433200.xyz/attach/1.png"><link rel="shortcut icon" href="/attach/2.png"><link rel="canonical" href="https://www.433200.xyz/93ec1257.html"><link rel="preconnect" href="//cdnjs.cloudflare.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdnjs.cloudflare.com/ajax/libs/egjs-infinitegrid/4.11.1/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数据库相关笔记③',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-26 13:19:10'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link href="https://cdn.staticfile.net/lxgw-wenkai-webfont/1.7.0/style.min.css" rel="stylesheet"><!-- hexo injector head_end start --><link rel="stylesheet" href="/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.staticfile.net/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="/css/progress_bar.css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/attach/1.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/webs/"><i class="fa-fw fab fa-webflow"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Xiaotan's Blog"><span class="site-name">Xiaotan's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/webs/"><i class="fa-fw fab fa-webflow"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">数据库相关笔记③</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-20T12:44:28.000Z" title="发表于 2024-05-20 20:44:28">2024-05-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-26T05:19:10.597Z" title="更新于 2025-11-26 13:19:10">2025-11-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span id="" data-flag-title="数据库相关笔记③"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/93ec1257.html#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ol><li><a href="/7de2737b.html" title="数据库相关笔记①">数据库相关笔记①</a></li><li><a href="/ae543ed.html" title="数据库相关笔记②">数据库相关笔记②</a></li><li><a href="/93ec1257.html" title="数据库相关笔记③">数据库相关笔记③</a></li><li><a href="/e4eb22c1.html" title="数据库相关笔记④">数据库相关笔记④</a></li></ol>
+<h1 id="integrity-constraints-ics-完整性约束"><a class="markdownIt-Anchor" href="#integrity-constraints-ics-完整性约束"></a> Integrity Constraints (ICs) 完整性约束</h1>
+<p>完整性约束是数据库中的一种机制，用于确保数据的准确性和一致性。这些约束可以在创建表或之后的任何时间定义。主要有以下几种类型的完整性约束：</p>
+<ul>
+<li>主键约束（Primary Key Constraint）：确保列（或列组合）具有唯一的值，并且每个表中的每一行都有一个主键值。</li>
+<li>唯一约束（Unique Constraint）：确保列（或列组合）的所有值都是唯一的。</li>
+<li>外键约束（Foreign Key Constraint）：确保引用另一个表的数据的完整性。</li>
+<li>非空约束（Not Null Constraint）：确保列不能有 NULL 值。</li>
+<li>检查约束（Check Constraint）：确保列中的值满足指定的条件。</li>
+</ul>
+<h2 id="优点"><a class="markdownIt-Anchor" href="#优点"></a> 优点</h2>
+<ul>
+<li>数据一致性：完整性约束确保了数据库中的数据满足预定义的规则，从而保证了数据的一致性。</li>
+<li>数据准确性：通过防止无效数据输入到数据库，完整性约束提高了数据的准确性。</li>
+<li>避免冗余：主键和唯一约束避免了数据的冗余，提高了数据的效率。</li>
+<li>引用完整性：外键约束保证了在相关表之间的数据的引用完整性。</li>
+<li>业务规则实施：检查约束允许数据库在表级别实施业务规则。</li>
+</ul>
+<h2 id="static-integrity-constraints-静态完整性约束"><a class="markdownIt-Anchor" href="#static-integrity-constraints-静态完整性约束"></a> Static Integrity Constraints 静态完整性约束</h2>
+<p>Static Integrity Constraints，也被称为静态完整性约束，是数据库中的一种约束，它要求数据库中的所有数据在任何时候都必须满足某些特定的条件。这些约束是在数据库定义时指定的，并且在数据库的整个生命周期中都保持不变。</p>
+<p>静态完整性约束：</p>
+<ul>
+<li>键约束（Key Constraints）：确保某一列（或列的组合）在表中具有唯一值，每个表中的每一行都有一个主键值。</li>
+<li>外键约束（Foreign Key Constraints）是数据库中的一种约束，它用于建立两个表之间的链接。外键是一个表中的字段，它的值匹配另一个表的主键。<br />
+例如，如果你有一个订单表和一个客户表，订单表中可能有一个客户 ID 字段，这个字段是客户表的主键的外键。外键约束会确保每个订单都对应一个真实存在的客户。</li>
+<li>域约束（Domain Constraints）：这种约束定义了一个字段可以包含的值的范围。<br />
+例如，一个年龄字段可能被限制为只能包含 0 到 100 之间的整数。</li>
+<li>域检查约束（Domain Check Constraints）是数据库中的一种约束，它定义了一个字段可以接受的值的范围或类型。<br />
+例如，如果你有一个年龄字段，你可能会设置一个域检查约束，以确保年龄字段只能包含 0 到 100 之间的整数。如果试图插入一个负数或超过 100 的值，数据库将拒绝这个操作并返回一个错误。（不是 我就不能活到 100 岁吗？）</li>
+<li>参照完整性约束（Referential Integrity Constraints）：这种约束要求在一个表中引用另一个表的数据时，被引用的数据必须真实存在。<br />
+例如，如果一个订单表中有一个字段引用了客户表中的客户 ID，那么每个订单中的客户 ID 必须在客户表中有对应的记录。</li>
+<li>语义完整性约束（Semantic Integrity Constraints）：这是一种更高级的约束，它涉及到数据的含义和业务规则。例如：
+<ul>
+<li>一个规则可能是“员工的工资不能超过其经理的工资”。</li>
+<li>学生的年龄不能小于 5 岁，也不能大于 30 岁。这是一个关于学生年龄的业务规则。</li>
+<li>一个订单的总价不能小于其中所有商品价格的总和。这是一个关于订单和商品价格的业务规则。</li>
+<li>一个员工的入职日期不能晚于他的离职日期。这是一个关于员工入职和离职日期的业务规则。</li>
+</ul>
+</li>
+<li>完整性约束命名（Naming Integrity Constraints）是数据库设计中的一个重要步骤，它可以帮助你更好地理解和管理你的数据库约束。约束的命名应该清晰、简洁，并且能够准确地描述约束的作用。<br />
+例如，如果你有一个约束是确保员工的工资不能超过其经理的工资，你可以将这个约束命名为&quot;EmployeeSalaryLessThanManager&quot;。</li>
+<li>断言（Assertions）：这是一种特殊类型的约束，它在整个数据库而不仅仅是单个表上定义条件。<br />
+例如，一个断言可能是“所有部门的总预算必须小于公司的总预算”</li>
+</ul>
+<h2 id="延迟约束检查deferring-constraint-checking"><a class="markdownIt-Anchor" href="#延迟约束检查deferring-constraint-checking"></a> 延迟约束检查（Deferring Constraint Checking）</h2>
+<p>延迟约束检查（Deferring Constraint Checking）可以分为两种类型：不可延迟（Immediate）和可延迟（Deferrable）。</p>
+<ul>
+<li>
+<p>不可延迟（Immediate）：这是默认的类型，数据库在每次数据变更（如 INSERT、UPDATE 或 DELETE）后立即检查约束。如果约束条件不满足，数据库将回滚变更并返回错误。</p>
+</li>
+<li>
+<p>可延迟（Deferrable）：在这种类型下，数据库将约束检查推迟到事务结束时进行。这在某些情况下是非常有用的，例如，当你需要在同一个事务中更新两个相互引用的表时。</p>
+</li>
+</ul>
+<h2 id="dynamic-integrity-constraints-动态完整性约束"><a class="markdownIt-Anchor" href="#dynamic-integrity-constraints-动态完整性约束"></a> Dynamic Integrity Constraints 动态完整性约束</h2>
+<p>动态完整性约束（Dynamic Integrity Constraints）是数据库中的一种约束，它主要关注数据库状态的变化。这种约束通常用于确保数据库事务不会导致违反预定义规则的数据库状态。</p>
+<p>动态完整性约束通常通过触发器（Triggers）或存储过程（Stored Procedures）来实现。例如，您可能有一个规则，即“库存数量不能小于 0”。当有一个事务试图将库存数量减少到 0 以下时，动态完整性约束会阻止这个事务的执行。</p>
+<h2 id="触发器trigger"><a class="markdownIt-Anchor" href="#触发器trigger"></a> 触发器（Trigger）</h2>
+<p>触发器（Trigger）通常由三部分组成：事件（Event）、前置条件（Precondition）和动作（Action）。</p>
+<ul>
+<li>
+<p>事件（Event）：这是触发器被激活的数据库操作，例如 INSERT、UPDATE 或 DELETE。</p>
+</li>
+<li>
+<p>前置条件（Precondition）：这是一个可选的测试，用于确定是否应执行触发器。例如，你可能只想在更新特定字段时才触发触发器。</p>
+</li>
+<li>
+<p>动作（Action）：这是当触发器被激活时要执行的操作。这可以是一系列的 SQL 语句，例如，更新其他表，或者插入日志记录等。</p>
+</li>
+</ul>
+<p>创建触发器（Create Trigger）通常需要以下几个步骤：</p>
+<p>使用 CREATE TRIGGER 语句开始。</p>
+<p>指定触发器的名称。</p>
+<p>指定触发器的触发事件，可以是 INSERT、UPDATE 或 DELETE。</p>
+<p>指定触发器的触发时间，可以是 BEFORE 或 AFTER。</p>
+<p>在 BEGIN 和 END 之间编写触发器的动作，这可以是一系列的 SQL 语句。</p>
+<p>以下是一个创建触发器的示例：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> trigger_name</span><br><span class="line">BEFORE <span class="keyword">INSERT</span> <span class="keyword">ON</span> table_name</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="type">ROW</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
+<p>在创建触发器时，你可以选择触发器是在每行数据变更时触发（FOR EACH ROW），还是在每个 SQL 语句执行时触发（FOR EACH STATEMENT）。</p>
+<ul>
+<li>
+<p><code>FOR EACH ROW</code>：如果 INSERT、UPDATE 或 DELETE 影响多行数据，触发器会为每行数据执行一次。</p>
+</li>
+<li>
+<p><code>FOR EACH STATEMENT</code>：无论 INSERT、UPDATE 或 DELETE 影响多少行数据，触发器只会执行一次。</p>
+</li>
+</ul>
+<p>此外，你还可以使用 <code>OLD</code> 和 <code>NEW</code> 关键字来引用被修改的数据：</p>
+<ul>
+<li>
+<p><code>OLD</code>：引用被删除或更新前的旧数据。</p>
+</li>
+<li>
+<p><code>NEW</code>：引用将要插入或更新的新数据。</p>
+</li>
+</ul>
+<h1 id="transaction-事务"><a class="markdownIt-Anchor" href="#transaction-事务"></a> Transaction 事务</h1>
+<p>事务是数据库处理的基本单位，它是一系列操作，Begin 开始 Commit 结尾，这些操作要么全部执行，要么全部不执行。事务具有以下四个重要的属性，通常被称为 ACID 属性：</p>
+<ul>
+<li>原子性（Atomicity）：事务是一个不可分割的工作单位，事务中包含的操作要么全部完成，要么全部不做。</li>
+<li>一致性（Consistency）：事务必须使数据库从一个一致性状态转变为另一个一致性状态。</li>
+<li>隔离性（Isolation）：事务的执行不会被其他事务干扰。即一个事务内部的操作及使用的数据对并发的其他事务是隔离的，并发执行的各个事务之间不能互相干扰。</li>
+<li>持久性（Durability）：一旦事务提交，则其结果就是永久的，即使系统出现故障也不会丢失。</li>
+</ul>
+<h2 id="事务回滚transaction-rollback"><a class="markdownIt-Anchor" href="#事务回滚transaction-rollback"></a> 事务回滚（Transaction Rollback）</h2>
+<p>在数据库中，<code>ROLLBACK</code> 是一个重要的命令，它用于撤销未提交的事务。如果在事务中的某个点发生错误，或者你决定不再需要事务中的更改，你可以使用 <code>ROLLBACK</code> 命令来撤销事务。</p>
+<p>在 Python 中，你可以使用 sqlite3 库（或其他数据库库，如 psycopg2 对于 PostgreSQL，pymysql 对于 MySQL 等）来执行 ROLLBACK 操作。以下是一个基本的示例：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">import psycopg2</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">  # 连接到数据库</span><br><span class="line">  conn <span class="operator">=</span> psycopg2.connect(<span class="string">&#x27;my_database.db&#x27;</span>)</span><br><span class="line">  curs <span class="operator">=</span> conn.cursor()</span><br><span class="line"></span><br><span class="line">  # 执行一些<span class="keyword">SQL</span>操作</span><br><span class="line">  curs.execute(&quot;INSERT INTO my_table VALUES (?, ?)&quot;, (value1, value2))</span><br><span class="line"></span><br><span class="line">  # 提交事务</span><br><span class="line">  conn.commit()</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">  # 如果在事务中发生错误，回滚事务</span><br><span class="line">  print(&quot;An error occurred: &quot;, e)</span><br><span class="line">  conn.rollback()</span><br><span class="line"></span><br><span class="line">finally:</span><br><span class="line">  # 关闭数据库连接</span><br><span class="line">  curs.close()</span><br></pre></td></tr></table></figure>
+<p>这段代码是 Python 操作数据库的一部分，主要包含了错误处理和数据库连接的清理工作。</p>
+<ul>
+<li>
+<p><code>conn.commit()</code>：这是提交事务的操作。在数据库中，事务是一种保证数据一致性的机制。当你对数据库进行一系列操作（如 INSERT、UPDATE 或 DELETE）时，你可以将这些操作放在一个事务中，然后一起提交。如果在事务中的任何操作失败，整个事务都会被回滚，数据库将恢复到事务开始之前的状态。</p>
+</li>
+<li>
+<p><code>except:</code>：这是 Python 的错误处理机制。如果在<code>try</code>块中的代码执行过程中发生任何错误，控制流将立即跳转到<code>except</code>块。</p>
+</li>
+<li>
+<p><code>conn.rollback()</code>：这是回滚事务的操作。如果在事务中发生错误，你可以使用<code>rollback</code>方法撤销事务，数据库将恢复到事务开始之前的状态。</p>
+</li>
+</ul>
+<h2 id="并发事务和串行化serializability"><a class="markdownIt-Anchor" href="#并发事务和串行化serializability"></a> 并发事务和串行化（Serializability）</h2>
+<p>在数据库中，当多个事务同时访问和修改数据时，就会发生并发事务。为了保证数据的一致性和完整性，数据库系统需要对并发事务进行管理。</p>
+<p>串行化（Serializability）是一种并发控制的方法，它要求并发事务的执行结果必须与某种串行执行的结果相同。换句话说，无论事务是并发执行还是串行执行，最终的数据库状态都应该是一样的。</p>
+<p>假设我们有两个事务 T1 和 T2，它们都要操作同一份数据。</p>
+<p>事务 T1：读取一个值，增加 100，然后写回。<br />
+事务 T2：读取同一个值，减少 50，然后写回。<br />
+如果这两个事务串行执行，即先执行 T1，然后执行 T2，那么最终的结果将是原始值增加 50。</p>
+<p>但是，如果这两个事务并发执行，可能会出现以下情况：</p>
+<p>T1 读取原始值。<br />
+T2 读取原始值。<br />
+T1 增加 100，写回新值。<br />
+T2 减少 50，写回新值。<br />
+在这种情况下，T1 的修改被 T2 覆盖，最终的结果是原始值减少 50，这与串行执行的结果不一致。</p>
+<p>为了避免这种情况，我们需要使用串行化（Serializability）来保证并发事务的正确执行。在串行化的环境中，数据库系统会使用锁或其他并发控制机制来确保事务的执行结果与串行执行的结果一致。</p>
+<h2 id="可串行调度serializable-schedule"><a class="markdownIt-Anchor" href="#可串行调度serializable-schedule"></a> 可串行调度（Serializable schedule）</h2>
+<p>可串行调度（Serializable schedule）是数据库并发控制的一种策略，它要求并发事务的执行结果必须与某种串行执行的结果相同。换句话说，无论事务是并发执行还是串行执行，最终的数据库状态都应该是一样的。</p>
+<p>在可串行调度中，数据库系统会使用各种并发控制机制（如两阶段锁定协议）来确保事务的执行结果与串行执行的结果一致。这样可以避免并发事务带来的各种问题，如丢失更新、脏读、不可重复读和幻读。</p>
+<h2 id="冲突可串行化conflict-serializability"><a class="markdownIt-Anchor" href="#冲突可串行化conflict-serializability"></a> 冲突可串行化（Conflict Serializability）</h2>
+<p>冲突可串行化（Conflict Serializability）是一种并发控制的策略，它要求并发事务的冲突操作（即对同一数据项的读写操作）的顺序必须与某种串行执行的顺序相同。</p>
+<p>例子：我们有两个事务 T1 和 T2，它们分别操作两个不同的表 X 和 Y。</p>
+<ul>
+<li>事务 T1：读取表 X 的一个值（R1(X)），然后修改这个值（W1(X)）。</li>
+<li>事务 T2：读取表 Y 的一个值（R2(Y)），然后修改这个值（W2(Y)）。</li>
+</ul>
+<p>如果这两个事务串行执行，即先执行 T1，然后执行 T2，那么执行顺序将是：R1(X), W1(X), R2(Y), W2(Y)。</p>
+<p>但是，因为 T1 和 T2 操作的是不同的表，它们之间没有冲突操作。<br />
+这意味着，无论是并发执行还是串行执行，最终的结果都是一样的。这就是冲突可串行化的一个例子。</p>
+<p>例子，我们有两个事务 T1 和 T2，它们都要操作同一份数据 X 和 Y。</p>
+<ul>
+<li>事务 T1：读取 X 和 Y 的值（R1(X), R1(Y)），然后修改这些值（W1(X), W1(Y)）。</li>
+<li>事务 T2：读取 X 和 Y 的值（R2(X), R2(Y)），然后修改这些值（W2(X), W2(Y)）。</li>
+</ul>
+<p>如果这两个事务串行执行，即先执行 T1，然后执行 T2，<br />
+那么执行顺序将是：R1(X), R1(Y), W1(X), W1(Y), R2(X), R2(Y), W2(X), W2(Y)。</p>
+<p>但是，如果我们尝试将这两个事务并发执行，可能会出现以下情况：</p>
+<ol>
+<li>T1 读取 X 的值（R1(X)）。</li>
+<li>T1 读取 Y 的值（R1(Y)）。</li>
+<li>T2 读取 X 的值（R2(X)）。</li>
+<li>T2 读取 Y 的值（R2(Y)）。</li>
+<li>T1 修改 Y 的值（W1(Y)）。</li>
+<li>T2 修改 X 的值（W2(X)）。</li>
+<li>T2 修改 Y 的值（W2(Y)）。</li>
+<li>T1 修改 X 的值（W1(X)）。</li>
+</ol>
+<p>在这种情况下，我们可以看到，R2(X)与 W1(X)冲突，R2(Y)与 W1(Y)冲突，W2(X)与 W1(X)冲突，W1(Y)与 W1(X)冲突，因此这个调度是非冲突可串行化的。但是，R1(X)与 R2(X)不冲突，因为它们都是读操作。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.433200.xyz">Xiaotan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.433200.xyz/93ec1257.html">https://www.433200.xyz/93ec1257.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.433200.xyz" target="_blank">Xiaotan's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">#数据库</a></div><div class="post_share"><div class="social-share" data-image="/attach/1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/attach/2wx.png" target="_blank"><img class="post-qr-code-img" src="/attach/2wx.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/attach/2zfb.png" target="_blank"><img class="post-qr-code-img" src="/attach/2zfb.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/7de2737b.html" title="数据库相关笔记①"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-20</div><div class="title">数据库相关笔记①</div></div></a></div><div><a href="/ae543ed.html" title="数据库相关笔记②"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-20</div><div class="title">数据库相关笔记②</div></div></a></div><div><a href="/e4eb22c1.html" title="数据库相关笔记④"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-20</div><div class="title">数据库相关笔记④</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#integrity-constraints-ics-%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F"><span class="toc-text"> Integrity Constraints (ICs) 完整性约束</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-text"> 优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#static-integrity-constraints-%E9%9D%99%E6%80%81%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F"><span class="toc-text"> Static Integrity Constraints 静态完整性约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9F%E7%BA%A6%E6%9D%9F%E6%A3%80%E6%9F%A5deferring-constraint-checking"><span class="toc-text"> 延迟约束检查（Deferring Constraint Checking）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dynamic-integrity-constraints-%E5%8A%A8%E6%80%81%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F"><span class="toc-text"> Dynamic Integrity Constraints 动态完整性约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A6%E5%8F%91%E5%99%A8trigger"><span class="toc-text"> 触发器（Trigger）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#transaction-%E4%BA%8B%E5%8A%A1"><span class="toc-text"> Transaction 事务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E5%8A%A1%E5%9B%9E%E6%BB%9Atransaction-rollback"><span class="toc-text"> 事务回滚（Transaction Rollback）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E4%BA%8B%E5%8A%A1%E5%92%8C%E4%B8%B2%E8%A1%8C%E5%8C%96serializability"><span class="toc-text"> 并发事务和串行化（Serializability）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E4%B8%B2%E8%A1%8C%E8%B0%83%E5%BA%A6serializable-schedule"><span class="toc-text"> 可串行调度（Serializable schedule）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B2%E7%AA%81%E5%8F%AF%E4%B8%B2%E8%A1%8C%E5%8C%96conflict-serializability"><span class="toc-text"> 冲突可串行化（Conflict Serializability）</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2002 - 2025 By Xiaotan</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.staticfile.net/instant.page/5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://xtbolg.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://xtbolg.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(init,0)
+    else getScript('https://cdn.staticfile.net/twikoo/1.6.30/twikoo.all.min.js').then(init)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script defer src="/js/universe.js"></script><canvas id="universe"></canvas><script async src="/js/title.js"></script><div class="aplayer no-destroy" data-id="13582149382" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-order="random" data-pjax> </div><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.staticfile.net/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.staticfile.net/aplayer/1.10.1/APlayer.min.js"></script><script src="/js/meting.min.js"></script><script src="https://cdn.staticfile.net/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="https://cn.vercount.one/js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/学习/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 学习笔记 (37)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/折腾/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🔧 折腾记录 (12)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/心理/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👓 心理/MBTI (7)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/菜谱/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🍜 好吃的 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://www.433200.xyz/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #FFC0CB}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v6.2.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.3.1" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用多线部署，主线路托管于Vercel" title=""><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://dashboard.4everland.org/" style="margin-inline:5px" data-title="本站采用多线部署，备用线路托管于4EVERLAND" title=""><img src="https://img.shields.io/badge/Hosted-4EVERLAND-22DDDD?style=flat&amp;logo=IPFS" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-info');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-tags');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-webinfo');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.staticfile.net/wow/1.1.2/wow.min.js"></script><script defer src="/js/wow_init.js"></script><!-- hexo injector body_end end --></body></html>

@@ -1,0 +1,683 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+<!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计组相关笔记④ | Xiaotan's Blog</title><meta name="author" content="Xiaotan"><meta name="copyright" content="Xiaotan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="什么计组学到最后变成计网了！？？  计组相关笔记①计组相关笔记②计组相关笔记③计组相关笔记④  计算机与网络组织  互联网  互联网的定义 互联网是连接了数百万台计算设备的网络，这些设备包括：  主机：运行网络应用程序的终端系统 通信链路：光纤、铜线、无线电、卫星，其传输速率（比特&#x2F;秒）定义了带宽 分组交换机：转发数据包（数据块），例如路由器和交换机   互联网的组成 互联网可以被视为“网络的网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计组相关笔记④">
+<meta property="og:url" content="https://www.433200.xyz/8e4b6846.html">
+<meta property="og:site_name" content="Xiaotan&#39;s Blog">
+<meta property="og:description" content="什么计组学到最后变成计网了！？？  计组相关笔记①计组相关笔记②计组相关笔记③计组相关笔记④  计算机与网络组织  互联网  互联网的定义 互联网是连接了数百万台计算设备的网络，这些设备包括：  主机：运行网络应用程序的终端系统 通信链路：光纤、铜线、无线电、卫星，其传输速率（比特&#x2F;秒）定义了带宽 分组交换机：转发数据包（数据块），例如路由器和交换机   互联网的组成 互联网可以被视为“网络的网络">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.433200.xyz/attach/1.png">
+<meta property="article:published_time" content="2024-05-20T12:42:08.000Z">
+<meta property="article:modified_time" content="2025-11-26T05:19:10.599Z">
+<meta property="article:author" content="Xiaotan">
+<meta property="article:tag" content="#计组">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.433200.xyz/attach/1.png"><link rel="shortcut icon" href="/attach/2.png"><link rel="canonical" href="https://www.433200.xyz/8e4b6846.html"><link rel="preconnect" href="//cdnjs.cloudflare.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdnjs.cloudflare.com/ajax/libs/egjs-infinitegrid/4.11.1/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计组相关笔记④',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-26 13:19:10'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link href="https://cdn.staticfile.net/lxgw-wenkai-webfont/1.7.0/style.min.css" rel="stylesheet"><!-- hexo injector head_end start --><link rel="stylesheet" href="/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.staticfile.net/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="/css/progress_bar.css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/attach/1.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/webs/"><i class="fa-fw fab fa-webflow"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Xiaotan's Blog"><span class="site-name">Xiaotan's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/webs/"><i class="fa-fw fab fa-webflow"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计组相关笔记④</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-20T12:42:08.000Z" title="发表于 2024-05-20 20:42:08">2024-05-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-26T05:19:10.599Z" title="更新于 2025-11-26 13:19:10">2025-11-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span id="" data-flag-title="计组相关笔记④"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/8e4b6846.html#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="note info modern"><p>什么计组学到最后变成计网了！？？</p>
+</div>
+<ol><li><a href="/174239bb.html" title="计组相关笔记①">计组相关笔记①</a></li><li><a href="/68e0ed44.html" title="计组相关笔记②">计组相关笔记②</a></li><li><a href="/8e4b6801.html" title="计组相关笔记③">计组相关笔记③</a></li><li><a href="/8e4b6846.html" title="计组相关笔记④">计组相关笔记④</a></li></ol>
+<h1 id="计算机与网络组织"><a class="markdownIt-Anchor" href="#计算机与网络组织"></a> 计算机与网络组织</h1>
+<h2 id="互联网"><a class="markdownIt-Anchor" href="#互联网"></a> 互联网</h2>
+<h3 id="互联网的定义"><a class="markdownIt-Anchor" href="#互联网的定义"></a> 互联网的定义</h3>
+<p>互联网是连接了数百万台计算设备的网络，这些设备包括：</p>
+<ul>
+<li>主机：运行网络应用程序的终端系统</li>
+<li>通信链路：光纤、铜线、无线电、卫星，其传输速率（比特/秒）定义了带宽</li>
+<li>分组交换机：转发数据包（数据块），例如路由器和交换机</li>
+</ul>
+<h3 id="互联网的组成"><a class="markdownIt-Anchor" href="#互联网的组成"></a> 互联网的组成</h3>
+<p>互联网可以被视为“网络的网络”，由互连的 ISP 组成。互联网中的所有通信活动都由协议管理，例如 TCP，IP，HTTP，Skype，802.11 等。这些协议控制消息的发送和接收。</p>
+<h3 id="互联网的标准"><a class="markdownIt-Anchor" href="#互联网的标准"></a> 互联网的标准</h3>
+<p>互联网的标准通常以 RFC（请求评论）的形式发布，并由 IETF（互联网工程任务组）进行维护。</p>
+<h3 id="互联网作为服务的基础设施"><a class="markdownIt-Anchor" href="#互联网作为服务的基础设施"></a> 互联网作为服务的基础设施</h3>
+<p>互联网提供了各种服务的基础设施，包括网络、VoIP、电子邮件、游戏、电子商务、社交网络等。它还提供了应用程序的编程接口，使应用程序能够通过连接到互联网来发送和接收消息。</p>
+<h2 id="协议"><a class="markdownIt-Anchor" href="#协议"></a> 协议</h2>
+<h3 id="什么是协议"><a class="markdownIt-Anchor" href="#什么是协议"></a> 什么是协议？</h3>
+<p>协议定义了网络实体之间发送和接收消息的格式、顺序以及消息传输和接收时采取的操作。这不仅包括人类协议，如“现在几点了？”或“我有个问题”，也包括网络协议，这些协议由机器而不是人来管理。</p>
+<h3 id="协议的例子"><a class="markdownIt-Anchor" href="#协议的例子"></a> 协议的例子</h3>
+<p>一个人类协议和一个计算机网络协议的例子：</p>
+<ul>
+<li>“你好” - “你好”</li>
+<li>“现在几点了？” - “2:00”</li>
+<li>TCP 连接请求 - TCP 连接响应</li>
+<li>获取<a target="_blank" rel="noopener" href="http://www.sydney.edu.au">http://www.sydney.edu.au</a> - &lt;文件&gt;</li>
+</ul>
+<hr />
+<h2 id="网络分层"><a class="markdownIt-Anchor" href="#网络分层"></a> 网络分层</h2>
+<p>网络是复杂的，包含许多组成部分，如主机、路由器、各种介质的链路、应用程序、协议、硬件和软件。为了更好地组织网络结构，我们可以将其分层。</p>
+<h3 id="分层的类比航空旅行"><a class="markdownIt-Anchor" href="#分层的类比航空旅行"></a> 分层的类比：航空旅行</h3>
+<p>航空旅行的组织可以作为网络分层的一个类比。航空旅行包括一系列步骤，如购票、行李检查、登机、起飞、飞行路线、投诉、行李提取、卸货和着陆。每一步都可以看作是网络组织中的一层。</p>
+<p>在航空旅行中，每一层通过其自身的内部操作实现服务，同时依赖于下一层提供的服务。例如，购票、行李检查、登机、起飞、飞行路线、出发机场、到达机场和中间的空中交通管制中心。</p>
+<h3 id="互联网协议栈"><a class="markdownIt-Anchor" href="#互联网协议栈"></a> 互联网协议栈</h3>
+<p>互联网协议栈是网络分层的一个具体实例，包括以下层次：</p>
+<ul>
+<li>应用层：支持网络应用，如 FTP，SMTP，HTTP</li>
+<li>传输层：处理数据传输，如 TCP，UDP</li>
+<li>网络层：负责从源到目的地的数据报路由，如 IP，路由协议</li>
+<li>链路层：处理相邻网络元素之间的数据传输，如以太网，802.11（WiFi），PPP</li>
+<li>物理层：处理在线路上的比特</li>
+</ul>
+<h3 id="isoosi-参考模型"><a class="markdownIt-Anchor" href="#isoosi-参考模型"></a> ISO/OSI 参考模型</h3>
+<p>ISO/OSI 参考模型是另一个网络分层的模型，它包括两个额外的层：</p>
+<ul>
+<li>表示层：允许应用程序解释数据的含义，如加密、压缩、机器特定约定</li>
+<li>会话层：负责同步、检查点、数据交换恢复</li>
+</ul>
+<p>需要注意的是，互联网协议栈缺少这些层；如果需要这些服务，必须在应用层实现。</p>
+<hr />
+<h2 id="网络结构"><a class="markdownIt-Anchor" href="#网络结构"></a> 网络结构</h2>
+<h3 id="网络边缘"><a class="markdownIt-Anchor" href="#网络边缘"></a> 网络边缘</h3>
+<p>网络边缘包括：</p>
+<ul>
+<li>主机：客户端和服务器（通常在数据中心）</li>
+<li>接入网络，物理媒体：有线，无线通信链路</li>
+</ul>
+<h3 id="网络核心"><a class="markdownIt-Anchor" href="#网络核心"></a> 网络核心</h3>
+<p>网络核心包括：</p>
+<ul>
+<li>互连的路由器，网络的网络</li>
+</ul>
+<h2 id="接入网络和物理媒体"><a class="markdownIt-Anchor" href="#接入网络和物理媒体"></a> 接入网络和物理媒体</h2>
+<h3 id="接入网络"><a class="markdownIt-Anchor" href="#接入网络"></a> 接入网络</h3>
+<p>接入网络的主要问题是如何将终端系统连接到边缘路由器。这包括：</p>
+<ul>
+<li>住宅接入网</li>
+<li>机构接入网（学校、公司）</li>
+<li>移动接入网</li>
+</ul>
+<p>我们需要考虑接入网络的带宽（每秒比特数）以及是共享还是专用。</p>
+<h3 id="主机发送数据包"><a class="markdownIt-Anchor" href="#主机发送数据包"></a> 主机发送数据包</h3>
+<p>主机发送数据包的功能包括：</p>
+<ul>
+<li>接收应用程序消息，分解成长度为 L 比特的小块（数据包）</li>
+<li>以传输速率 R（链路容量或链路带宽）将数据包传输到接入网络</li>
+</ul>
+<h2 id="物理媒体"><a class="markdownIt-Anchor" href="#物理媒体"></a> 物理媒体</h2>
+<p>物理媒体是比特在发送器/接收器对之间传播的物理链路。物理链路可以是：</p>
+<ul>
+<li>有导介质：信号在固体介质中传播（铜线、光纤、同轴电缆）</li>
+<li>无导介质：信号自由传播（例如，无线电）</li>
+</ul>
+<h3 id="有导介质"><a class="markdownIt-Anchor" href="#有导介质"></a> 有导介质</h3>
+<p>有导介质包括：</p>
+<ul>
+<li>双绞线：两根绝缘铜线（5 类：100 Mbps，6a 类：10 Gbps）</li>
+<li>同轴电缆：两根同心铜导体，双向，宽带</li>
+<li>光纤电缆：玻璃纤维传输光脉冲，高速，低错误率</li>
+</ul>
+<hr />
+<h2 id="网络核心-2"><a class="markdownIt-Anchor" href="#网络核心-2"></a> 网络核心</h2>
+<p>网络核心是互连路由器的网状结构。它主要负责如何从端到端传输数据，主要有两种方式：分组交换和电路交换。</p>
+<h3 id="分组交换"><a class="markdownIt-Anchor" href="#分组交换"></a> 分组交换</h3>
+<p>分组交换是主机将应用层消息分解为数据包，从一个路由器转发到下一个路由器的过程。</p>
+<h4 id="存储转发"><a class="markdownIt-Anchor" href="#存储转发"></a> 存储转发</h4>
+<p>存储转发是整个数据包必须到达路由器，然后才能在下一条链路上传输的过程。例如，传输 L 比特的数据包到链路以 R bps 速率需要 L/R 秒。端到端延迟为 2L/R（假设零传播延迟）。例如，如果 L = 7.5 Mbits，R = 1.5 Mbps，那么延迟 = 5 秒。</p>
+<h4 id="排队延迟和丢包"><a class="markdownIt-Anchor" href="#排队延迟和丢包"></a> 排队延迟和丢包</h4>
+<p>如果在一段时间内到达链路的速率超过链路的传输速率，数据包将排队等待在链路上传输。如果内存（缓冲区）满了，数据包可能会被丢弃（丢包）。</p>
+<h4 id="转发和路由"><a class="markdownIt-Anchor" href="#转发和路由"></a> 转发和路由</h4>
+<p>转发是将数据包从路由器的输入移动到适当的路由器输出的过程。路由则是确定数据包从源到目的地的路径，包括路由算法和本地转发表。</p>
+<h3 id="电路交换"><a class="markdownIt-Anchor" href="#电路交换"></a> 电路交换</h3>
+<p>电路交换是为源和目的地之间的“呼叫”分配和保留端到端资源的过程。每条链路都有有限数量的电路，呼叫获得专用电路段。这些资源是专用的，不共享，因此可以提供类似电路的（有保证的）性能。</p>
+<h4 id="频分多路复用和时分多路复用"><a class="markdownIt-Anchor" href="#频分多路复用和时分多路复用"></a> 频分多路复用和时分多路复用</h4>
+<p>频分多路复用（FDM）和时分多路复用（TDM）是电路交换的两种主要技术。频分多路复用是不同的频道在不同的频带中传输，而时分多路复用是不同的频道在不同的时间槽中传输。</p>
+<h3 id="分组交换与电路交换的比较"><a class="markdownIt-Anchor" href="#分组交换与电路交换的比较"></a> 分组交换与电路交换的比较</h3>
+<p>分组交换允许更多用户使用网络，非常适合突发数据，资源共享，更简单，无需呼叫设置。但是，分组交换可能会遭受过度拥塞，导致数据包延迟和丢失，需要协议进行可靠的数据传输和拥塞控制。</p>
+<hr />
+<h2 id="网络延迟"><a class="markdownIt-Anchor" href="#网络延迟"></a> 网络延迟</h2>
+<p>网络延迟主要有四个来源：</p>
+<ul>
+<li><strong>节点处理延迟 (dproc):</strong> 检查比特错误，确定输出链路，通常 &lt; 毫秒</li>
+<li><strong>排队延迟 (dqueue):</strong> 在输出链路等待传输的时间，取决于路由器的拥塞程度</li>
+<li><strong>传输延迟 (dtrans):</strong> L: 数据包长度（比特），R: 链路带宽（bps），dtrans = L/R</li>
+<li><strong>传播延迟 (dprop):</strong> d: 物理链路长度，s: 介质中的传播速度 (~2x10^8 米/秒)，dprop = d/s</li>
+</ul>
+<h2 id="车队类比"><a class="markdownIt-Anchor" href="#车队类比"></a> 车队类比</h2>
+<p>我们可以通过车队类比来理解网络延迟：</p>
+<ul>
+<li>汽车以 100 公里/小时的速度“传播”</li>
+<li>收费站需要 12 秒钟为一辆车服务（比特传输时间）</li>
+<li>汽车 ~ 比特；车队 ~ 数据包</li>
+</ul>
+<h3 id="车队类比的计算"><a class="markdownIt-Anchor" href="#车队类比的计算"></a> 车队类比的计算</h3>
+<ul>
+<li>将整个车队推进收费站到高速公路的时间 = 12*10 = 120 秒</li>
+<li>最后一辆车从第一个收费站到第二个收费站的传播时间：100 公里/(100 公里/小时) = 1 小时</li>
+<li>因此，车队排到第二个收费站前需要的总时间为：62 分钟</li>
+</ul>
+<h2 id="排队延迟"><a class="markdownIt-Anchor" href="#排队延迟"></a> 排队延迟</h2>
+<p>排队延迟的计算公式为：</p>
+<ul>
+<li>R: 链路带宽（bps）</li>
+<li>L: 数据包长度（比特）</li>
+<li>a: 数据包到达率</li>
+<li>流量强度 = La/R
+<ul>
+<li>La/R ~ 0: 小排队延迟</li>
+<li>La/R &gt;~ 1: 大排队延迟</li>
+<li>La/R &gt; 1: 到达的数据包超过处理能力，平均延迟无穷大</li>
+</ul>
+</li>
+</ul>
+<h2 id="网络路径和延迟"><a class="markdownIt-Anchor" href="#网络路径和延迟"></a> 网络路径和延迟</h2>
+<p>我们可以使用 Traceroute 程序来测量从源到路由器沿端到端互联网路径的延迟。</p>
+<h2 id="数据包丢失"><a class="markdownIt-Anchor" href="#数据包丢失"></a> 数据包丢失</h2>
+<p>数据包丢失通常是由于前一个链路的队列（即缓冲区）容量有限，到达满队列的数据包将被丢弃（即丢失）。丢失的数据包可能由上一个节点、源端系统或根本不重新传输。</p>
+<h2 id="吞吐量"><a class="markdownIt-Anchor" href="#吞吐量"></a> 吞吐量</h2>
+<p>吞吐量是发送方/接收方之间比特传输的速率（比特/时间单位）。</p>
+<ul>
+<li>瞬时：给定时间点的速率</li>
+<li>平均：较长时间段的速率</li>
+</ul>
+<h3 id="吞吐量的计算"><a class="markdownIt-Anchor" href="#吞吐量的计算"></a> 吞吐量的计算</h3>
+<ul>
+<li>Rs &lt; Rc：平均端到端吞吐量是多少？</li>
+<li>Rs &gt; Rc：平均端到端吞吐量是多少？</li>
+</ul>
+<h3 id="吞吐量的应用场景"><a class="markdownIt-Anchor" href="#吞吐量的应用场景"></a> 吞吐量的应用场景</h3>
+<p>在互联网场景下，例如 10 个客户端从 10 个服务器下载文件：</p>
+<ul>
+<li>每个连接的端到端吞吐量：min(Rc, Rs, R/10)</li>
+<li>实际中：Rc 或 Rs 通常是瓶颈</li>
+</ul>
+<hr />
+<h2 id="web-和-http"><a class="markdownIt-Anchor" href="#web-和-http"></a> Web 和 HTTP</h2>
+<p>Web 页面由对象组成，如 HTML 文件、JPEG 图像、Java applet、音频文件等。一个网页由基 HTML 文件组成，其中包含多个引用对象。每个对象可通过 URL 寻址（例如，<a target="_blank" rel="noopener" href="http://www.someschool.edu/someDept/pic.gif%EF%BC%89%E3%80%82">www.someschool.edu/someDept/pic.gif）。</a></p>
+<h3 id="http-概述"><a class="markdownIt-Anchor" href="#http-概述"></a> HTTP 概述</h3>
+<p>HTTP（超文本传输协议）采用客户端/服务器模型：</p>
+<ul>
+<li><strong>客户端</strong>：使用 HTTP 协议请求、接收和显示 Web 对象的浏览器</li>
+<li><strong>服务器</strong>：使用 HTTP 协议响应请求并发送对象的 Web 服务器</li>
+</ul>
+<p>HTTP 使用 TCP 进行通信，客户端发起到服务器的 TCP 连接（创建套接字）到端口 80，服务器接受客户端的 TCP 连接。HTTP 消息在浏览器（HTTP 客户端）和 Web 服务器（HTTP 服务器）之间交换，然后关闭 TCP 连接。值得注意的是，HTTP 是无状态的，服务器不维护过去客户端请求的信息。</p>
+<h3 id="http-连接"><a class="markdownIt-Anchor" href="#http-连接"></a> HTTP 连接</h3>
+<p>HTTP 连接可以分为非持久 HTTP 和持久 HTTP：</p>
+<ul>
+<li><strong>非持久 HTTP</strong>：在 TCP 连接上最多发送一个对象，然后关闭连接。下载多个对象需要多个连接。</li>
+<li><strong>持久 HTTP</strong>：客户端和服务器之间可以通过单个 TCP 连接发送多个对象。</li>
+</ul>
+<h3 id="http-请求消息"><a class="markdownIt-Anchor" href="#http-请求消息"></a> HTTP 请求消息</h3>
+<p>HTTP 请求消息是 ASCII（人类可读格式）：</p>
+<ul>
+<li>请求行（GET、POST、HEAD 命令）</li>
+<li>标头行</li>
+<li>行首的回车换行表示标头行结束</li>
+</ul>
+<p>HTTP 请求消息的通用格式包括请求行、标头行和主体（可选）。</p>
+<h3 id="http-方法"><a class="markdownIt-Anchor" href="#http-方法"></a> HTTP 方法</h3>
+<p>HTTP 方法包括 POST、GET、PUT、DELETE 和 HEAD：</p>
+<ul>
+<li><strong>POST</strong>：用户填写表单时使用</li>
+<li><strong>GET</strong>：请求对象时使用，对象在 URL 字段中标识</li>
+<li><strong>PUT</strong>：用于将对象上传到特定 Web 服务器的特定路径</li>
+<li><strong>DELETE</strong>：用于删除 Web 服务器上的对象</li>
+<li><strong>HEAD</strong>：类似于 GET，但省略请求的对象，用于调试</li>
+</ul>
+<h3 id="http-响应消息"><a class="markdownIt-Anchor" href="#http-响应消息"></a> HTTP 响应消息</h3>
+<p>HTTP 响应消息包括状态行（协议、状态代码、状态短语）、标头行和数据（例如，请求的 HTML 文件）。</p>
+<h3 id="http-响应状态代码"><a class="markdownIt-Anchor" href="#http-响应状态代码"></a> HTTP 响应状态代码</h3>
+<p>状态代码出现在服务器到客户端响应消息的第一行，例如：</p>
+<ul>
+<li>200 OK：请求成功，请求的对象在消息中稍后出现</li>
+<li>301 Moved Permanently：请求的对象已移动，新位置在消息中指定</li>
+<li>400 Bad Request：服务器无法理解请求消息</li>
+<li>404 Not Found：服务器上未找到请求的文档</li>
+<li>505 HTTP Version Not Supported</li>
+</ul>
+<h3 id="用户服务器状态cookie"><a class="markdownIt-Anchor" href="#用户服务器状态cookie"></a> 用户服务器状态：Cookie</h3>
+<p>虽然 HTTP 服务器是无状态的，简化了服务器设计并允许开发高性能 Web 服务器，但 Cookie 允许网站识别用户并跟踪其状态。Cookie 技术组件包括 HTTP 响应消息的 Cookie 标头行、下一个 HTTP 请求消息中的 Cookie 标头行、保存在用户主机上的 Cookie 文件（由浏览器管理）和网站的后端数据库。</p>
+<p>Cookie 的用途包括授权、购物车、推荐和用户会话状态（例如，Web 电子邮件）。然而，Cookie 也涉及到隐私问题，因为它允许网站了解用户的许多信息，用户可能会向网站提供个人信息。</p>
+<h2 id="web-缓存与性能测量"><a class="markdownIt-Anchor" href="#web-缓存与性能测量"></a> Web 缓存与性能测量</h2>
+<h3 id="web-缓存代理服务器"><a class="markdownIt-Anchor" href="#web-缓存代理服务器"></a> Web 缓存（代理服务器）</h3>
+<p>Web 缓存通过以下方式访问 Web：</p>
+<ul>
+<li>浏览器将所有 HTTP 请求发送到缓存。</li>
+<li>如果对象在缓存中，则缓存返回对象。</li>
+<li>否则，缓存从原始服务器请求对象，然后返回给客户端。</li>
+</ul>
+<p>目标是在不涉及原始服务器的情况下满足客户端请求。</p>
+<h3 id="web-缓存的角色和目标"><a class="markdownIt-Anchor" href="#web-缓存的角色和目标"></a> Web 缓存的角色和目标</h3>
+<p>缓存既作为客户端又作为服务器：</p>
+<ul>
+<li>对原始请求客户端来说是服务器。</li>
+<li>对原始服务器来说是客户端。</li>
+</ul>
+<p>通常，缓存由 ISP（大学、公司、住宅 ISP）安装。</p>
+<p>Web 缓存的目标包括：</p>
+<ul>
+<li>减少客户端请求的响应时间。</li>
+<li>减少机构访问链接上的流量。</li>
+</ul>
+<h3 id="web-缓存的性能测量"><a class="markdownIt-Anchor" href="#web-缓存的性能测量"></a> Web 缓存的性能测量</h3>
+<p>以下是一些假设和结果的示例，以说明 Web 缓存如何影响性能：</p>
+<h4 id="示例-1基本情况"><a class="markdownIt-Anchor" href="#示例-1基本情况"></a> 示例 1：基本情况</h4>
+<p>假设：</p>
+<ul>
+<li>平均对象大小：100K 比特</li>
+<li>浏览器到原始服务器的平均请求率：15 次/秒</li>
+<li>从互联网路由器到任何原始服务器的 RTT：2 秒</li>
+<li>访问链路速率：1.54 Mbps</li>
+</ul>
+<p>结果：</p>
+<ul>
+<li>局域网利用率：0.15%</li>
+<li>访问链路利用率：97.4%</li>
+<li>总延迟：互联网延迟 + 访问延迟 + 局域网延迟 = 2 秒 + 分钟 + 微秒</li>
+</ul>
+<h4 id="示例-2增加访问链路速度"><a class="markdownIt-Anchor" href="#示例-2增加访问链路速度"></a> 示例 2：增加访问链路速度</h4>
+<p>假设与示例 1 相同。</p>
+<p>结果：</p>
+<ul>
+<li>局域网利用率：0.15%</li>
+<li>访问链路利用率：0.974%</li>
+<li>总延迟：互联网延迟 + 访问延迟 + 局域网延迟 = 2 秒 + 分钟 + 微秒</li>
+</ul>
+<p>成本：增加访问链路速度（不便宜！）</p>
+<h4 id="示例-3安装本地缓存"><a class="markdownIt-Anchor" href="#示例-3安装本地缓存"></a> 示例 3：安装本地缓存</h4>
+<p>假设与示例 1 相同。</p>
+<p>结果：</p>
+<ul>
+<li>局域网利用率：15%</li>
+<li>访问链路利用率：？</li>
+<li>总延迟：？</li>
+</ul>
+<p>成本：Web 缓存（便宜！）</p>
+<h3 id="使用缓存计算访问链路利用率和延迟"><a class="markdownIt-Anchor" href="#使用缓存计算访问链路利用率和延迟"></a> 使用缓存计算访问链路利用率和延迟</h3>
+<p>假设缓存命中率为 0.4：</p>
+<ul>
+<li>40%的请求在缓存中满足，60%的请求在原始服务器中满足</li>
+<li>访问链路利用率：60%的请求使用访问链路</li>
+<li>总延迟：0.6 _（来自原始服务器的延迟）+ 0.4 _（在缓存中满足时的延迟）= 0.6（2.01）+ 0.4（~毫秒）= ~1.2 秒</li>
+</ul>
+<h3 id="条件-get"><a class="markdownIt-Anchor" href="#条件-get"></a> 条件 GET</h3>
+<p>条件 GET 的目标是，如果缓存有最新的缓存版本，则不发送对象。缓存在 HTTP 请求中指定缓存副本的日期（If-modified-since: <date>）。如果缓存副本是最新的，服务器在响应中不包含对象（HTTP/1.0 304 Not Modified）。</p>
+<hr />
+<h2 id="计算机性能测量"><a class="markdownIt-Anchor" href="#计算机性能测量"></a> 计算机性能测量</h2>
+<h3 id="目标"><a class="markdownIt-Anchor" href="#目标"></a> 目标</h3>
+<ul>
+<li>了解计算机性能的各种测量。</li>
+<li>使用这些思想来构建或改进系统性能。</li>
+<li>讨论影响系统性能的因素和改进程序性能的技巧。</li>
+</ul>
+<h3 id="性能测量的数学基础"><a class="markdownIt-Anchor" href="#性能测量的数学基础"></a> 性能测量的数学基础</h3>
+<ul>
+<li>通过测量完成相同工作量的时间来比较性能。</li>
+<li>如果系统 A 比系统 B 快 n 倍，如果系统 A 比系统 B 快 x%。</li>
+<li>示例：两辆赛车，A 车在 2 分钟内完成比赛，B 车在 3 分钟内完成比赛。A 车比 B 车快 1.5 倍，比 B 车快 50%。</li>
+<li>在评估系统性能时，我们关注给定工作负载下的预期性能。</li>
+<li>使用衡量集中趋势的统计工具。</li>
+<li>算术平均数（平均值）是最熟悉的度量。</li>
+<li>如果数据偏斜或分散，算术平均数可能会产生误导。</li>
+<li>如果已知执行频率（预期工作负载），加权平均数可以揭示性能。</li>
+<li>但是，工作负载可能会随时间变化。</li>
+<li>针对一种工作负载优化的系统在工作负载变化时可能表现不佳。</li>
+<li>如果我们的测量值表现出很大的变异性，我们不能使用算术平均数。</li>
+<li>几何平均数是比较系统相对性能的首选度量。</li>
+<li>几何平均数通常使用被测系统和参考机器之间的标准化比率。</li>
+<li>无论使用哪种系统作为参考，几何平均数的比率是一致的。</li>
+<li>几何平均数不提供系统性能的真实期望，只是一个比较工具。</li>
+<li>调和平均数提供了一种比较表示为速率的执行时间的方法。</li>
+<li>调和平均数使我们能够形成吞吐量的数学期望，并比较相对吞吐量。</li>
+<li>调和平均数适用于预测机器行为和改善最慢的性能。</li>
+<li>各性能度量适用时间的总结。</li>
+</ul>
+<h3 id="性能基准测试"><a class="markdownIt-Anchor" href="#性能基准测试"></a> 性能基准测试</h3>
+<ul>
+<li>性能基准测试是对系统性能进行客观评估的科学。</li>
+<li>性价比可以从标准基准测试中得出。</li>
+<li>CPU 速度通常与性能等同，但这只有在 ISA 相同的情况下才有效。</li>
+<li>不同的 ISA 可以在相同的墙钟时间内产生相同的结果。</li>
+<li>合成基准测试试图描述与时钟速度和 ISA 无关的性能。</li>
+<li>早期的合成基准测试（例如，Whetstone，Dhrystone，Linpack）很小且易于优化，限制了它们的实用性。</li>
+</ul>
+<h3 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h3>
+<ul>
+<li>性能度量（算术平均数，几何平均数，调和平均数）有特定的用途和限制。</li>
+<li>基准测试提供了一种客观评估系统性能的方法，但必须谨慎使用以避免误导结果。</li>
+</ul>
+<h3 id="实用提示"><a class="markdownIt-Anchor" href="#实用提示"></a> 实用提示</h3>
+<ul>
+<li>使用适合被评估工作负载和系统的性能度量。</li>
+<li>考虑平均和最坏情况下的性能，以获得完整的画面。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.433200.xyz">Xiaotan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.433200.xyz/8e4b6846.html">https://www.433200.xyz/8e4b6846.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.433200.xyz" target="_blank">Xiaotan's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%BB%84/">#计组</a></div><div class="post_share"><div class="social-share" data-image="/attach/1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/attach/2wx.png" target="_blank"><img class="post-qr-code-img" src="/attach/2wx.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/attach/2zfb.png" target="_blank"><img class="post-qr-code-img" src="/attach/2zfb.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/174239bb.html" title="计组相关笔记①"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-20</div><div class="title">计组相关笔记①</div></div></a></div><div><a href="/68e0ed44.html" title="计组相关笔记②"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-20</div><div class="title">计组相关笔记②</div></div></a></div><div><a href="/8e4b6801.html" title="计组相关笔记③"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-20</div><div class="title">计组相关笔记③</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E7%BD%91%E7%BB%9C%E7%BB%84%E7%BB%87"><span class="toc-text"> 计算机与网络组织</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91"><span class="toc-text"> 互联网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text"> 互联网的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-text"> 互联网的组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E6%A0%87%E5%87%86"><span class="toc-text"> 互联网的标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E4%BD%9C%E4%B8%BA%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD"><span class="toc-text"> 互联网作为服务的基础设施</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE"><span class="toc-text"> 协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8D%8F%E8%AE%AE"><span class="toc-text"> 什么是协议？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%8F%E8%AE%AE%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="toc-text"> 协议的例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%88%86%E5%B1%82"><span class="toc-text"> 网络分层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B1%82%E7%9A%84%E7%B1%BB%E6%AF%94%E8%88%AA%E7%A9%BA%E6%97%85%E8%A1%8C"><span class="toc-text"> 分层的类比：航空旅行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE%E6%A0%88"><span class="toc-text"> 互联网协议栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#isoosi-%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-text"> ISO&#x2F;OSI 参考模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="toc-text"> 网络结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%BE%B9%E7%BC%98"><span class="toc-text"> 网络边缘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%A0%B8%E5%BF%83"><span class="toc-text"> 网络核心</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%85%A5%E7%BD%91%E7%BB%9C%E5%92%8C%E7%89%A9%E7%90%86%E5%AA%92%E4%BD%93"><span class="toc-text"> 接入网络和物理媒体</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%85%A5%E7%BD%91%E7%BB%9C"><span class="toc-text"> 接入网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="toc-text"> 主机发送数据包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%AA%92%E4%BD%93"><span class="toc-text"> 物理媒体</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E5%AF%BC%E4%BB%8B%E8%B4%A8"><span class="toc-text"> 有导介质</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%A0%B8%E5%BF%83-2"><span class="toc-text"> 网络核心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2"><span class="toc-text"> 分组交换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E8%BD%AC%E5%8F%91"><span class="toc-text"> 存储转发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%92%E9%98%9F%E5%BB%B6%E8%BF%9F%E5%92%8C%E4%B8%A2%E5%8C%85"><span class="toc-text"> 排队延迟和丢包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AC%E5%8F%91%E5%92%8C%E8%B7%AF%E7%94%B1"><span class="toc-text"> 转发和路由</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2"><span class="toc-text"> 电路交换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%91%E5%88%86%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E5%92%8C%E6%97%B6%E5%88%86%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8"><span class="toc-text"> 频分多路复用和时分多路复用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2%E4%B8%8E%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-text"> 分组交换与电路交换的比较</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%BB%B6%E8%BF%9F"><span class="toc-text"> 网络延迟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%A6%E9%98%9F%E7%B1%BB%E6%AF%94"><span class="toc-text"> 车队类比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%A6%E9%98%9F%E7%B1%BB%E6%AF%94%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text"> 车队类比的计算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E9%98%9F%E5%BB%B6%E8%BF%9F"><span class="toc-text"> 排队延迟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%B7%AF%E5%BE%84%E5%92%8C%E5%BB%B6%E8%BF%9F"><span class="toc-text"> 网络路径和延迟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%8C%85%E4%B8%A2%E5%A4%B1"><span class="toc-text"> 数据包丢失</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%9E%E5%90%90%E9%87%8F"><span class="toc-text"> 吞吐量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%9E%E5%90%90%E9%87%8F%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text"> 吞吐量的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%9E%E5%90%90%E9%87%8F%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text"> 吞吐量的应用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web-%E5%92%8C-http"><span class="toc-text"> Web 和 HTTP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#http-%E6%A6%82%E8%BF%B0"><span class="toc-text"> HTTP 概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http-%E8%BF%9E%E6%8E%A5"><span class="toc-text"> HTTP 连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http-%E8%AF%B7%E6%B1%82%E6%B6%88%E6%81%AF"><span class="toc-text"> HTTP 请求消息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http-%E6%96%B9%E6%B3%95"><span class="toc-text"> HTTP 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http-%E5%93%8D%E5%BA%94%E6%B6%88%E6%81%AF"><span class="toc-text"> HTTP 响应消息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http-%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81%E4%BB%A3%E7%A0%81"><span class="toc-text"> HTTP 响应状态代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8A%B6%E6%80%81cookie"><span class="toc-text"> 用户服务器状态：Cookie</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web-%E7%BC%93%E5%AD%98%E4%B8%8E%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F"><span class="toc-text"> Web 缓存与性能测量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#web-%E7%BC%93%E5%AD%98%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text"> Web 缓存（代理服务器）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web-%E7%BC%93%E5%AD%98%E7%9A%84%E8%A7%92%E8%89%B2%E5%92%8C%E7%9B%AE%E6%A0%87"><span class="toc-text"> Web 缓存的角色和目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web-%E7%BC%93%E5%AD%98%E7%9A%84%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F"><span class="toc-text"> Web 缓存的性能测量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B-1%E5%9F%BA%E6%9C%AC%E6%83%85%E5%86%B5"><span class="toc-text"> 示例 1：基本情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B-2%E5%A2%9E%E5%8A%A0%E8%AE%BF%E9%97%AE%E9%93%BE%E8%B7%AF%E9%80%9F%E5%BA%A6"><span class="toc-text"> 示例 2：增加访问链路速度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B-3%E5%AE%89%E8%A3%85%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98"><span class="toc-text"> 示例 3：安装本地缓存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98%E8%AE%A1%E7%AE%97%E8%AE%BF%E9%97%AE%E9%93%BE%E8%B7%AF%E5%88%A9%E7%94%A8%E7%8E%87%E5%92%8C%E5%BB%B6%E8%BF%9F"><span class="toc-text"> 使用缓存计算访问链路利用率和延迟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6-get"><span class="toc-text"> 条件 GET</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F"><span class="toc-text"> 计算机性能测量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87"><span class="toc-text"> 目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8F%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80"><span class="toc-text"> 性能测量的数学基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E5%9F%BA%E5%87%86%E6%B5%8B%E8%AF%95"><span class="toc-text"> 性能基准测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text"> 总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%94%A8%E6%8F%90%E7%A4%BA"><span class="toc-text"> 实用提示</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2002 - 2025 By Xiaotan</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.staticfile.net/instant.page/5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://xtbolg.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://xtbolg.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(init,0)
+    else getScript('https://cdn.staticfile.net/twikoo/1.6.30/twikoo.all.min.js').then(init)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script defer src="/js/universe.js"></script><canvas id="universe"></canvas><script async src="/js/title.js"></script><div class="aplayer no-destroy" data-id="13582149382" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-order="random" data-pjax> </div><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.staticfile.net/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.staticfile.net/aplayer/1.10.1/APlayer.min.js"></script><script src="/js/meting.min.js"></script><script src="https://cdn.staticfile.net/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="https://cn.vercount.one/js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/学习/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 学习笔记 (37)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/折腾/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🔧 折腾记录 (12)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/心理/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👓 心理/MBTI (7)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/菜谱/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🍜 好吃的 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://www.433200.xyz/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #FFC0CB}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v6.2.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.3.1" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用多线部署，主线路托管于Vercel" title=""><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://dashboard.4everland.org/" style="margin-inline:5px" data-title="本站采用多线部署，备用线路托管于4EVERLAND" title=""><img src="https://img.shields.io/badge/Hosted-4EVERLAND-22DDDD?style=flat&amp;logo=IPFS" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-info');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-tags');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-webinfo');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.staticfile.net/wow/1.1.2/wow.min.js"></script><script defer src="/js/wow_init.js"></script><!-- hexo injector body_end end --></body></html>
