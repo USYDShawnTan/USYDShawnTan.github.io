@@ -1,0 +1,789 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Xiaotan's Blog - 欢迎光临</title><meta name="author" content="Xiaotan"><meta name="copyright" content="Xiaotan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Xiaotan&#39;s Blog">
+<meta property="og:url" content="https://www.433200.xyz/page/3/index.html">
+<meta property="og:site_name" content="Xiaotan&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.433200.xyz/attach/1.png">
+<meta property="article:author" content="Xiaotan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.433200.xyz/attach/1.png"><link rel="shortcut icon" href="/attach/2.png"><link rel="canonical" href="https://www.433200.xyz/page/3/index.html"><link rel="preconnect" href="//cdnjs.cloudflare.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdnjs.cloudflare.com/ajax/libs/egjs-infinitegrid/4.11.1/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Xiaotan\'s Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2026-03-11 21:36:49'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link href="https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-webfont/1.7.0/style.min.css" rel="stylesheet"><!-- hexo injector head_end start --><link rel="stylesheet" href="/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="/css/progress_bar.css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/attach/1.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/webs/"><i class="fa-fw fab fa-webflow"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page home" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Xiaotan's Blog"><span class="site-name">Xiaotan's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/webs/"><i class="fa-fw fab fa-webflow"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Xiaotan's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://space.bilibili.com/145901309" target="_blank" title="Bilibili"><i class="fab fa-bilibili"></i></a><a class="social-icon" href="https://github.com/USYDShawnTan" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xiaotanyyds@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1fc8eec1.html" title="B站24小时直播">B站24小时直播</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-21T13:09:18.000Z" title="发表于 2024-05-21 21:09:18">2024-05-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a></span></div><div class="content"> 准备
+
+
+最好使用 24 小时不关机的机器，安装 ubuntu
+
+
+安装 ffmpeg
+
+
+sudo apt install ffmpeg
+
+准备直播的视频
+
+ 推流脚本
+
+新建一个.sh 文件
+复制粘贴就行
+
+#!/bin/bashfolder=&quot;/home/xt/zb/&quot; #这里改成你的文件夹地址read -p &quot;请输入您的直播推流地址(形式为rtmp地址): &quot; rtmpwhile truedo    cd $folder    for video in $(ls *.mp4)    do        echo &#x27;正在播放: $&#123;video&#125;&#x27;        echo $(date +%F%N%T)        ffmpeg -re -i &quot;$video&quot; -vcodec copy -acodec copy -f flv $&#123;rtmp&#125;    donedone
+ 推流地址
+点这个链接打开: blibilli
+
+点开始直播 推流码是这两个拼接
+
+ 开启直播
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/709b21f3.html" title="tmux的用法">tmux的用法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-21T08:59:49.000Z" title="发表于 2024-05-21 16:59:49">2024-05-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a></span></div><div class="content">Tmux 是一个终端复用器，它允许用户在单个终端窗口中访问多个终端会话，并且能够将会话从一个终端分离出来，然后在另一个终端重新连接。这对于远程工作和需要保持长时间运行程序的场景非常有用。以下是一些基本的 tmux 命令和用法：
+在大多数 Linux 发行版中，可以通过包管理器安装：
+sudo apt-get install tmux  # Debian/Ubuntusudo yum install tmux      # CentOS/RHEL
+基本命令
+
+启动新会话:
+
+tmux new -s 会话名称
+
+附加到现有会话:
+
+tmux attach -t 会话名称
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/e4eb22c1.html" title="数据库相关笔记④">数据库相关笔记④</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-20T12:44:30.000Z" title="发表于 2024-05-20 20:44:30">2024-05-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="content">数据库相关笔记①数据库相关笔记②数据库相关笔记③数据库相关笔记④
+ 闭包 Closure
+例如，假设我们有以下函数依赖性：
+A -&gt; B
+B -&gt; C
+那么，属性集合 {A} 的闭包就是 {A, B, C}，因为 A 可以决定 B，B 可以决定 C。
+闭包的概念在数据库设计（特别是在进行范式分解）中非常重要，因为它可以帮助我们理解和使用函数依赖性。
+ 范式
+ 1NF (第一范式)
+第一范式要求数据库表的每一列都是不可分割的原子数据项。换句话说，每一列都应该是最小的数据单位，不能再被分割。
+例如，一个违反第一范式的表可能如下：
+
+
+
+ID
+Name
+
+
+
+
+1
+张三, 李四
+
+
+
+在这个例子中，“Name” 列包含了两个名字，违反了第一范式。应该将其分割为两行：
+
+
+
+ID
+Name
+
+
+
+
+1
+张三
+
+
+2
+李四
+
+
+
+ 2NF (第二范式)
+第二范式要求数据库表满足第一范式的基础上，非主键列完全依赖于主键（如果主键是组合键，则必须完全依赖于整个组合键）。
+例如，一个违反第二范式的表可能如下：
+
+
+
+ID
+Course
+Teacher
+
+
+
+
+1
+Math
+张三
+
+
+1
+E ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/93ec1257.html" title="数据库相关笔记③">数据库相关笔记③</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-20T12:44:28.000Z" title="发表于 2024-05-20 20:44:28">2024-05-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="content">数据库相关笔记①数据库相关笔记②数据库相关笔记③数据库相关笔记④
+ Integrity Constraints (ICs) 完整性约束
+完整性约束是数据库中的一种机制，用于确保数据的准确性和一致性。这些约束可以在创建表或之后的任何时间定义。主要有以下几种类型的完整性约束：
+
+主键约束（Primary Key Constraint）：确保列（或列组合）具有唯一的值，并且每个表中的每一行都有一个主键值。
+唯一约束（Unique Constraint）：确保列（或列组合）的所有值都是唯一的。
+外键约束（Foreign Key Constraint）：确保引用另一个表的数据的完整性。
+非空约束（Not Null Constraint）：确保列不能有 NULL 值。
+检查约束（Check Constraint）：确保列中的值满足指定的条件。
+
+ 优点
+
+数据一致性：完整性约束确保了数据库中的数据满足预定义的规则，从而保证了数据的一致性。
+数据准确性：通过防止无效数据输入到数据库，完整性约束提高了数据的准确性。
+避免冗余：主键和唯一约束避免了数据的冗余，提高了数据的效率。
+引用完整性：外键约束保证 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/ae543ed.html" title="数据库相关笔记②">数据库相关笔记②</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-20T12:44:25.000Z" title="发表于 2024-05-20 20:44:25">2024-05-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="content">数据库相关笔记①数据库相关笔记②数据库相关笔记③数据库相关笔记④
+ SQL
+ Introduction to SQL
+SQL is a declarative language which means that you use it to describe what data you are interested in, but not how it should be retrieved. The database system uses a variety of algorithms internally to produce the query result. With declarative languages such as SQL, you do not need to worry about these implementation details.
+ Query
+Your task is to write an SQL query. Your query must output the name and age of all students in the Studen ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/7de2737b.html" title="数据库相关笔记①">数据库相关笔记①</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-20T12:44:22.000Z" title="发表于 2024-05-20 20:44:22">2024-05-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="content">数据库相关笔记①数据库相关笔记②数据库相关笔记③数据库相关笔记④
+ Relational Algebra(RA)关系代数
+关系代数（Relational Algebra，RA）是一种用于查询和操作关系数据库的理论语言。它主要包括一组操作符，如选择（Selection），投影（Projection），并集（Union），交集（Intersection），差集（Difference），笛卡尔积（Cartesian Product），重命名（Rename）等，这些操作符可以用于操作数据库中的表（也称为关系）。
+关系代数是关系数据库理论的基础，SQL 等查询语言的设计就是基于关系代数的理论。
+关系代数的主要优点是它提供了一种形式化的方法来表示数据库操作，这对于理解和优化查询非常有用。
+ 投影（Projection，π）操作
+投影操作用于从表中提取我们需要的列。
+投影操作会删除不在投影列表（projectionlist）中的列，并且移除结果中的重复行。
+投影操作完成后，结果集的属性（attribute）将与投影列表中的属性一致。
+假设我们有一个学生表，其结构如下：
+
+
+
+学生 ID
+姓名
+年龄
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/8e4b6846.html" title="计组相关笔记④">计组相关笔记④</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-20T12:42:08.000Z" title="发表于 2024-05-20 20:42:08">2024-05-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="content">什么计组学到最后变成计网了！？？
+
+计组相关笔记①计组相关笔记②计组相关笔记③计组相关笔记④
+ 计算机与网络组织
+ 互联网
+ 互联网的定义
+互联网是连接了数百万台计算设备的网络，这些设备包括：
+
+主机：运行网络应用程序的终端系统
+通信链路：光纤、铜线、无线电、卫星，其传输速率（比特/秒）定义了带宽
+分组交换机：转发数据包（数据块），例如路由器和交换机
+
+ 互联网的组成
+互联网可以被视为“网络的网络”，由互连的 ISP 组成。互联网中的所有通信活动都由协议管理，例如 TCP，IP，HTTP，Skype，802.11 等。这些协议控制消息的发送和接收。
+ 互联网的标准
+互联网的标准通常以 RFC（请求评论）的形式发布，并由 IETF（互联网工程任务组）进行维护。
+ 互联网作为服务的基础设施
+互联网提供了各种服务的基础设施，包括网络、VoIP、电子邮件、游戏、电子商务、社交网络等。它还提供了应用程序的编程接口，使应用程序能够通过连接到互联网来发送和接收消息。
+ 协议
+ 什么是协议？
+协议定义了网络实体之间发送和接收消息的格式、顺序以及消息传输和接收时采取的操作。这不仅包括人类协议，如“现在几 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/8e4b6801.html" title="计组相关笔记③">计组相关笔记③</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-20T12:39:45.000Z" title="发表于 2024-05-20 20:39:45">2024-05-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="content">W7-W9 的内容
+
+计组相关笔记①计组相关笔记②计组相关笔记③计组相关笔记④
+ Memory
+ ROM (只读存储器)
+ROM，全称为只读存储器（Read-Only Memory），是一种非易失性的存储设备，这意味着即使在断电的情况下，ROM 中的数据也不会丢失。ROM 中的数据在制造时就被写入，并且在使用过程中不能被修改。ROM 常用于存储固定的程序，如计算机的 BIOS。
+ RAM (随机存取存储器)
+RAM，全称为随机存取存储器（Random Access Memory），是一种易失性的存储设备，这意味着在断电的情况下，RAM 中的数据会丢失。与 ROM 不同，RAM 中的数据可以在任何时候被读取和写入。RAM 是计算机的主要工作区域，用于存储操作系统、应用程序和当前工作的数据。
+ SRAM (静态随机存取存储器)
+SRAM，全称为静态随机存取存储器（Static Random Access Memory），也是 RAM 的一种类型。与 DRAM 不同，SRAM 的每个存储单元由六个晶体管组成，不需要定期刷新。因此，SRAM 的速度比 DRAM 快，但是成本更高，容量更小。SR ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/68e0ed44.html" title="计组相关笔记②">计组相关笔记②</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-20T12:39:39.000Z" title="发表于 2024-05-20 20:39:39">2024-05-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="content">W5-W6 指令
+
+计组相关笔记①计组相关笔记②计组相关笔记③计组相关笔记④
+ VSC 微指令
+
+
+
+
+Binary
+Instruction
+Meaning
+RTL
+
+
+
+
+0000
+Jns X
+store the PC at address X and jump to X + 1
+MBR ← PCMAR ← XM[MAR] ← MBRMBR ← XAC ← 1AC ← AC + MBRPC ← AC
+
+
+0001
+Load X
+Load contents of address X into AC.
+MAR ← XMBR ← M[MAR]AC ← MBR
+
+
+0010
+Store X
+Store the contents of AC at address X.
+MAR ← XMBR ← ACM[MAR] ← MBR
+
+
+0011
+Add X
+Add the contents of address X to AC.
+MAR ← XMBR ← M[MAR] AC ← AC + MBR
+
+
+0100
+Subt X
+Subtract the contents of address X from ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/174239bb.html" title="计组相关笔记①">计组相关笔记①</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-20T12:39:32.000Z" title="发表于 2024-05-20 20:39:32">2024-05-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="content">W1-W5
+
+计组相关笔记①计组相关笔记②计组相关笔记③计组相关笔记④
+ 进制转换
+各种各样的进制互相转化啦
+repeated subtraction
+division remainder
+注意除余法是倒着来
+
+
+ 原码反码补码
+第一位是符号位 正数 0 负数 1
+正数的原码反码补码都一样！
+正数的原码反码补码都一样！
+正数的原码反码补码都一样！
+
+signed magnitude 原码：转化成二进制
+one’s complement 反码：正数的反码和原码一样 负数的反码是原码除了第一位以外 所有的位反转
+two’s complement 补码：正数的补码和原码一样 负数的补码是在反码的基础上+1
+
+
+ 浮点表示法
+在作业中，我们通常使用 14 位来表示浮点数，记住 158 就可以了。
+
+如果你看到&quot;with a bias of 16&quot;，这是指我们在表示指数时使用了偏移量。偏移量是一个大约在可表示的指数范围中间的数。我们从指数中减去偏移量来确定其真实值。在我们的例子中，我们有一个 5 位的指数，我们使用 16 作为我们的偏移量。这被称为超过 16 的表示法。
+也就 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/ad2c1cd2.html" title="VS Code 快捷键">VS Code 快捷键</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-27T10:40:17.000Z" title="发表于 2024-04-27 18:40:17">2024-04-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a></span></div><div class="content">ctrl + enter 行中换行
+alt + up / down 上下移行
+shift + alt + up / down 上下复制
+ctrl + left / right 跳单词（跳块）
+ctrl + delete / backspace 删单词（删块）
+ctrl + l 多按几次 选单行，继续按选多行
+shift + delete 删一行
+ctrl + j 下栏
+ctrl + b 左栏
+ctrl + ` 终端
+alt + LButton 多位编辑
+ctrl + / 注释
+ctrl + [/] 缩进
+ctrl + +/- ui 缩放
+ctrl + 0 定位文件
+ctrl shift p 命令
+ctrl p 在文件夹内搜索文件
+f2 重命名变量
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/c21463eb.html" title="删除github中的提交历史记录">删除github中的提交历史记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-17T15:33:24.000Z" title="发表于 2024-04-17 23:33:24">2024-04-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a></span></div><div class="content"> 切换分支
+git checkout --orphan latest_branch
+ 暂存文件
+git add -A
+ 提交更改
+git commit -am &quot;commit message&quot;
+ 删除原始分支
+git branch -D main
+ 重命名分支
+git branch -m main
+ 强制更新
+git push -f origin main</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/8cf19610.html" title="关于Matplotlib工具">关于Matplotlib工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-16T05:28:57.000Z" title="发表于 2024-04-16 13:28:57">2024-04-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="content"> 导入依赖
+import matplotlib.pyplot as plt # Ignore warningsimport warningswarnings.filterwarnings(&#x27;ignore&#x27;)
+ Line chart
+x_data = np.linspace(0, 5, 100)  # Sample datay_data = x_data**2plt.plot(x_data,y_data)plt.ylabel(&#x27;responding variable&#x27;)plt.xlabel(&#x27;independent variable&#x27;)plt.show()
+
+ Bar chart
+fig, ax = plt.subplots() #to plot on same axesstudents = [&#x27;Alex&#x27;, &#x27;Jake&#x27;, &#x27;Brenda&#x27;, &#x27;Liz&#x27;]height = [175, 190, 165, 158]bar_labels = [&#x2 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/9759399f.html" title="云崽安装">云崽安装</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-03T07:37:17.000Z" title="发表于 2024-04-03 15:37:17">2024-04-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a></span></div><div class="content"> 换源
+bash &lt;(curl -sSL https://linuxmirrors.cn/main.sh)
+
+选择 6 清华源
+按 Y 使用 HTTP
+更新软件包
+一路回车
+按 Y 清理缓存
+
+ 安装 docker
+bash &lt;(curl -sSL https://linuxmirrors.cn/docker.sh)
+
+按 Y 安装最新
+选择清华源
+选择官方源
+一路回车
+
+ 安装 NapCat
+docker run -d \  -e ACCOUNT=********** \  -e WSR_ENABLE=true \  -e WS_URLS=&#x27;[&quot;ws://172.17.0.1:2536/OneBotv11&quot;]&#x27; \  -e MESSAGE_POST_FORMAT=array \  --name napcat \  --net=bridge \  --mac-address=&quot;02:42:ac:11:00:02&quot; \  --restart=always \  -v /qq:/root/.config/QQ \  - ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/c3eaed85.html" title="Docker运行Nginx反向代理">Docker运行Nginx反向代理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-02T14:10:53.000Z" title="发表于 2024-04-02 22:10:53">2024-04-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a></span></div><div class="content">简介：
+本指南介绍如何使用 Docker 运行 Nginx Proxy Manager，这是一个反向代理服务器，可用于管理和保护 Web 应用程序。
+Nginx Proxy Manager 官网
+docker run -d --name app --restart unless-stopped -p 80:80 -p 81:81 -p 443:443 -v ./data:/data -v ./letsencrypt:/etc/letsencrypt jc21/nginx-proxy-manager:latest
+Log in to the Admin UI
+127.0.0.1:81
+Default Admin User:
+Email:    admin@example.comPassword: changeme
+Immediately after logging in with this default user you will be asked to modify your details and change your password
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/ab23ea10.html" title="Linux部署小雅">Linux部署小雅</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-02T14:10:43.000Z" title="发表于 2024-04-02 22:10:43">2024-04-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a></span></div><div class="content">整合安装脚本，内置所有相关软件的安装。
+bash -c &quot;$(curl -sLk https://ddsrem.com/xiaoya_install.sh)&quot;
+阿里云 32 位
+阿里云 335 位
+转存文件夹
+65673c1d16d4dc27fe5d4ba9a5dd73647255939b
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2647769e.html" title="N1装青龙面板">N1装青龙面板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-02T14:10:36.000Z" title="发表于 2024-04-02 22:10:36">2024-04-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a></span></div><div class="content">docker run -dit \-v /mnt/sda1/qinglong/config:/ql/config \-v /mnt/sda1/qinglong/log:/ql/log \-v /mnt/sda1/qinglong/db:/ql/db \-v /mnt/sda1/qinglong/scripts:/ql/scripts \-v /mnt/sda1/qinglong/repo:/ql/repo \-v /mnt/sda1/qinglong/raw:/ql/raw \-v /mnt/sda1/qinglong/jbot:/ql/jbot \-p 5700:5700 \-e ENABLE_HANGUP=true \-e ENABLE_TG_BOT=true \-e ENABLE_WEB_PANEL=true \--name qinglong \--hostname qinglong \--restart always \whyour/qinglong:latest
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/e7b5683a.html" title="小米手环7自定义表盘">小米手环7自定义表盘</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-02T14:09:20.000Z" title="发表于 2024-04-02 22:09:20">2024-04-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a></span></div><div class="content"> 关于米坛社区
+米坛社区是大型中文智能穿戴设备交流社区，在这里交流你的极客思想，共同建造我们的智能世界
+链接-小米手环7米坛社区 
+ 下载工具
+小米手环7表盘图片转换工具
+小米手环7表盘/小程序模拟器v1.1 开发利器
+ 说明
+ 图片转换工具
+
+怎么说呢 你要是不确定哪个是gt3哪个是png就先点上面的再点下面的
+报错了就是不对了 点另外一个就行 反正只有两个选项
+ 表盘开发工具
+1.点击start.exe打开服务
+2.打开浏览器地址 http://127.0.0.1:8088/打开以下画面。
+访问不了的看下是否解压路径包含中文，是否8088端口已被占用
+
+3.ok，模拟器已经启动完毕了，接下来就是修改表盘了。表盘文件在以下目录。里面的文件跟正常表盘解压出来的一样。但是注意，解压出来的图片要转成正常png，打包时也要手动转成tga格式的 转换工具见上文
+
+接着，可以使用任何开发工具进行修改，修改完刷新浏览器就行了。有的时候浏览器有缓存，把缓存清了刷新。
+ 在线图片编辑
+https://www.photopea.com/
+使用的时候有可能会需要噢 很方便调整图片大小
+当然如果你精通ps和 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/ddfa939.html" title="小秘密">小秘密</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-02T12:22:29.000Z" title="发表于 2024-04-02 20:22:29">2024-04-02</time></span></div><div class="content">
+  34fa0f06fa3a97dbce5f60a54fd20eafc8597e97f8fc8cc54599a3e46bd8515efad9a88212f58ad29ab8868f15d5b0a3590b2e9b86414466e2a8c83f125b7b4bdfe564ee740a36299584f35374cae6cad5c618a82a0187762be387e2751d7f9d91ee7ef80227b20e063d579c1d0dae96987cdddc276b9419b0654992acf926d7c37b83dc60ef25f5ea08ab7bf33993ce45aebd6e7e90014d64494dc25f6065382effed42c566b3d09b505d298764a5271b5b9a51dd778fc6dcdb2bb716f62b4c
+  
+    
+      
+      
+        要密码的噢~ 找博主要吧~
+      
+      
+        
+      
+    
+  
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/a6bbcd15.html" title="自动化博客">自动化博客</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-04-02T05:50:11.000Z" title="发表于 2024-04-02 13:50:11">2024-04-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a></span></div><div class="content"> Hexo
+ 安装
+npm install -g hexo-cli
+ 初始化
+hexo init **** //(自定义项目名)
+cd ****  //进入blog-demo文件夹
+ 删除 node 开头的文件
+npm i
+ 初始化完毕 启动！
+hexo s
+ 关于其他省略步骤
+参考文档
+怎么说呢 我只是怕自己以后重装电脑搞忘记了 备份一下 并没有写那么详细
+
+ Obsidian 设置
+ 打开项目
+选择博客的文件位置
+
+ 更改设置
+
+照着改就行
+
+记得忽略这些
+
+
+ 修改模板
+
+打开 scaffolds 的 page.md 源文件
+复制粘贴进去
+
+---title: &#123;&#123;title&#125;&#125;date: &#123;&#123;date&#125;&#125; &#123;&#123;time&#125;&#125;categories:tags:---
+ 使用模板
+写完文章之后按这个就行 选 page（目前只用到了这个）
+
+ 安装 Git 插件
+这就不多说了直接装就行
+
+ Github 设置
+ 创建仓库
+ 共有仓库 博客展示
+
+仓库的格式必须为：&lt ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/78061670.html" title="关于MBTI与荣格八维">关于MBTI与荣格八维</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-24T12:22:29.000Z" title="发表于 2024-02-24 20:22:29">2024-02-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BF%83%E7%90%86/">心理</a></span></div><div class="content"> 十六型人格：测试官网
+ 类型指标介绍
+
+
+
+维度
+类型
+相对应类型英文及缩写
+类型
+相对应类型英文缩写
+
+
+
+
+注意力方向（精力来源）
+外倾
+E（Extrovert）
+内倾
+I（Introvert）
+
+
+认知方式（如何搜集信息）
+实感
+S（Sensing）
+直觉
+N（Intuition）
+
+
+判断方式（如何做决定）
+理智
+T（Thinking）
+情感
+F（Feeling）
+
+
+生活方式（如何应对外部世界）
+判断
+J（Judgment）
+理解
+P（Perceiving）
+
+
+
+
+
+注意力方向（精力来源）：
+
+外倾（E）：从外部世界获取能量，更偏向社交和活动。
+内倾（I）：从内部世界获取能量，更偏向独处和沉思。
+
+
+
+认知方式（如何搜集信息）：
+
+实感（S）：通过五种感官感知世界，注重具体事实和细节。
+直觉（N）：通过模式识别和想象力感知世界，注重抽象概念和可能性。
+
+
+
+判断方式（如何做决定）：
+
+理智（T）：使用逻辑和客观标准做出决定，注重效率和一致性。
+情感（F）：使用价值观和个人感受做出决定，注重和谐和人际关系。
+
+
+
+生活方式（如何应对外部世界）：
+
+判断（J）：喜欢结构化和计 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="card-info-avatar"><div class="avatar-img"><img src="/attach/1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-status-box"><div class="author-status"><g-emoji class="g-emoji" alias="palm_tree">🌙</g-emoji><span>等待月圆中</span></div></div></div><div class="author-info__name">Xiaotan</div><div class="author-info__description">看什么看👀，快点关注我</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/145901309"><i class="fab fa-bilibili"></i><span>关注一下</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://space.bilibili.com/145901309" target="_blank" title="Bilibili"><i class="fab fa-bilibili"></i></a><a class="social-icon" href="https://github.com/USYDShawnTan" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xiaotanyyds@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E4%BA%91%E5%B4%BD/" style="font-size: 1.1em; color: #999">#云崽</a> <a href="/tags/%E6%B5%B7%E9%BE%9F%E6%B1%A4/" style="font-size: 1.1em; color: #999">#海龟汤</a> <a href="/tags/%E5%A5%BD%E5%90%83%E7%9A%84/" style="font-size: 1.16em; color: #999b9e">#好吃的</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 1.1em; color: #999">#云计算</a> <a href="/tags/Devops/" style="font-size: 1.5em; color: #99a9bf">#Devops</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.27em; color: #99a0a9">#数据库</a> <a href="/tags/openwrt/" style="font-size: 1.1em; color: #999">#openwrt</a> <a href="/tags/MC/" style="font-size: 1.16em; color: #999b9e">#MC</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 1.1em; color: #999">#数据可视化</a> <a href="/tags/MBTI/" style="font-size: 1.33em; color: #99a2af">#MBTI</a> <a href="/tags/Jenkins/" style="font-size: 1.1em; color: #999">#Jenkins</a> <a href="/tags/%E4%BA%BA%E9%99%85/" style="font-size: 1.33em; color: #99a2af">#人际</a> <a href="/tags/git/" style="font-size: 1.21em; color: #999ea4">#git</a> <a href="/tags/%E9%9C%80%E8%A6%81%E5%AF%86%E7%A0%81/" style="font-size: 1.1em; color: #999">#需要密码</a> <a href="/tags/py/" style="font-size: 1.16em; color: #999b9e">#py</a> <a href="/tags/Docker/" style="font-size: 1.16em; color: #999b9e">#Docker</a> <a href="/tags/%E8%AE%A1%E7%BB%84/" style="font-size: 1.27em; color: #99a0a9">#计组</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.39em; color: #99a4b4">#数据结构</a> <a href="/tags/Linux/" style="font-size: 1.44em; color: #99a7ba">#Linux</a></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">69</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-03-11T13:36:48.708Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2002 - 2026 By Xiaotan</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: (str) => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: (subtitleType) => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        getScript('https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+</script><script>function subtitleType () {
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      if (true) {
+        const from = '出自 ' + data.from
+        const sub = ["欢迎访问Xiaotan's Blog","Hope you have a nice day!🎉🎉🎉"]
+        sub.unshift(data.hitokoto, from)
+        typedJSFn.init(sub)
+      } else {
+        document.getElementById('subtitle').textContent = data.hitokoto
+      }
+    })
+}
+typedJSFn.run(subtitleType)
+</script></div><script defer src="/js/universe.js"></script><canvas id="universe"></canvas><script async src="/js/title.js"></script><div class="aplayer no-destroy" data-id="13582149382" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-order="random" data-pjax> </div><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script><script src="/js/meting.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="https://cn.vercount.one/js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/学习/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 学习笔记 (39)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/折腾/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🔧 折腾记录 (13)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/心理/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👓 心理/MBTI (7)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="https://www.433200.xyz/categories/菜谱/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🍜 好吃的 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="https://www.433200.xyz/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #FFC0CB}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v6.2.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.3.1" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用多线部署，主线路托管于Vercel" title=""><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://dashboard.4everland.org/" style="margin-inline:5px" data-title="本站采用多线部署，备用线路托管于4EVERLAND" title=""><img src="https://img.shields.io/badge/Hosted-4EVERLAND-22DDDD?style=flat&amp;logo=IPFS" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-info');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-tags');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-webinfo');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script><script defer src="/js/wow_init.js"></script><!-- hexo injector body_end end --></body></html>
