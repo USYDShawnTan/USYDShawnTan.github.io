@@ -1,0 +1,645 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+<!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Codex 保姆级教程：从聊天到指挥 Agent 工作 | Xiaotan's Blog</title><meta name="author" content="Xiaotan"><meta name="copyright" content="Xiaotan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="这篇是根据学长 Ethan 的 YouTube 视频《Codex保姆級完整教學：從入門到進階，自動生成內容、網頁、影片和App，快速學會指揮你的超級AI Agent》整理的笔记。 视频链接：https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;tfeCwDT-5m0 我觉得这期视频最核心的一句话是：不要再把 AI 只当成“回答问题的聊天窗口”，而是要开始把它当成一个可以进入工作流、读写文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Codex 保姆级教程：从聊天到指挥 Agent 工作">
+<meta property="og:url" content="https://www.433200.xyz/9a602404.html">
+<meta property="og:site_name" content="Xiaotan&#39;s Blog">
+<meta property="og:description" content="这篇是根据学长 Ethan 的 YouTube 视频《Codex保姆級完整教學：從入門到進階，自動生成內容、網頁、影片和App，快速學會指揮你的超級AI Agent》整理的笔记。 视频链接：https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;tfeCwDT-5m0 我觉得这期视频最核心的一句话是：不要再把 AI 只当成“回答问题的聊天窗口”，而是要开始把它当成一个可以进入工作流、读写文">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.433200.xyz/attach/avatar-220.webp">
+<meta property="article:published_time" content="2026-05-09T07:40:42.000Z">
+<meta property="article:modified_time" content="2026-06-02T09:22:38.259Z">
+<meta property="article:author" content="Xiaotan">
+<meta property="article:tag" content="#AI Agent">
+<meta property="article:tag" content="#AI编程">
+<meta property="article:tag" content="#Codex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.433200.xyz/attach/avatar-220.webp"><link rel="shortcut icon" href="/attach/2.png"><link rel="canonical" href="https://www.433200.xyz/9a602404.html"><link rel="preconnect" href="//cdnjs.cloudflare.com" crossorigin=""/><link rel="dns-prefetch" href="//cn.vercount.one"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  lightboxAssets: {
+    fancyboxCss: 'https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.min.css',
+    fancyboxJs: 'https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.min.js'
+  },
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdnjs.cloudflare.com/ajax/libs/egjs-infinitegrid/4.11.1/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Codex 保姆级教程：从聊天到指挥 Agent 工作',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-06-02 17:22:38'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="preload" as="style" href="/css/universe.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/universe.css"></noscript><link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-webfont/1.7.0/style.min.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-webfont/1.7.0/style.min.css"></noscript><!-- hexo injector head_end start --><link rel="stylesheet" href="/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="/css/progress_bar.css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/attach/avatar-220.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">83</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">52</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/webs/"><i class="fa-fw fab fa-webflow"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Xiaotan's Blog"><span class="site-name">Xiaotan's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/webs/"><i class="fa-fw fab fa-webflow"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Codex 保姆级教程：从聊天到指挥 Agent 工作</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-05-09T07:40:42.000Z" title="发表于 2026-05-09 15:40:42">2026-05-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-02T09:22:38.259Z" title="更新于 2026-06-02 17:22:38">2026-06-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span id="" data-flag-title="Codex 保姆级教程：从聊天到指挥 Agent 工作"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/9a602404.html#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>这篇是根据学长 Ethan 的 YouTube 视频《Codex保姆級完整教學：從入門到進階，自動生成內容、網頁、影片和App，快速學會指揮你的超級AI Agent》整理的笔记。</p>
+<p>视频链接：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=tfeCwDT-5m0">https://www.youtube.com/watch?v=tfeCwDT-5m0</a></p>
+<p>我觉得这期视频最核心的一句话是：<strong>不要再把 AI 只当成“回答问题的聊天窗口”，而是要开始把它当成一个可以进入工作流、读写文件、调用工具、并行执行任务的 Agent。</strong></p>
+<p>过去我们使用 ChatGPT、Gemini、Claude 网页版时，大多数时候是这样的：你问一个问题，它给一个答案；真正复制、整理、改文件、打开网页、发邮件、做图、生成视频、部署网站的人，还是你自己。</p>
+<p>但 Codex 这类本地 Agent 的变化在于：它不只是“给建议”，而是可以真的进入你的电脑和项目里，把任务做完。</p>
+<hr />
+<h2 id="codex-和普通聊天-ai-的差别"><a class="markdownIt-Anchor" href="#codex-和普通聊天-ai-的差别"></a> Codex 和普通聊天 AI 的差别</h2>
+<p>视频一开始就强调了一个区别：</p>
+<p>普通聊天 AI 更像顾问，Codex 更像一个会动手的数字员工。</p>
+<p>它可以：</p>
+<ul>
+<li>读写本地文件</li>
+<li>进入某个项目目录工作</li>
+<li>调用 Gmail、Calendar、Drive、Canva、Figma 等外部工具</li>
+<li>生成图片、文档、网页、视频、App</li>
+<li>同时跑多个任务</li>
+<li>在后台执行，用户可以离开一会儿再回来验收结果</li>
+</ul>
+<p>这也是 Agent 和 Chatbot 最大的心理差异。</p>
+<p>Chatbot 让人习惯于“问”。</p>
+<p>Agent 让人开始学习“管理”。</p>
+<p>你不再只是追问“这个怎么做”，而是要学会告诉它：目标是什么、素材在哪里、输出格式是什么、质量标准是什么、完成后如何验证。</p>
+<h2 id="安装和登录先把-codex-放进自己的工作环境"><a class="markdownIt-Anchor" href="#安装和登录先把-codex-放进自己的工作环境"></a> 安装和登录：先把 Codex 放进自己的工作环境</h2>
+<p>视频里演示的第一步是搜索并下载 Codex App。打开后可以选择两种登录方式：</p>
+<ol>
+<li>使用 ChatGPT 账号登录</li>
+<li>使用 OpenAI API Key，或者其他兼容的大模型 API</li>
+</ol>
+<p>如果只是想快速开始，作者更推荐先用 ChatGPT 账号登录。</p>
+<p>登录之后，Codex 的界面大致可以分成几个区域：</p>
+<ul>
+<li>左侧：会话和功能入口</li>
+<li>左下：设置和额度查看</li>
+<li>中间：主要对话区域</li>
+<li>右侧：预览区域</li>
+<li>输入框附近：添加文件、图片、选择模型、权限、项目、插件、规划模式等</li>
+</ul>
+<p>这里有几个比较关键的设置：</p>
+<ul>
+<li>Plan Mode：适合复杂项目开始前做调研和方案规划</li>
+<li>权限等级：决定 Codex 能做多少事情</li>
+<li>Project：让不同任务进入不同工作目录，避免上下文混乱</li>
+<li>Effort / 智慧等级：复杂任务建议选择高或超高</li>
+</ul>
+<h2 id="project给-ai-员工准备办公桌"><a class="markdownIt-Anchor" href="#project给-ai-员工准备办公桌"></a> Project：给 AI 员工准备办公桌</h2>
+<p>作者用一个很形象的比喻：Project 就像 AI 员工的办公桌。</p>
+<p>如果没有 Project，AI 就像被临时叫来干活的人，做完东西也不知道应该放哪里；如果有了 Project，它就知道自己所在的工作空间、文件结构和任务边界。</p>
+<p>所以正式使用 Codex 前，最好先做这件事：</p>
+<blockquote>
+<p>创建一个属于当前工作的 Project。</p>
+</blockquote>
+<p>比如你是内容创作者，可以建一个“内容创作”项目；如果你在开发 App，可以建一个“iOS App”项目；如果你在整理个人知识库，可以建一个“知识库维护”项目。</p>
+<p>这样每次让 Codex 工作，它不会在一片空白里猜测，而是在一个明确的上下文里行动。</p>
+<h2 id="agentsmd"><a class="markdownIt-Anchor" href="#agentsmd"></a> <a target="_blank" rel="noopener" href="http://AGENTS.md">AGENTS.md</a>：AI 员工的入职手册</h2>
+<p>视频里最值得记住的概念，是 <code>AGENTS.md</code>。</p>
+<p>它相当于写给 AI Agent 的入职手册。Codex 每次开始工作前，会先读取这个文件，然后按照里面的规则做事。</p>
+<p>一份简单的 <a target="_blank" rel="noopener" href="http://AGENTS.md">AGENTS.md</a> 可以包含：</p>
+<ul>
+<li>你是谁：身份、项目、业务、受众</li>
+<li>输出语言：简体中文、繁体中文、英文，还是中英混合</li>
+<li>输出风格：务实、谨慎、口语化、正式、短句、长文</li>
+<li>工作原则：先列计划、再执行、完成后报告改了哪些文件</li>
+<li>文件结构：内容放哪里、素材放哪里、草稿放哪里</li>
+<li>命名规范：文件名、日期、版本号、分类方式</li>
+<li>质量要求：是否需要验证、是否需要测试、是否需要引用来源</li>
+</ul>
+<p>这个文件不需要一开始写得很长。真正重要的是，它要把你反复说过很多遍的要求沉淀下来。</p>
+<p>对我来说，这其实也是 Agent 工作流的核心：</p>
+<p><strong>不要每次都从零开始教 AI，而是慢慢把你的工作习惯变成环境的一部分。</strong></p>
+<p>当一个项目里有了 <a target="_blank" rel="noopener" href="http://AGENTS.md">AGENTS.md</a>，Agent 才不只是“聪明”，而是开始“懂你”。</p>
+<h2 id="plugins让-codex-接上外部世界"><a class="markdownIt-Anchor" href="#plugins让-codex-接上外部世界"></a> Plugins：让 Codex 接上外部世界</h2>
+<p>Codex 里另一个重点是 Plugins。</p>
+<p>视频里提到，Plugins 和 Skills 不一样：</p>
+<ul>
+<li>Skills 更像一套标准工作流程</li>
+<li>Plugins 更像连接外部软件和工具的接口</li>
+</ul>
+<p>常见的插件包括：</p>
+<ul>
+<li>Computer Use：操作电脑</li>
+<li>Browser Use：操作浏览器</li>
+<li>Gmail：读取和回复邮件</li>
+<li>Google Calendar：查看和安排日程</li>
+<li>Google Drive：访问云端文件</li>
+<li>Canva：生成或编辑设计稿</li>
+<li>Figma：读取设计文件</li>
+<li>Vercel：部署网页或应用</li>
+<li>GitHub：处理代码仓库和项目</li>
+<li>Spreadsheet / Presentation：处理表格和简报</li>
+</ul>
+<p>视频里演示了一个例子：让 Codex 搜索最近 7 天 Gmail 里的广告商单邀约，并整理成汇总。</p>
+<p>这件事如果手动做，需要打开邮箱、搜索、筛选、复制信息、整理表格。但接入 Gmail 插件之后，它可以直接读邮件、归纳内容，甚至进一步起草回复。</p>
+<p>这就是 Plugins 的价值：</p>
+<p><strong>让 Agent 不再停留在文本里，而是可以进入真实工具链。</strong></p>
+<h2 id="automations把重复工作交给定时任务"><a class="markdownIt-Anchor" href="#automations把重复工作交给定时任务"></a> Automations：把重复工作交给定时任务</h2>
+<p>Codex 还提供自动化功能，类似 Claude 里的 routine 或 schedule。</p>
+<p>视频里的例子是：每天早上 10 点，自动根据最近的 PR 审查、工作记录和文件变更，整理出值得深化的 Skill，或者优化已有 Skill。</p>
+<p>这个思路很有意思。</p>
+<p>以前我们说“复盘”，往往是人自己找时间回忆今天做了什么；但 Agent 时代，复盘可以变成一种后台任务：</p>
+<ul>
+<li>每天整理工作记录</li>
+<li>每周总结常见问题</li>
+<li>每月优化一次工作手册</li>
+<li>自动发现重复任务并沉淀成 Skill</li>
+<li>根据历史记录更新 <a target="_blank" rel="noopener" href="http://AGENTS.md">AGENTS.md</a></li>
+</ul>
+<p>也就是说，AI 不只是帮你做当下的事，还可以帮你维护“未来更好做事的系统”。</p>
+<p>这一步可能比单次提效更重要。</p>
+<h2 id="skills把重复劳动变成标准流程"><a class="markdownIt-Anchor" href="#skills把重复劳动变成标准流程"></a> Skills：把重复劳动变成标准流程</h2>
+<p>视频中对 Skill 的解释也很清楚：Skill 是一套可复用的 SOP。</p>
+<p>比如你经常需要生成 IG 文案，就可以创建一个“IG 文案 Skill”，里面写清楚：</p>
+<ul>
+<li>使用繁体中文</li>
+<li>口语化</li>
+<li>每则 150 字以内</li>
+<li>结尾要有行动呼吁</li>
+<li>适合某种频道受众</li>
+<li>输出几版不同风格</li>
+</ul>
+<p>以后你只要调用这个 Skill，Codex 就会按照同一套标准生成内容。</p>
+<p>作者演示了用 Skill 生成介绍 Codex 的 IG 贴文，再调用生图能力生成配图，最后甚至可以把内容导入 Canva 继续编辑。</p>
+<p>这里让我有一个很强的感受：</p>
+<p><strong>真正高效的人，不是每次 prompt 都写得很厉害，而是把高频工作封装成可以反复调用的能力。</strong></p>
+<p>一次写好，之后少想一点。</p>
+<h2 id="fork-chat把上下文分叉避免任务互相污染"><a class="markdownIt-Anchor" href="#fork-chat把上下文分叉避免任务互相污染"></a> Fork Chat：把上下文分叉，避免任务互相污染</h2>
+<p>在和 Agent 多轮对话时，上下文很容易变乱。</p>
+<p>你本来在做文章，突然又让它改网页；刚讨论完 App 设计，又插入一个邮件整理任务。对人来说只是“顺手问一句”，但对 Agent 来说，这些上下文可能互相干扰。</p>
+<p>Codex 的 Fork Chat 可以把当前对话分叉出去。</p>
+<p>分叉前的上下文完全一样，分叉后的任务彼此独立。适合用在：</p>
+<ul>
+<li>同一个项目的两个不同方向</li>
+<li>两个候选方案并行探索</li>
+<li>不想污染主线对话的临时实验</li>
+<li>多个任务需要同时推进</li>
+</ul>
+<p>这其实很像 Git 的分支思维：</p>
+<p>主线保持干净，实验交给分支。</p>
+<h2 id="cli-mcp-apiagent-的三种外部接口"><a class="markdownIt-Anchor" href="#cli-mcp-apiagent-的三种外部接口"></a> CLI、MCP、API：Agent 的三种外部接口</h2>
+<p>视频后半段提到，API、CLI、MCP 本质上都可以理解成一种接口。</p>
+<p>通过接口，Agent 才能调用外部能力：</p>
+<ul>
+<li>API：通过网络服务调用模型或工具</li>
+<li>CLI：通过命令行调用本地或第三方工具</li>
+<li>MCP：让模型以标准协议连接外部系统</li>
+</ul>
+<p>视频里举了几个例子：</p>
+<ul>
+<li>接入即梦 CLI 生成视频</li>
+<li>接入 Lib TV CLI 生成 Vlog 片段</li>
+<li>根据分镜图生成穿搭视频</li>
+<li>调用 Canva、Figma、Slides 做后续编辑</li>
+</ul>
+<p>这里要特别注意成本问题。</p>
+<p>视频生成类工具通常消耗积分很快，而 Agent 很擅长并行发起任务。如果不给它写清楚限制，它可能一次生成很多片段，把额度消耗得很快。</p>
+<p>所以使用这类工具时，最好在 Skill 或 <a target="_blank" rel="noopener" href="http://AGENTS.md">AGENTS.md</a> 里写明：</p>
+<ul>
+<li>每次最多生成几个版本</li>
+<li>是否需要先确认再消耗积分</li>
+<li>是否先用低成本模型打样</li>
+<li>是否需要复用已有素材</li>
+<li>是否允许并行任务</li>
+</ul>
+<p>Agent 很强，但它默认不一定懂“省钱”。</p>
+<h2 id="从设计稿到-app一句话生成还不够关键是能预览和验证"><a class="markdownIt-Anchor" href="#从设计稿到-app一句话生成还不够关键是能预览和验证"></a> 从设计稿到 App：一句话生成还不够，关键是能预览和验证</h2>
+<p>视频里还演示了一个 iOS 音乐播放器 App 的生成流程。</p>
+<p>大致步骤是：</p>
+<ol>
+<li>找一张音乐播放器设计草图</li>
+<li>把截图给 Codex</li>
+<li>提示它参考设计风格生成类似 iOS App</li>
+<li>预置几首音乐用于播放测试</li>
+<li>调用 iOS App 开发插件</li>
+<li>让 Codex 生成方案</li>
+<li>确认后开始开发</li>
+<li>调用 Xcode 模拟器预览和测试</li>
+</ol>
+<p>这里关键不是“AI 写了代码”，而是完整链路：</p>
+<p>从设计参考 → 方案 → 开发 → 预览 → 测试。</p>
+<p>如果只是生成一张截图，那更像 demo；如果能在模拟器里真的运行、切歌、切换页面、测试交互，才接近一个可验证的结果。</p>
+<p>所以以后用 Agent 做开发，最好每次都补一句：</p>
+<blockquote>
+<p>不只要生成代码，还要提供可预览、可测试、可验证的结果。</p>
+</blockquote>
+<h2 id="我整理出来的-codex-使用顺序"><a class="markdownIt-Anchor" href="#我整理出来的-codex-使用顺序"></a> 我整理出来的 Codex 使用顺序</h2>
+<p>看完整期视频，我觉得初学者可以按这个顺序开始：</p>
+<h3 id="1-先安装并登录-codex"><a class="markdownIt-Anchor" href="#1-先安装并登录-codex"></a> 1. 先安装并登录 Codex</h3>
+<p>不用一开始就追求复杂配置，先能跑起来。</p>
+<h3 id="2-建立第一个-project"><a class="markdownIt-Anchor" href="#2-建立第一个-project"></a> 2. 建立第一个 Project</h3>
+<p>给不同工作建立不同项目，不要把所有任务混在一起。</p>
+<h3 id="3-写一份简单的-agentsmd"><a class="markdownIt-Anchor" href="#3-写一份简单的-agentsmd"></a> 3. 写一份简单的 <a target="_blank" rel="noopener" href="http://AGENTS.md">AGENTS.md</a></h3>
+<p>先写最重要的几条：你是谁、做什么、输出什么语言、文件放哪里、完成后怎么汇报。</p>
+<h3 id="4-从一个高频任务开始"><a class="markdownIt-Anchor" href="#4-从一个高频任务开始"></a> 4. 从一个高频任务开始</h3>
+<p>不要一上来就让 Agent 接管所有工作。先找一个你每周都会重复做的任务，比如：</p>
+<ul>
+<li>整理 YouTube 视频笔记</li>
+<li>生成博客草稿</li>
+<li>归纳邮件</li>
+<li>生成社媒文案</li>
+<li>整理会议纪要</li>
+<li>检查代码变更</li>
+</ul>
+<h3 id="5-把这个任务沉淀成-skill"><a class="markdownIt-Anchor" href="#5-把这个任务沉淀成-skill"></a> 5. 把这个任务沉淀成 Skill</h3>
+<p>当你发现某个任务反复出现，就不要每次重新 prompt。把格式、规则、质量标准写进 Skill。</p>
+<h3 id="6-再接入插件和自动化"><a class="markdownIt-Anchor" href="#6-再接入插件和自动化"></a> 6. 再接入插件和自动化</h3>
+<p>等基础工作流稳定之后，再慢慢接 Gmail、Canva、Figma、GitHub、Calendar、视频生成工具等。</p>
+<h3 id="7-最后才考虑多-agent-并行"><a class="markdownIt-Anchor" href="#7-最后才考虑多-agent-并行"></a> 7. 最后才考虑多 Agent 并行</h3>
+<p>并行很诱人，但如果没有清晰的边界、文件结构和验证标准，很容易变成混乱的自动化。</p>
+<h2 id="最后以后不是会不会用-ai而是会不会指挥-agent"><a class="markdownIt-Anchor" href="#最后以后不是会不会用-ai而是会不会指挥-agent"></a> 最后：以后不是会不会用 AI，而是会不会指挥 Agent</h2>
+<p>这期视频最打动我的地方，不是某一个具体功能，而是它背后的转变。</p>
+<p>过去我们使用 AI，像是在和一个很聪明的人聊天。</p>
+<p>现在我们使用 Agent，更像是在搭建一个小型工作室：有人负责写，有人负责查，有人负责生成，有人负责测试，有人负责整理。你要做的不是亲手完成每一个动作，而是设计清楚任务、边界、标准和反馈。</p>
+<p>这也是“会用 AI”和“会指挥 Agent”的区别。</p>
+<p>前者得到答案。</p>
+<p>后者得到交付。</p>
+<p>如果今天只做三件事，我会建议是：</p>
+<ol>
+<li>装好 Codex</li>
+<li>建一个 Project 和 <a target="_blank" rel="noopener" href="http://AGENTS.md">AGENTS.md</a></li>
+<li>找一个最重复的任务，做成第一个 Skill</li>
+</ol>
+<p>不需要一次完成所有事情。</p>
+<p>但每往前一步，你的工作方式就会从“手动复制粘贴”，慢慢变成“设计流程、分配任务、验收结果”。</p>
+<p>那可能才是 AI Agent 真正改变人的地方：</p>
+<p>它不是让我们更忙，而是逼着我们重新理解，什么才是自己真正应该亲手做的事。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.433200.xyz">Xiaotan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.433200.xyz/9a602404.html">https://www.433200.xyz/9a602404.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.433200.xyz" target="_blank">Xiaotan's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AI-Agent/">#AI Agent</a><a class="post-meta__tags" href="/tags/AI%E7%BC%96%E7%A8%8B/">#AI编程</a><a class="post-meta__tags" href="/tags/Codex/">#Codex</a></div><div class="post_share"><div class="social-share" data-image="/attach/avatar-220.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/attach/2wx.png" target="_blank"><img class="post-qr-code-img" src="/attach/2wx.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/attach/2zfb.png" target="_blank"><img class="post-qr-code-img" src="/attach/2zfb.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/f3a20117.html" title="Boss Skill：把 AI 编程从单兵工具变成虚拟研发团队"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-11</div><div class="title">Boss Skill：把 AI 编程从单兵工具变成虚拟研发团队</div></div></a></div><div><a href="/7f2e4a1c.html" title="Hermes Agent vs OpenClaw：本地智能体的下一场架构革命"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-25</div><div class="title">Hermes Agent vs OpenClaw：本地智能体的下一场架构革命</div></div></a></div><div><a href="/a9c3f1b5.html" title="Harness Engineering：2026 年最值得关注的 AI 工程方向"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-23</div><div class="title">Harness Engineering：2026 年最值得关注的 AI 工程方向</div></div></a></div><div><a href="/f3a1c8d2.html" title="Vibe Coding 实战心法：看完六部最火视频后的总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-21</div><div class="title">Vibe Coding 实战心法：看完六部最火视频后的总结</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#codex-%E5%92%8C%E6%99%AE%E9%80%9A%E8%81%8A%E5%A4%A9-ai-%E7%9A%84%E5%B7%AE%E5%88%AB"><span class="toc-text"> Codex 和普通聊天 AI 的差别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E7%99%BB%E5%BD%95%E5%85%88%E6%8A%8A-codex-%E6%94%BE%E8%BF%9B%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83"><span class="toc-text"> 安装和登录：先把 Codex 放进自己的工作环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#project%E7%BB%99-ai-%E5%91%98%E5%B7%A5%E5%87%86%E5%A4%87%E5%8A%9E%E5%85%AC%E6%A1%8C"><span class="toc-text"> Project：给 AI 员工准备办公桌</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#agentsmd"><span class="toc-text"> AGENTS.md：AI 员工的入职手册</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#plugins%E8%AE%A9-codex-%E6%8E%A5%E4%B8%8A%E5%A4%96%E9%83%A8%E4%B8%96%E7%95%8C"><span class="toc-text"> Plugins：让 Codex 接上外部世界</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#automations%E6%8A%8A%E9%87%8D%E5%A4%8D%E5%B7%A5%E4%BD%9C%E4%BA%A4%E7%BB%99%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="toc-text"> Automations：把重复工作交给定时任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#skills%E6%8A%8A%E9%87%8D%E5%A4%8D%E5%8A%B3%E5%8A%A8%E5%8F%98%E6%88%90%E6%A0%87%E5%87%86%E6%B5%81%E7%A8%8B"><span class="toc-text"> Skills：把重复劳动变成标准流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fork-chat%E6%8A%8A%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%86%E5%8F%89%E9%81%BF%E5%85%8D%E4%BB%BB%E5%8A%A1%E4%BA%92%E7%9B%B8%E6%B1%A1%E6%9F%93"><span class="toc-text"> Fork Chat：把上下文分叉，避免任务互相污染</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cli-mcp-apiagent-%E7%9A%84%E4%B8%89%E7%A7%8D%E5%A4%96%E9%83%A8%E6%8E%A5%E5%8F%A3"><span class="toc-text"> CLI、MCP、API：Agent 的三种外部接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E8%AE%BE%E8%AE%A1%E7%A8%BF%E5%88%B0-app%E4%B8%80%E5%8F%A5%E8%AF%9D%E7%94%9F%E6%88%90%E8%BF%98%E4%B8%8D%E5%A4%9F%E5%85%B3%E9%94%AE%E6%98%AF%E8%83%BD%E9%A2%84%E8%A7%88%E5%92%8C%E9%AA%8C%E8%AF%81"><span class="toc-text"> 从设计稿到 App：一句话生成还不够，关键是能预览和验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E6%95%B4%E7%90%86%E5%87%BA%E6%9D%A5%E7%9A%84-codex-%E4%BD%BF%E7%94%A8%E9%A1%BA%E5%BA%8F"><span class="toc-text"> 我整理出来的 Codex 使用顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%88%E5%AE%89%E8%A3%85%E5%B9%B6%E7%99%BB%E5%BD%95-codex"><span class="toc-text"> 1. 先安装并登录 Codex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BB%BA%E7%AB%8B%E7%AC%AC%E4%B8%80%E4%B8%AA-project"><span class="toc-text"> 2. 建立第一个 Project</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%86%99%E4%B8%80%E4%BB%BD%E7%AE%80%E5%8D%95%E7%9A%84-agentsmd"><span class="toc-text"> 3. 写一份简单的 AGENTS.md</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BB%8E%E4%B8%80%E4%B8%AA%E9%AB%98%E9%A2%91%E4%BB%BB%E5%8A%A1%E5%BC%80%E5%A7%8B"><span class="toc-text"> 4. 从一个高频任务开始</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%8A%8A%E8%BF%99%E4%B8%AA%E4%BB%BB%E5%8A%A1%E6%B2%89%E6%B7%80%E6%88%90-skill"><span class="toc-text"> 5. 把这个任务沉淀成 Skill</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%86%8D%E6%8E%A5%E5%85%A5%E6%8F%92%E4%BB%B6%E5%92%8C%E8%87%AA%E5%8A%A8%E5%8C%96"><span class="toc-text"> 6. 再接入插件和自动化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E6%9C%80%E5%90%8E%E6%89%8D%E8%80%83%E8%99%91%E5%A4%9A-agent-%E5%B9%B6%E8%A1%8C"><span class="toc-text"> 7. 最后才考虑多 Agent 并行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E4%BB%A5%E5%90%8E%E4%B8%8D%E6%98%AF%E4%BC%9A%E4%B8%8D%E4%BC%9A%E7%94%A8-ai%E8%80%8C%E6%98%AF%E4%BC%9A%E4%B8%8D%E4%BC%9A%E6%8C%87%E6%8C%A5-agent"><span class="toc-text"> 最后：以后不是会不会用 AI，而是会不会指挥 Agent</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2002 - 2026 By Xiaotan</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://xtbolg.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://xtbolg.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(init,0)
+    else getScript('https://cdnjs.cloudflare.com/ajax/libs/twikoo/1.6.30/twikoo.all.min.js').then(init)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script defer src="/js/universe.js"></script><canvas id="universe"></canvas><script async src="/js/title.js"></script><script defer src="/js/aplayer-delayed.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/click-heart.min.js" async="async" mobile="false"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script>(() => {
+  const loadBusuanzi = () => {
+    const oldScript = document.getElementById('busuanzi-vercount-script')
+    if (oldScript) oldScript.remove()
+
+    const script = document.createElement('script')
+    script.id = 'busuanzi-vercount-script'
+    script.async = true
+    script.src = 'https://cn.vercount.one/js'
+    document.body.appendChild(script)
+  }
+
+  if (document.readyState === 'complete') {
+    setTimeout(loadBusuanzi, 0)
+  } else {
+    window.addEventListener('load', () => setTimeout(loadBusuanzi, 0), { once: true })
+  }
+
+  document.addEventListener('pjax:complete', loadBusuanzi)
+})()
+</script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script>(() => {
+  const searchAsset = '/js/search/local-search.js'
+  let loaded = Boolean(window.localSearchRun)
+  let loadingPromise
+
+  const loadSearch = () => {
+    if (loaded || window.localSearchRun) {
+      loaded = true
+      return Promise.resolve()
+    }
+    if (loadingPromise) return loadingPromise
+
+    loadingPromise = new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = searchAsset
+      script.async = true
+      script.onload = () => {
+        loaded = true
+        resolve()
+      }
+      script.onerror = reject
+      document.body.appendChild(script)
+    })
+
+    return loadingPromise
+  }
+
+  const replaySearchClick = event => {
+    if (loaded || window.localSearchRun) return
+    const trigger = event.target.closest('#search-button > .search')
+    if (!trigger) return
+
+    event.preventDefault()
+    event.stopImmediatePropagation()
+    loadSearch().then(() => setTimeout(() => trigger.click(), 0))
+  }
+
+  document.addEventListener('click', replaySearchClick, true)
+  document.addEventListener('mouseover', event => {
+    if (!loaded && event.target.closest('#search-button > .search')) loadSearch()
+  }, { passive: true })
+  document.addEventListener('focusin', event => {
+    if (!loaded && event.target.closest('#search-button > .search')) loadSearch()
+  })
+})()</script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="访问 Hexo 官网，博客框架为 Hexo v6.2.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="访问 Butterfly 主题官网，当前主题版本为 Butterfly v4.3.1" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="访问 Vercel 官网，本站主线路托管于 Vercel" title=""><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="访问 GitHub 官网，本站项目由 GitHub 托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="查看知识共享 BY-NC-SA 4.0 国际许可协议" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-info');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-tags');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-webinfo');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script><script defer src="/js/wow_init.js"></script><!-- hexo injector body_end end --></body></html>
