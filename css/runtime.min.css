@@ -1,0 +1,17 @@
+.footer-runtime {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    color: #fff;
+    font-size: 12px;
+}
+
+.footer-runtime .runtime-item {
+    margin: 0 3px;
+}
+
+.footer-runtime .runtime-show {
+    color: #49b1f5;
+}
