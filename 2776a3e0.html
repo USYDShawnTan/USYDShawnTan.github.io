@@ -1,0 +1,465 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><!-- hexo injector head_begin start -->
+<link rel="stylesheet" href="/css/bilicard.css">
+<!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>我想保存的不是 YAML，而是系统的真实状态 | Xiaotan's Blog</title><meta name="author" content="Xiaotan"><meta name="copyright" content="Xiaotan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="很早以前，我就想过一件事：能不能把线上所有与 Kubernetes 有关的资源、配置和部署状态整理成文件，统一放进 Git？ 那时我还没有认真了解 GitOps，更谈不上用一套成熟的方法论去设计交付平台。我只是越来越难接受一种现实：一个系统明明每天都在运行，但没有任何一个地方能完整说明它现在究竟是什么样子。 Deployment、Service、Ingress、ConfigMap 和 HPA 散落">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我想保存的不是 YAML，而是系统的真实状态">
+<meta property="og:url" content="https://www.433200.xyz/2776a3e0.html">
+<meta property="og:site_name" content="Xiaotan&#39;s Blog">
+<meta property="og:description" content="很早以前，我就想过一件事：能不能把线上所有与 Kubernetes 有关的资源、配置和部署状态整理成文件，统一放进 Git？ 那时我还没有认真了解 GitOps，更谈不上用一套成熟的方法论去设计交付平台。我只是越来越难接受一种现实：一个系统明明每天都在运行，但没有任何一个地方能完整说明它现在究竟是什么样子。 Deployment、Service、Ingress、ConfigMap 和 HPA 散落">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.433200.xyz/attach/avatar-220.webp">
+<meta property="article:published_time" content="2026-08-06T07:11:39.000Z">
+<meta property="article:modified_time" content="2026-11-25T03:52:06.346Z">
+<meta property="article:author" content="Xiaotan">
+<meta property="article:tag" content="#GitOps">
+<meta property="article:tag" content="#Kubernetes">
+<meta property="article:tag" content="#DevOps">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.433200.xyz/attach/avatar-220.webp"><link rel="shortcut icon" href="/attach/2.png"><link rel="canonical" href="https://www.433200.xyz/2776a3e0.html"><link rel="preconnect" href="//cdnjs.cloudflare.com" crossorigin=""/><link rel="dns-prefetch" href="//cn.vercount.one"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  lightboxAssets: {
+    fancyboxCss: 'https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.min.css',
+    fancyboxJs: 'https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.min.js'
+  },
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdnjs.cloudflare.com/ajax/libs/egjs-infinitegrid/4.11.1/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '我想保存的不是 YAML，而是系统的真实状态',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-11-25 11:52:06'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="preload" as="style" href="/css/universe.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/universe.css"></noscript><link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-webfont/1.7.0/style.min.css" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-webfont/1.7.0/style.min.css"></noscript><!-- hexo injector head_end start --><link rel="stylesheet" href="/css/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="/css/progress_bar.css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/attach/avatar-220.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">93</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/webs/"><i class="fa-fw fab fa-webflow"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Xiaotan's Blog"><span class="site-name">Xiaotan's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/webs/"><i class="fa-fw fab fa-webflow"></i><span> 网址导航</span></a></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">我想保存的不是 YAML，而是系统的真实状态</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-06T07:11:39.000Z" title="发表于 2026-08-06 15:11:39">2026-08-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-11-25T03:52:06.346Z" title="更新于 2026-11-25 11:52:06">2026-11-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%98%E8%85%BE/">折腾</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span id="" data-flag-title="我想保存的不是 YAML，而是系统的真实状态"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2776a3e0.html#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>很早以前，我就想过一件事：能不能把线上所有与 Kubernetes 有关的资源、配置和部署状态整理成文件，统一放进 Git？</p>
+<p>那时我还没有认真了解 GitOps，更谈不上用一套成熟的方法论去设计交付平台。我只是越来越难接受一种现实：一个系统明明每天都在运行，但没有任何一个地方能完整说明它现在究竟是什么样子。</p>
+<p>Deployment、Service、Ingress、ConfigMap 和 HPA 散落在不同 namespace；镜像版本要去 Pod、Jenkins 日志和发布记录里交叉确认；dev、test、stga、prod 的差异藏在几份相似却不完全相同的 YAML 里；生产又分为 prda、prdb 两套 A/B 环境。有人通过 Jenkins 的 <code>sed</code> 改过文件，有人直接执行过 <code>kubectl apply</code>，也有人为了让配置生效做过一次 <code>kubectl rollout restart</code>。Nacos 控制台里还有另一部分配置，而这些配置未必与本地文件一致。</p>
+<p>系统当然可以继续运行，但它的知识被拆散了。一部分在集群里，一部分在 Jenkins Workspace 里，一部分在脚本中，还有一部分只存在于运维人员的记忆里。</p>
+<p>我最初想解决的，就是这种混乱。</p>
+<h2 id="先把现实保存下来"><a class="markdownIt-Anchor" href="#先把现实保存下来"></a> 先把现实保存下来</h2>
+<p>当时我设想的路径其实很简单：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">线上 Kubernetes 集群</span><br><span class="line">        ↓</span><br><span class="line">导出并清洗 YAML</span><br><span class="line">        ↓</span><br><span class="line">放入 Git</span><br><span class="line">        ↓</span><br><span class="line">形成可追溯的配置档案</span><br></pre></td></tr></table></figure>
+<p>先弄清楚线上到底有哪些资源，每个服务部署在哪个 namespace，正在运行什么镜像，几个环境之间有什么差异。配置改过什么、是谁改的、为什么改，出现故障时能不能从历史版本里找到线索，甚至快速恢复到上一个可信状态。</p>
+<p>这一步更接近基线化（Baseline）、基础设施即代码（Infrastructure as Code）和配置即代码（Configuration as Code）：把线上现状文件化，把运维资产版本化，让系统知识不再依赖某个人是否记得。</p>
+<p>它很重要，但严格来说还不等于完整的 GitOps。因为这时的 Git 更像一份档案：现实先在集群里发生，然后我们再把现实抄回 Git。它能回答“线上曾经是什么”，却还不能保证“线上应该是什么”。如果有人绕过仓库直接修改集群，Git 里的文件很快又会过期。</p>
+<p>不过正是在整理这件事的过程中，我开始隐约觉得，只保存现实还不够。真正的问题不是 YAML 有没有备份，而是谁有资格定义系统的真实状态。</p>
+<h2 id="后来我才知道这叫-gitops"><a class="markdownIt-Anchor" href="#后来我才知道这叫-gitops"></a> 后来，我才知道这叫 GitOps</h2>
+<p>后来接触 Argo CD、Kustomize 和 GitOps，我才发现，自己原先那个模糊的想法已经被行业继续向前推了一步。</p>
+<p>GitOps 不只是把 YAML 放进 Git，也不等于安装一个 Argo CD。它更核心的变化，是让 Git 从“现实的档案馆”逐渐成为“现实的定义者”，也就是单一事实来源（Single Source of Truth）。</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Git 中的期望状态</span><br><span class="line">        ↓</span><br><span class="line">Argo CD 持续比较</span><br><span class="line">        ↓</span><br><span class="line">发现 Git 与集群差异</span><br><span class="line">        ↓</span><br><span class="line">将 Kubernetes 调整为 Git 中声明的状态</span><br></pre></td></tr></table></figure>
+<p>Git 中保存的是期望状态（Desired State），Kubernetes 集群里运行的是实际状态（Live State）。Argo CD 持续比较两者，并负责协调（Reconciliation）。两边一致时，应用显示为 <code>Synced</code>；出现差异时，则会成为 <code>OutOfSync</code>。同步之后，集群重新回到 Git 所声明的状态。</p>
+<p>这也意味着，人工直接修改集群不再只是一条临时命令，而是一次可被发现的配置漂移（Configuration Drift）。过去，“先在线上改了再说”很容易沉入历史；现在，它会明确地暴露为期望与现实之间的偏差。</p>
+<p>这就是我认知里的那个转折：第一阶段是把现实保存到 Git，第二阶段则是让 Git 定义现实。前者让系统变得可见，后者让系统开始可控。</p>
+<h2 id="工具不是方法论本身"><a class="markdownIt-Anchor" href="#工具不是方法论本身"></a> 工具不是方法论本身</h2>
+<p>理解这一点后，几个经常被放在一起讨论的工具也更容易区分。</p>
+<p>GitOps 是思想和方法论；Git 保存期望状态以及完整的变更历史；Kustomize 管理基础 YAML 与不同环境之间的差异；Helm 通过模板和 values 生成 Kubernetes YAML；Argo CD 将 Git 中声明的状态持续同步到 Kubernetes；Jenkins 则继续负责代码编译、测试、镜像构建和推送 ACR。</p>
+<p>Helm 和 Kustomize 不是 Git 的替代品，它们产生或组织的内容都可以，也应该进入 Git。对于已经积累了大量现有 YAML 的团队，Kustomize 往往更适合起步：先保留可读的基础资源，再用 overlay 表达 dev、test、stga、prod 以及 prda、prdb 的差异。等服务结构足够统一、复用需求更明确时，再考虑用 Helm 做更高程度的模板化。</p>
+<p>工具本身不会自动带来秩序。把一堆无人维护的 YAML 放进 Git，再让 Argo CD 自动同步，只会让混乱同步得更快。真正需要先建立的是资源边界、目录结构、变更审核、敏感信息处理和回滚规则。</p>
+<h2 id="gitops-不需要推翻-ab-发布"><a class="markdownIt-Anchor" href="#gitops-不需要推翻-ab-发布"></a> GitOps 不需要推翻 A/B 发布</h2>
+<p>我们现有的生产发布带有明显的 A/B 特征：先确认 A/B 当前版本，把流量切到 A，确认 B 已经没有流量，再更新 B 的代码、镜像和 Nacos 配置；验证 B 后切流到 B，更新并验证 A，最后再让 A/B 合流。</p>
+<p>这套流程解决的是生产发布中的风险隔离与业务验证。GitOps 没有必要推翻它。需要改变的，主要是中间“谁来驱动 Kubernetes 发生变化”。</p>
+<p>过去可能是：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Jenkins</span><br><span class="line">→ sed 修改 YAML</span><br><span class="line">→ kubectl apply</span><br><span class="line">→ 集群发生变化</span><br></pre></td></tr></table></figure>
+<p>未来可以逐步变成：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">Jenkins 构建镜像</span><br><span class="line">→ 推送阿里云 ACR</span><br><span class="line">→ 修改 Git 中的镜像 tag</span><br><span class="line">→ Merge Request 审核</span><br><span class="line">→ Argo CD 同步</span><br><span class="line">→ Kubernetes 更新</span><br></pre></td></tr></table></figure>
+<p>Jenkins 不再直接把某个临时 Workspace 里的文件推向集群，而是提交一份可审查、可追踪的状态变更。至于 A/B 切流、SQL 执行、Nacos 更新、业务监控、Redis 观察、Splunk 日志检查、服务预热和最终合流，仍然应该保留。GitOps 改造的是部署控制面，不是抹掉现有发布经验。</p>
+<p>更现实的落地顺序，也不该从生产环境一键自动同步开始。我更愿意先建立仓库，导出并清洗线上 YAML，用 Kustomize 整理环境差异，再通过人工 <code>apply</code> 验证这些文件确实能够描述现状。之后让 Argo CD 只接管 dev，稳定后扩展到 test、stga，最后才谨慎进入 prod。</p>
+<p>这条路看起来慢，但每一步都在校验一件关键的事：Git 里的蓝图是否真的可信。</p>
+<h2 id="nacos-也不该留在-git-之外"><a class="markdownIt-Anchor" href="#nacos-也不该留在-git-之外"></a> Nacos 也不该留在 Git 之外</h2>
+<p>如果 Kubernetes 已经进入 Git，而 Nacos 配置仍然只能在控制台里查找和修改，那么系统的蓝图依然是不完整的。Nacos 配置也可以，并且应该逐步纳入 Git 管理。</p>
+<p>理想链路可以是：Git 中的 Nacos 配置经过 Merge Request 审核，由 Jenkins Pipeline 或专门的配置同步工具发布到指定 Nacos namespace，再校验配置内容或 MD5，最后由应用动态刷新，或者按需要触发滚动重启。</p>
+<p>Argo CD 主要管理 Kubernetes 资源，Nacos 不一定非要由 Argo CD 发布。只要 Git 是被审查过的配置来源，发布过程可重复、结果可校验、变化可追溯，它仍然是在实践 GitOps 的思想。</p>
+<p>当然，密码、AccessKey、Token 等敏感数据不能明文进入 Git。它们可以通过环境变量和占位符注入，也可以交给 Vault、SOPS、KMS 或 External Secrets 等方案管理。更重要的是，一旦 Git 被确立为配置来源，就不应长期允许 Git 和 Nacos 控制台各自独立演化。紧急情况下可以在控制台修改，但事后必须回写 Git，否则下一次发布就可能用“正确流程”覆盖掉那次紧急修复。</p>
+<h2 id="我想留下的是一张可以维护的蓝图"><a class="markdownIt-Anchor" href="#我想留下的是一张可以维护的蓝图"></a> 我想留下的是一张可以维护的蓝图</h2>
+<p>回头看，我最初并不是因为知道 GitOps 才想这样做，而是现实中的混乱让我自然地走向了 GitOps。</p>
+<p>我想保存的从来不只是几份 YAML。我真正想解决的是：系统的真实状态不应该散落在集群、脚本、控制台和人的记忆里。它应该有一份可以被阅读、比较、审查、回滚，并且能够持续维护的蓝图。</p>
+<p>专业术语的价值，有时并不是替我们产生想法，而是让我们发现，自己从具体问题中形成的直觉，原来已经有一整套成熟的方法论在支撑。Infrastructure as Code、Configuration as Code、Desired State、Single Source of Truth、Configuration Drift 和 Reconciliation，并不是为了让一件事显得更专业，而是在从不同角度回答同一个问题：怎样让复杂系统的变化留下依据，并最终回到一个可信的状态。</p>
+<p>GitOps 并不是从安装 Argo CD 开始的，而是从一个更早的问题开始：我们究竟允许谁来定义系统的真实状态？</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.433200.xyz">Xiaotan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.433200.xyz/2776a3e0.html">https://www.433200.xyz/2776a3e0.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.433200.xyz" target="_blank">Xiaotan's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/GitOps/">#GitOps</a><a class="post-meta__tags" href="/tags/Kubernetes/">#Kubernetes</a><a class="post-meta__tags" href="/tags/DevOps/">#DevOps</a></div><div class="post_share"><div class="social-share" data-image="/attach/avatar-220.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/attach/2wx.png" target="_blank"><img class="post-qr-code-img" src="/attach/2wx.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/attach/2zfb.png" target="_blank"><img class="post-qr-code-img" src="/attach/2zfb.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E6%8A%8A%E7%8E%B0%E5%AE%9E%E4%BF%9D%E5%AD%98%E4%B8%8B%E6%9D%A5"><span class="toc-text"> 先把现实保存下来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E6%9D%A5%E6%88%91%E6%89%8D%E7%9F%A5%E9%81%93%E8%BF%99%E5%8F%AB-gitops"><span class="toc-text"> 后来，我才知道这叫 GitOps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E4%B8%8D%E6%98%AF%E6%96%B9%E6%B3%95%E8%AE%BA%E6%9C%AC%E8%BA%AB"><span class="toc-text"> 工具不是方法论本身</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gitops-%E4%B8%8D%E9%9C%80%E8%A6%81%E6%8E%A8%E7%BF%BB-ab-%E5%8F%91%E5%B8%83"><span class="toc-text"> GitOps 不需要推翻 A&#x2F;B 发布</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nacos-%E4%B9%9F%E4%B8%8D%E8%AF%A5%E7%95%99%E5%9C%A8-git-%E4%B9%8B%E5%A4%96"><span class="toc-text"> Nacos 也不该留在 Git 之外</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E6%83%B3%E7%95%99%E4%B8%8B%E7%9A%84%E6%98%AF%E4%B8%80%E5%BC%A0%E5%8F%AF%E4%BB%A5%E7%BB%B4%E6%8A%A4%E7%9A%84%E8%93%9D%E5%9B%BE"><span class="toc-text"> 我想留下的是一张可以维护的蓝图</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2002 - 2026 By Xiaotan</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>(() => {
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://xtbolg.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://xtbolg.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(init,0)
+    else getScript('https://cdnjs.cloudflare.com/ajax/libs/twikoo/1.6.30/twikoo.all.min.js').then(init)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script defer src="/js/universe.js"></script><canvas id="universe"></canvas><script async src="/js/title.js"></script><script defer src="/js/aplayer-delayed.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdnjs.cloudflare.com/ajax/libs/butterfly-extsrc/1.1.3/click-heart.min.js" async="async" mobile="false"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script>(() => {
+  const loadBusuanzi = () => {
+    const oldScript = document.getElementById('busuanzi-vercount-script')
+    if (oldScript) oldScript.remove()
+
+    const script = document.createElement('script')
+    script.id = 'busuanzi-vercount-script'
+    script.async = true
+    script.src = 'https://cn.vercount.one/js'
+    document.body.appendChild(script)
+  }
+
+  if (document.readyState === 'complete') {
+    setTimeout(loadBusuanzi, 0)
+  } else {
+    window.addEventListener('load', () => setTimeout(loadBusuanzi, 0), { once: true })
+  }
+
+  document.addEventListener('pjax:complete', loadBusuanzi)
+})()
+</script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script>(() => {
+  const searchAsset = '/js/search/local-search.js'
+  let loaded = Boolean(window.localSearchRun)
+  let loadingPromise
+
+  const loadSearch = () => {
+    if (loaded || window.localSearchRun) {
+      loaded = true
+      return Promise.resolve()
+    }
+    if (loadingPromise) return loadingPromise
+
+    loadingPromise = new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = searchAsset
+      script.async = true
+      script.onload = () => {
+        loaded = true
+        resolve()
+      }
+      script.onerror = reject
+      document.body.appendChild(script)
+    })
+
+    return loadingPromise
+  }
+
+  const replaySearchClick = event => {
+    if (loaded || window.localSearchRun) return
+    const trigger = event.target.closest('#search-button > .search')
+    if (!trigger) return
+
+    event.preventDefault()
+    event.stopImmediatePropagation()
+    loadSearch().then(() => setTimeout(() => trigger.click(), 0))
+  }
+
+  document.addEventListener('click', replaySearchClick, true)
+  document.addEventListener('mouseover', event => {
+    if (!loaded && event.target.closest('#search-button > .search')) loadSearch()
+  }, { passive: true })
+  document.addEventListener('focusin', event => {
+    if (!loaded && event.target.closest('#search-button > .search')) loadSearch()
+  })
+})()</script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="访问 Hexo 官网，博客框架为 Hexo v6.2.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="访问 Butterfly 主题官网，当前主题版本为 Butterfly v4.3.1" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="访问 Vercel 官网，本站主线路托管于 Vercel" title=""><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="访问 GitHub 官网，本站项目由 GitHub 托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="查看知识共享 BY-NC-SA 4.0 国际许可协议" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-info');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-tags');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-webinfo');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__jackInTheBox');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '50ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script><script defer src="/js/wow_init.js"></script><!-- hexo injector body_end end --></body></html>
